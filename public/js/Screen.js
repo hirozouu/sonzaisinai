@@ -12,7 +12,7 @@ class Screen
         this.iProcessingTimeNanoSec = 0;
 
         //init canvas
-        this.canvas.width = SharedSettings.FiELD_WIDTH;
+        this.canvas.width = SharedSettings.FIELD_WIDTH;
         this.canvas.height = SharedSettings.FIELD_HEIGHT;
 
         //init socket
@@ -61,14 +61,14 @@ class Screen
     }
 
     //display
-    renderer(iTimeCurrent)
+    render(iTimeCurrent)
     {
-        console.log('render')
+        //console.log('render')
         //clear canvas
         this.context.clearRect(0, 0, canvas.width, canvas.height);
 
         //fill canvas
-        this.rendererField();
+        this.renderField();
 
         //display frame
         this.context.save();
