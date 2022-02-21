@@ -5,7 +5,7 @@ const World = require('./World.js');
 const GameSetting = require('./GameSetting.js');
 
 //class Game
-module.exports = class Game;
+module.exports = class Game
 {
     //start
     start(io)
