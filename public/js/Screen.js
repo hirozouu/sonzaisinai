@@ -63,6 +63,7 @@ class Screen
     //display
     renderer(iTimeCurrent)
     {
+        console.log('render')
         //clear canvas
         this.context.clearRect(0, 0, canvas.width, canvas.height);
 

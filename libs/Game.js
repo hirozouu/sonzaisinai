@@ -34,6 +34,7 @@ module.exports = class Game
                 const iTimeCurrent = Date.now(); //m sec
                 const fDeltaTime = (iTimeCurrent - iTimeLast) * 0.001; // to sec
                 iTimeLast = iTimeCurrent;
+                //console.log('DeltaTime = %f[s]', fDeltaTime)
 
                 const hrtime = process.hrtime(); //n sec
 
