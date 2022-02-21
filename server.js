@@ -4,7 +4,7 @@
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
-const Game = require('.libs/Game.js');
+const Game = require('./libs/Game.js');
 
 //object
 const app = express();

@@ -2,7 +2,7 @@
 const World = require('./World.js');
 
 //constant
-const GameSetting = require('./GameSetting.js');
+const GameSettings = require('./GameSetting.js');
 
 //class Game
 module.exports = class Game
@@ -12,7 +12,7 @@ module.exports = class Game
     {
         //variable
         const world = new World(io);
-        let iTimeLast = Dte.now();
+        let iTimeLast = Date.now();
 
         //when connect
         io.on(
@@ -41,7 +41,7 @@ module.exports = class Game
                 world.update(fDeltaTime);
 
                 const hrtimeDiff = process.hrtime(hrtime);
-                const iNanosecDiff = hrtimeDiff[0] * le9 + hrtimeDiff[1]
+                const iNanosecDiff = hrtimeDiff[0] * 1e9 + hrtimeDiff[1]
 
                 //to client
                 io.emit('update', iNanosecDiff);
