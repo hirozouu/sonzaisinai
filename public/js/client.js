@@ -9,7 +9,7 @@ const canvas = document.querySelector('#canvas-2d');
 //canvas object
 const screen = new Screen(socket, canvas);
 
-//start canvas
+//display canvas
 screen.animate(0)
 
 //when upload page
