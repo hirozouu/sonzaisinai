@@ -33,7 +33,7 @@ class Screen
             'connect', 
             () =>
             {
-                console.log('connect : socket.id = %s', socket.id)
+                //console.log('connect : socket.id = %s', socket.id)
                 this.socket.emit('enter-the-game');
             }
         )
