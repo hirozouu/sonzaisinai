@@ -21,7 +21,7 @@ class Screen
         //init context
         this.context.mozImageSmoothingEnabled = false;
         this.context.webkitImageSmoothingEnabled = false;
-        this.connect.msImageSmoothingEnabled = false;
+        this.context.msImageSmoothingEnabled = false;
         this.context.imageSmoothingEnabled = false;
     }
 

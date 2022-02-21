@@ -10,11 +10,11 @@ const canvas = document.querySelector('#canvas-2d');
 const screen = new Screen(socket, canvas);
 
 //display canvas
-screen.animate(0)
+screen.animate(0);
 
-//when upload page
+//when unload page
 $(window).on(
-    'beforeupload', 
+    'beforeunload', 
     (event) =>
     {
         socket.disconnect();
