@@ -8,7 +8,7 @@ class Screen
         this.canvas = canvas;
         this.context = canvas.getContext('2d');
 
-        this.assets = new this.assets();
+        this.assets = new Assets();
         this.iProcessingTimeNanoSec = 0;
 
         //init canvas
