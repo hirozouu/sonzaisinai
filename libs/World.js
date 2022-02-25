@@ -1,3 +1,6 @@
+//module
+const Tank = require('./Tank.js');
+
 //class Game
 
 module.exports = class World
@@ -5,6 +8,7 @@ module.exports = class World
     constructor(io)
     {
         this.io = io; //socketIO
+        this.setTank = new Set();
     }
 
     //update
@@ -23,7 +27,12 @@ module.exports = class World
     //update object coordinates
     updateObjects(fDeltaTime)
     {
-
+        this.setTank.forEach(
+            (tank) =>
+            {
+                tank.update(fDeltaTime);
+            }
+        );
     }
 
     //check collisions
@@ -36,5 +45,24 @@ module.exports = class World
     doNewActions(fDeltaTime)
     {
 
+    }
+
+    //create tank
+    createTank()
+    {
+        //create tank
+        const tank = new Tank();
+
+        //add tank
+        this.setTank.add(tank);
+
+        return tank;
+    }
+
+    //destroy tank
+    destroyTank(tank)
+    {
+        //delete tank
+        this.setTank.delete(tank);
     }
 }

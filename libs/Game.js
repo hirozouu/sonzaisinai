@@ -20,11 +20,40 @@ module.exports = class Game
             (socket) => 
             {
                 console.log('connection : socket.id = %s', socket.id);
+                let tank = null;
+
+                //when game start
+                socket.on('enter-the-game', 
+                () => 
+                {
+                    //create tank
+                    console.log('enter-the-game : socket.id = %s', socket.id);
+                    tank = world.createTank();
+                });
+
+                //movement command
+                socket.on('change-my-movement', 
+                (objMovement) => 
+                {
+                    console.log('change-my-movement : socket.id = %s', socket.id);
+                    if (!tank)
+                    {
+                        return;
+                    }
+                    tank.objMovement = objMovement; 
+                });
+
                 //when disconnect
                 socket.on('disconnect', 
                 () => 
                 {
                     console.log('disconnect : socket.id = %s', socket.id)
+                    if (!tank)
+                    {
+                        return;
+                    }
+                    world.destroyTank(tank);
+                    tank = null;
                 });
             });
         
@@ -45,7 +74,9 @@ module.exports = class Game
                 const iNanosecDiff = hrtimeDiff[0] * 1e9 + hrtimeDiff[1]
 
                 //to client
-                io.emit('update', iNanosecDiff);
+                io.emit('update', 
+                    Array.from(world.setTank), 
+                    iNanosecDiff);
             }, 
             1000 / GameSettings.FRAMERATE);
     }
