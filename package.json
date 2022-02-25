@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "build": "ng build", 
-    "heroku-postbuild": "ng build --prod", 
-    "postinstall": "ng build", 
+  "scripts": { 
     "start": "node server.js"
   },
   "repository": {
