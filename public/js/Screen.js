@@ -33,7 +33,8 @@ class Screen
             'connect', 
             () =>
             {
-                //console.log('connect : socket.id = %s', socket.id)
+                console.log('connect : socket.id = %s', socket.id)
+                //send to server
                 this.socket.emit('enter-the-game');
             }
         )
@@ -100,7 +101,7 @@ class Screen
                 this.context.drawImage(this.assets.imageField, 
                     this.assets.rectFieldInFieldImage.sx, this.assets.rectFieldInFieldImage.sy, 
                     this.assets.rectFieldInFieldImage.sw, this.assets.rectFieldInFieldImage.sh, 
-                    iIndexX * RenderingSettings.FiELDTILE_WIDTH, 
+                    iIndexX * RenderingSettings.FIELDTILE_WIDTH, 
                     iIndexY * RenderingSettings.FIELDTILE_HEIGHT, 
                     RenderingSettings.FIELDTILE_WIDTH, 
                     RenderingSettings.FIELDTILE_HEIGHT
