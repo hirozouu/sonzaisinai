@@ -2,7 +2,7 @@
 const GameObject = require('./GameObject.js');
 
 //settings
-const SharedSettings = require('../public/SharedSettings.js');
+const SharedSettings = require('../public/js/SharedSettings.js');
 const GameSettings = require('./GameSettings.js');
 
 //class tank
