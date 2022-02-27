@@ -20,3 +20,31 @@ $(window).on(
         socket.disconnect();
     }
 );
+
+// key down, key up
+let objMovement = {}; // movement
+$(document).on(
+    'keydown keyup', 
+    (event) =>
+    {
+        const KeyToCommand = {
+            'ArrowUp': 'forward', 
+            'ArrowDown': 'back', 
+            'ArrowLeft': 'left', 
+            'ArrowRight': 'right', 
+        };
+        const command = KeyToCommand[event.key];
+        if (command)
+        {
+            if (event.type == 'keydown')
+            {
+                objMovement[command] = true;
+            }
+            else // if (event.type == 'keyup')
+            {
+                objMovement[command] = false;
+            }
+            socket.emit('change-my-movement', objMovement);
+        }
+    }
+);
