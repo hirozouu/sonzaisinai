@@ -57,10 +57,22 @@ $('form').submit(() =>{
     console.log('#input_message : ', text);
 
     if (text) {
-        socket.emit('new message', text);
+        socket.emit('new-message', text);
         // empty text box
         $inp.val('');
     }
 
     return false;
 });
+
+socket.on(
+    'spread-message', 
+    (strMessage) => 
+    {
+        console.log('spread-message : ', strMessage);
+
+        // add list
+        const li_element = $('<li>').text(strMessage);
+        $('#message_list').prepend(li_element);
+    }
+);

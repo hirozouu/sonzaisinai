@@ -44,10 +44,11 @@ module.exports = class Game
                 });
 
                 // receive message
-                socket.on('new message', 
+                socket.on('new-message', 
                 (strMessage) => 
                 {
                     console.log('new-message', strMessage);
+                    io.emit('spread-message', strMessage);
                 });
 
                 //when disconnect
