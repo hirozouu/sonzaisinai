@@ -22,16 +22,16 @@ module.exports = class Game
                 console.log('connection : socket.id = %s', socket.id);
                 let tank = null;
 
-                //when game start
+                // when game start
                 socket.on('enter-the-game', 
                 () => 
                 {
-                    //create tank
+                    // create tank
                     console.log('enter-the-game : socket.id = %s', socket.id);
                     tank = world.createTank();
                 });
 
-                //movement command
+                // movement command
                 socket.on('change-my-movement', 
                 (objMovement) => 
                 {
@@ -41,6 +41,13 @@ module.exports = class Game
                         return;
                     }
                     tank.objMovement = objMovement; 
+                });
+
+                // receive message
+                socket.on('new message', 
+                (strMessage) => 
+                {
+                    console.log('new-message', strMessage);
                 });
 
                 //when disconnect

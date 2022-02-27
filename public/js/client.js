@@ -48,3 +48,19 @@ $(document).on(
         }
     }
 );
+
+// press send button
+$('form').submit(() =>{
+    const $inp = $('#input_message');
+    const text = $inp.val();
+
+    console.log('#input_message : ', text);
+
+    if (text) {
+        socket.emit('new message', text);
+        // empty text box
+        $inp.val('');
+    }
+
+    return false;
+});
