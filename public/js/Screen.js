@@ -10,6 +10,7 @@ class Screen
 
         this.assets = new Assets();
         this.iProcessingTimeNanoSec = 0;
+        this.aTank = null;
 
         //init canvas
         this.canvas.width = SharedSettings.FIELD_WIDTH;
@@ -42,8 +43,9 @@ class Screen
         //when get from server
         this.socket.on(
             'update', 
-            (iProcessingTimeNanoSec) =>
+            (aTank, iProcessingTimeNanoSec) =>
             {
+                this.aTank = aTank;
                 this.iProcessingTimeNanoSec = iProcessingTimeNanoSec;
             }
         )
@@ -70,6 +72,19 @@ class Screen
 
         //fill canvas
         this.renderField();
+
+        //display tank
+        if (null !== this.aTank)
+        {
+            const fTimeCurrenrSec = iTimeCurrent * 0.001; // m sec
+            const iIndexFrame = parseInt(fTimeCurrenrSec / 0.2) % 2; // frame number
+            this.aTank.forEach(
+                (tank) =>
+                {
+                    this.renderTank(tank, iIndexFrame);
+                }
+            );
+        }
 
         //display frame
         this.context.save();
@@ -110,5 +125,26 @@ class Screen
 
             this.context.restore();
         }
+    }
+
+    renderTank(tank, iIndexFrame)
+    {
+        this.context.save();
+
+        this.context.translate(tank.fX, tank.fY);
+
+        // display image
+        this.context.save();
+        this.context.rotate(tank.fAngle);
+        this.context.drawImage(this.assets.imageItems, 
+            this.assets.arectTankInItemsImage[iIndexFrame].sx, this.assets.arectTankInItemsImage[iIndexFrame].sy, 
+            this.assets.arectTankInItemsImage[iIndexFrame].sw, this.assets.arectTankInItemsImage[iIndexFrame].sh, 
+            -SharedSettings.TANK_WIDTH * 0.5, 
+            -SharedSettings.TANK_HEIGHT * 0.5, 
+            SharedSettings.TANK_WIDTH, 
+            SharedSettings.TANK_HEIGHT);
+        this.context.restore()
+
+        this.context.restore()
     }
 }
