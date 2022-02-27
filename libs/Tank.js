@@ -3,7 +3,7 @@ const GameObject = require('./GameObject.js');
 
 //settings
 const SharedSettings = require('../public/js/SharedSettings.js');
-const GameSettings = require('./GameSettings.js');
+const GameSettings = require('./GameSetting.js');
 
 //class tank
 module.exports = class Tank extends GameObject
