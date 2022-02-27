@@ -13,6 +13,7 @@ module.exports = class Game
         //variable
         const world = new World(io);
         let iTimeLast = Date.now();
+        const timer = setTimeout(3000)
 
         //when connect
         io.on(
@@ -20,27 +21,12 @@ module.exports = class Game
             (socket) => 
             {
                 console.log('connection : socket.id = %s', socket.id);
-                let tank = null;
 
                 // when game start
                 socket.on('enter-the-game', 
                 () => 
                 {
-                    // create tank
                     console.log('enter-the-game : socket.id = %s', socket.id);
-                    tank = world.createTank();
-                });
-
-                // movement command
-                socket.on('change-my-movement', 
-                (objMovement) => 
-                {
-                    console.log('change-my-movement : socket.id = %s', socket.id);
-                    if (!tank)
-                    {
-                        return;
-                    }
-                    tank.objMovement = objMovement; 
                 });
 
                 // receive message
@@ -56,12 +42,6 @@ module.exports = class Game
                 () => 
                 {
                     console.log('disconnect : socket.id = %s', socket.id)
-                    if (!tank)
-                    {
-                        return;
-                    }
-                    world.destroyTank(tank);
-                    tank = null;
                 });
             });
         
