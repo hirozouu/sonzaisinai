@@ -40,11 +40,11 @@ class Screen
     renderQuestion()
     {
         document.getElementById("question").innerText = "存在しないカードは？";
-        document.getElementById("answer1").innerText = "ワンショット・フレーム";
-        document.getElementById("answer2").innerText = "ダブル・ディフェンス";
-        document.getElementById("answer3").innerText = "トリプル・サイン";
-        document.getElementById("answer4").innerText = "クアトロ・ブレイン";
+        document.getElementById("statement_ans1").innerText = "ワンショット・フレーム";
+        document.getElementById("statement_ans2").innerText = "ダブル・ディフェンス";
+        document.getElementById("statement_ans3").innerText = "トリプル・サイン";
+        document.getElementById("statement_ans4").innerText = "クアトロ・ブレイン";
         console.log("render question");
-        console.log("answer1 : %s", document.getElementById("answer1").innerText);
+        console.log("answer1 : %s", document.getElementById("statement_ans1").innerText);
     }
 }
