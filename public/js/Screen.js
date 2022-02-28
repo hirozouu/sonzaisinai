@@ -49,7 +49,7 @@ class Screen
 
     renderExplanation()
     {
-        document.getElementById("explnation").innerText = "解説します";
+        document.getElementById("explanation").innerText = "ぐぐれ";
         console.log("render : explanation");
     }
 }
