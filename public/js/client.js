@@ -46,27 +46,26 @@ $(document).on(
 //press button1
 document.getElementById("button1").addEventListener('click', function()
 {
-    console.log("press-button : %s", this.value);
+    console.log("press : button = %s", this.value);
     if (this.value == "toGame")
     {
         screen.renderQuestion();
-        document.getElementById("toGame").value = "toExplanation";
-        document.getElementById("toExplanation").innerText = "次に進む";
+        this.value = "toExplanation";
+        this.innerText = "次に進む";
         socket.emit("start");
     }
 
     else if (this.value == "toExplanation")
     {
-        console.log("press-button : %s", this.id);
-        document.getElementById("toExplanation").value = "toQuestion";
+        this.value = "toQuestion";
         socket.emit("next");
     }
 
     else if (this.value == "toQuestion")
     {
-        console.log("press-button : %s", this.id);
+        document.getElementById("explanation").innerText = ""
         screen.renderQuestion();
-        document.getElementById("toQuestion").value = "toExplanation";
+        this.value = "toExplanation";
         socket.emit("next");
     }
 });

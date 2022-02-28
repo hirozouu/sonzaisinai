@@ -44,6 +44,12 @@ class Screen
         document.getElementById("statement_ans2").innerText = "ダブル・ディフェンス";
         document.getElementById("statement_ans3").innerText = "トリプル・サイン";
         document.getElementById("statement_ans4").innerText = "クアトロ・ブレイン";
-        console.log("render question");
+        console.log("render : question");
+    }
+
+    renderExplanation()
+    {
+        document.getElementById("explnation").innerText = "解説します";
+        console.log("render : explanation");
     }
 }
