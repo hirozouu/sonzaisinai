@@ -36,8 +36,8 @@ module.exports = class Game
                 {
                     console.log("get-question : socket.id = %s", socket.id);
                     question.setNewQuestion();
-                    var strArr = [question.explanation, question.getAnswers[0], question.getAnswers[1], 
-                        question.getAnswers[2], question.getAnswers[3]];
+                    var strArr = [question.statement_question, question.getAnswers[0], 
+                        question.getAnswers[1], question.getAnswers[2], question.getAnswers[3]];
                     socket.emit("set-question", strArr);
                 });
 
