@@ -44,22 +44,12 @@ $(document).on(
     }
 );
 
-// press send button
-$('form').submit(() =>{
-    const $inp = $('#input_message');
-    const text = $inp.val();
-
-    console.log('#input_message : ', text);
-
-    if (text) {
-        socket.emit('new-message', text);
-        // empty text box
-        $inp.val('');
-    }
-
-    return false;
-});
-
+// press next button
+document.getElementById('button').addEventListener('click', function()
+{
+    console.log('press : button = %s', this.id)
+    socket.emit("socket-next-button");
+})
 socket.on(
     'spread-message', 
     (strMessage) => 
