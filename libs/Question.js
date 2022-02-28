@@ -8,19 +8,18 @@ module.exports = class Question
     //constructor
     constructor()
     {
-        this.id = 0000 // id
+        this.id = "0000" // id
         this.statement_question = "Question?"; // question satement
         // answers (answers[0] = correct ans)
         this.answers = ["Correct Answer", "Incorrect Answer1", 
             "Incorrect Answer2", "Incorrect Answer3"];
-        // explanation
-        this.explanation = "Explanation";
+        this.explanation = "Explanation"; // explanation
     }
 
     // get new question from database
     setNewQuestion()
     {
-        this.id = 0000
+        this.id = "0000"
         this.statement_question = "存在しないカードは？";
         this.answers = ["サイバー・チャージャー", "アクア・チャージャー", 
             "エナジー・チャージャー", "スパイラル・チャージャー"];
