@@ -37,13 +37,13 @@ class Screen
         )
     }
 
-    renderQuestion()
+    renderQuestion(question)
     {
-        document.getElementById("question").innerText = "存在しないカードは？";
-        document.getElementById("statement_ans1").innerText = "ワンショット・フレーム";
-        document.getElementById("statement_ans2").innerText = "ダブル・ディフェンス";
-        document.getElementById("statement_ans3").innerText = "トリプル・サイン";
-        document.getElementById("statement_ans4").innerText = "クアトロ・ブレイン";
+        document.getElementById("question").innerText = question[0];
+        document.getElementById("statement_ans1").question[1] = "ワンショット・フレーム";
+        document.getElementById("statement_ans2").question[2] = "ダブル・ディフェンス";
+        document.getElementById("statement_ans3").question[3] = "トリプル・サイン";
+        document.getElementById("statement_ans4").question[4] = "クアトロ・ブレイン";
         console.log("render : question");
     }
 

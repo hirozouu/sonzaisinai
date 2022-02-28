@@ -15,60 +15,37 @@ $(window).on(
     }
 );
 
-// key down, key up
-let objMovement = {}; // movement
-$(document).on(
-    'keydown keyup', 
-    (event) =>
-    {
-        const KeyToCommand = {
-            'ArrowUp': 'forward', 
-            'ArrowDown': 'back', 
-            'ArrowLeft': 'left', 
-            'ArrowRight': 'right', 
-        };
-        const command = KeyToCommand[event.key];
-        if (command)
-        {
-            if (event.type == 'keydown')
-            {
-                objMovement[command] = true;
-            }
-            else // if (event.type == 'keyup')
-            {
-                objMovement[command] = false;
-            }
-            socket.emit('change-my-movement', objMovement);
-        }
-    }
-);
-
 //press button1
 document.getElementById("button1").addEventListener('click', function()
 {
     console.log("press : button = %s", this.value);
     if (this.value == "toGame")
     {
-        screen.renderQuestion();
+        socket.emit("get-question");
         this.value = "toExplanation";
         this.innerText = "次に進む";
-        socket.emit("start");
     }
 
     else if (this.value == "toExplanation")
     {
+        socket.emit("finish-answer");
         screen.renderExample();
         screen.renderExplanation();
         this.value = "toQuestion";
-        socket.emit("next");
     }
 
     else if (this.value == "toQuestion")
     {
+        socket.emit("get-question");
         document.getElementById("example").innerText = ""
         document.getElementById("explanation").innerText = ""
         screen.renderQuestion();
         this.value = "toExplanation";
-        socket.emit("next");
     }
+});
+
+socket.on("set-question", 
+(question) =>
+{
+    screen.renderQuestion(question);
 });

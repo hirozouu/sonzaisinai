@@ -3,6 +3,7 @@ const World = require('./World.js');
 
 //constant
 const GameSettings = require('./GameSetting.js');
+const Question = require('./Question.js');
 
 //class Game
 module.exports = class Game
@@ -12,6 +13,7 @@ module.exports = class Game
     {
         //variable
         const world = new World(io);
+        const question = new Question();
         let iTimeLast = Date.now();
 
         //when connect
@@ -28,43 +30,30 @@ module.exports = class Game
                     console.log('enter-the-game : socket.id = %s', socket.id);
                 });
 
-                // receive message
-                socket.on('new-message', 
-                (strMessage) => 
+                // when get question
+                socket.on("get-question", 
+                () =>
                 {
-                    console.log('new-message', strMessage);
-                    io.emit('spread-message', strMessage);
+                    console.log("get-question : socket.id = %s", socket.id);
+                    question.setNewQuestion();
+                    strArr = [question.explanation, question.getAnswers[0], question.getAnswers[1], 
+                        question.getAnswers[2], question.getAnswers[3]];
+                    socket.emit("set-question", strArr);
+                });
+
+                // when finish question
+                socket.on("finish-question", 
+                () =>
+                {
+                    console.log("finish-question : socket.id = %s", socket.id);
                 });
 
                 //when disconnect
-                socket.on('disconnect', 
+                socket.on("disconnect", 
                 () => 
                 {
                     console.log('disconnect : socket.id = %s', socket.id)
                 });
             });
-        
-        setInterval(
-            () => 
-            {
-                const iTimeCurrent = Date.now(); //m sec
-                const fDeltaTime = (iTimeCurrent - iTimeLast) * 0.001; // to sec
-                iTimeLast = iTimeCurrent;
-                //console.log('DeltaTime = %f[s]', fDeltaTime)
-
-                const hrtime = process.hrtime(); //n sec
-
-                //update world
-                world.update(fDeltaTime);
-
-                const hrtimeDiff = process.hrtime(hrtime);
-                const iNanosecDiff = hrtimeDiff[0] * 1e9 + hrtimeDiff[1]
-
-                //to client
-                io.emit('update', 
-                    Array.from(world.setTank), 
-                    iNanosecDiff);
-            }, 
-            1000 / GameSettings.FRAMERATE);
     }
 }

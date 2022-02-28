@@ -6,11 +6,40 @@ const GameSettings = require('./GameSetting.js');
 module.exports = class Question
 {
     //constructor
-    constructor(){
-        this.ex = null;
-        this.correct_ans = null;
-        this.incorrect_ans1 = null;
-        this.incorrect_ans2 = null;
-        this.incorrect_ans3 = null;
+    constructor()
+    {
+        this.id = 0000 // id
+        this.statement_question = "Question?"; // question satement
+        // answers (answers[0] = correct ans)
+        this.answers = ["Correct Answer", "Incorrect Answer1", 
+            "Incorrect Answer2", "Incorrect Answer3"];
+        // explanation
+        this.explanation = "Explanation";
+    }
+
+    // get new question from database
+    setNewQuestion()
+    {
+        this.id = 0000
+        this.statement_question = "存在しないカードは？";
+        this.answers = ["サイバー・チャージャー", "アクア・チャージャー", 
+            "エナジー・チャージャー", "スパイラル・チャージャー"];
+        this.explanation = "存在しないのはサイバー・チャージャー";
+    }
+
+    getAnswers()
+    {
+        // random shuffle
+        function fisherYatesShuffle(arr){
+            for(var i = arr.length-1; i>0; i--){
+                var j = Math.floor(Math.random() * (i + 1)); //random index
+                [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
+            }
+
+            return arr;
+        }
+
+        shuffle_answers = fisherYatesShuffle(this.answers);
+        return shuffle_answers;
     }
 }
