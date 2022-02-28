@@ -39,11 +39,11 @@ class Screen
 
     renderQuestion()
     {
-        document.getElementById("question").innerText = "存在しないカードは？"
-        document.getElementById("answer1").innerText = "ワンショット・フレーム"
-        document.getElementById("answer2").innerText = "ダブル・ディフェンス"
-        document.getElementById("answer3").innerText = "トリプル・サイン"
-        document.getElementById("answer4").innerText = "クアトロ・ブレイン"
+        document.getElementById("question").textContent = "存在しないカードは？"
+        document.getElementById("answer1").textContent = "ワンショット・フレーム"
+        document.getElementById("answer2").textContent = "ダブル・ディフェンス"
+        document.getElementById("answer3").textContent = "トリプル・サイン"
+        document.getElementById("answer4").textContent = "クアトロ・ブレイン"
         console.log("render question")
     }
 }
