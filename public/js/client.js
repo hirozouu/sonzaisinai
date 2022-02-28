@@ -46,7 +46,7 @@ $(document).on(
 // press next button
 document.getElementById('button').addEventListener('click', function()
 {
+    console.log('press : button = %s', this.id);
     screen.renderQuestion();
-    console.log('press : button = %s', this.id)
     socket.emit("socket-next-button");
 });
