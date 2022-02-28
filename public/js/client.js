@@ -43,29 +43,30 @@ $(document).on(
     }
 );
 
-//press start button
-document.getElementById("toGame").addEventListener('click', function()
+//press button1
+document.getElementById("button1").addEventListener('click', function()
 {
-    console.log("press-button : %s", this.id);
-    screen.renderQuestion();
-    document.getElementById("toGame").id = "toExplanation"
-    document.getElementById("toExplanation").innerText = "次に進む"
-    socket.emit("start")
-})
+    console.log("press-button : %s", this.value);
+    if (this.value == "toGame")
+    {
+        screen.renderQuestion();
+        document.getElementById("toGame").value = "toExplanation";
+        document.getElementById("toExplanation").innerText = "次に進む";
+        socket.emit("start");
+    }
 
-// press next button
-document.getElementById("toExplanation").addEventListener('click', function()
-{
-    console.log("press-button : %s", this.id);
-    document.getElementById("toExplanation").id = "toQuestion";
-    socket.emit("next");
-});
+    else if (this.value == "toExplanation")
+    {
+        console.log("press-button : %s", this.id);
+        document.getElementById("toExplanation").value = "toQuestion";
+        socket.emit("next");
+    }
 
-//press next button
-ducument.getElementById("toQuestion").addEventListener('click', function()
-{
-    console.log("press-button : %s", this.id);
-    screen.renderQuestion();
-    document.getElementById("toQuestion").id = "toExplanation"
-    socket.emit("next")
+    else if (this.value == "toQuestion")
+    {
+        console.log("press-button : %s", this.id);
+        screen.renderQuestion();
+        document.getElementById("toQuestion").value = "toExplanation";
+        socket.emit("next");
+    }
 });
