@@ -13,7 +13,6 @@ module.exports = class Game
         //variable
         const world = new World(io);
         let iTimeLast = Date.now();
-        const timer = setTimeout(3000)
 
         //when connect
         io.on(
