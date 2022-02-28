@@ -45,6 +45,5 @@ class Screen
         document.getElementById("statement_ans3").innerText = "トリプル・サイン";
         document.getElementById("statement_ans4").innerText = "クアトロ・ブレイン";
         console.log("render question");
-        console.log("answer1 : %s", document.getElementById("statement_ans1").innerText);
     }
 }

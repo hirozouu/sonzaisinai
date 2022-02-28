@@ -43,11 +43,29 @@ $(document).on(
     }
 );
 
-// press next button
-document.getElementById('button').addEventListener('click', function()
+//press start button
+document.getElementById("toGame").addEventListener('click', function()
 {
-    console.log('press : button = %s', this.id);
-    console.log("answer1 : %s", document.getElementById("statement_ans1").innerText);
+    console.log("press-button : %s", this.id);
     screen.renderQuestion();
-    socket.emit("socket-next-button");
+    document.getElementById("toGame").id = "toExplanation"
+    document.getElementById("toExplanation").innerText = "次に進む"
+    socket.emit("start")
+})
+
+// press next button
+document.getElementById("toExplanation").addEventListener('click', function()
+{
+    console.log("press-button : %s", this.id);
+    document.getElementById("toExplanation").id = "toQuestion";
+    socket.emit("next");
+});
+
+//press next button
+ducument.getElementById("toQuestion").addEventListener('click', function()
+{
+    console.log("press-button : %s", this.id);
+    screen.renderQuestion();
+    document.getElementById("toQuestion").id = "toExplanation"
+    socket.emit("next")
 });
