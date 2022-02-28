@@ -44,6 +44,7 @@ class Screen
         document.getElementById("answer2").innerText = "ダブル・ディフェンス";
         document.getElementById("answer3").innerText = "トリプル・サイン";
         document.getElementById("answer4").innerText = "クアトロ・ブレイン";
+        console.log(document.getElementById("answer1").innerText)
         console.log("render question");
     }
 }
