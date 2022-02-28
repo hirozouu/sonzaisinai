@@ -5,7 +5,6 @@ const socket = io.connect();
 
 //canvas object
 const screen = new Screen(socket);
-screen.renderQuestion();
 
 //when unload page
 $(window).on(
@@ -47,17 +46,7 @@ $(document).on(
 // press next button
 document.getElementById('button').addEventListener('click', function()
 {
+    screen.renderQuestion();
     console.log('press : button = %s', this.id)
     socket.emit("socket-next-button");
-})
-socket.on(
-    'spread-message', 
-    (strMessage) => 
-    {
-        console.log('spread-message : ', strMessage);
-
-        // add list
-        const li_element = $('<li>').text(strMessage);
-        $('#message_list').prepend(li_element);
-    }
-);
+});
