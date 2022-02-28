@@ -57,6 +57,7 @@ document.getElementById("button1").addEventListener('click', function()
 
     else if (this.value == "toExplanation")
     {
+        screen.renderExample();
         screen.renderExplanation();
         this.value = "toQuestion";
         socket.emit("next");
@@ -64,6 +65,7 @@ document.getElementById("button1").addEventListener('click', function()
 
     else if (this.value == "toQuestion")
     {
+        document.getElementById("example").innerText = ""
         document.getElementById("explanation").innerText = ""
         screen.renderQuestion();
         this.value = "toExplanation";

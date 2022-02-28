@@ -47,6 +47,12 @@ class Screen
         console.log("render : question");
     }
 
+    renderExample()
+    {
+        document.getElementById("example").innerText = "正解 : "
+        console.log("render : example")
+    }
+
     renderExplanation()
     {
         document.getElementById("explanation").innerText = "ぐぐれ";
