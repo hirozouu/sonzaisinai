@@ -36,9 +36,14 @@ module.exports = class Game
                 {
                     console.log("get-question : socket.id = %s", socket.id);
                     question.setNewQuestion();
-                    var strArr = [question.statement_question, question.getAnswers[0], 
-                        question.getAnswers[1], question.getAnswers[2], question.getAnswers[3]];
-                    socket.emit("set-question", strArr);
+                    var json = {
+                        "question": question.statement_question, 
+                        "statement_ans1": question.answers[0], 
+                        "statement_ans2": question.answers[1], 
+                        "statement_ans3": question.answers[2], 
+                        "statement_ans4": question.answers[3]
+                    }
+                    socket.emit("set-question", json);
                 });
 
                 // when finish question
