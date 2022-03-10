@@ -47,5 +47,6 @@ document.getElementById("button1").addEventListener('click', function()
 socket.on("set-question", 
 (question) =>
 {
+    console.log(question)
     screen.renderQuestion(question);
 });
