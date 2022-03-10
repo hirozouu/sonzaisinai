@@ -40,10 +40,10 @@ class Screen
     renderQuestion(question)
     {
         document.getElementById("question").innerText = question[0];
-        document.getElementById("statement_ans1").innerText = "ワンショット・フレーム";
-        document.getElementById("statement_ans2").innerText = "ダブル・ディフェンス";
-        document.getElementById("statement_ans3").innerText = "トリプル・サイン";
-        document.getElementById("statement_ans4").innerText = "クアトロ・ブレイン";
+        document.getElementById("statement_ans1").innerText = question[1]
+        document.getElementById("statement_ans2").innerText = question[2]
+        document.getElementById("statement_ans3").innerText = question[3]
+        document.getElementById("statement_ans4").innerText = question[4]
         console.log("render : question");
     }
 
