@@ -39,7 +39,7 @@ class Screen
 
     renderQuestion(question)
     {
-        document.getElementById("question").innerText = question.question;
+        document.getElementById("question").innerText = "aiueo"
         document.getElementById("statement_ans1").innerText = question.statement_ans1;
         document.getElementById("statement_ans2").innerText = question.statement_ans2;
         document.getElementById("statement_ans3").innerText = question.statement_ans3;
