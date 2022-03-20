@@ -39,6 +39,7 @@ class Screen
 
     renderQuestion(question)
     {
+        console.log(question.question);
         document.getElementById("question").innerText = question.question;
         document.getElementById("statement_ans1").innerText = question.statement_ans1;
         document.getElementById("statement_ans2").innerText = question.statement_ans2;
