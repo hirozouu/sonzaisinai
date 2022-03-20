@@ -50,7 +50,7 @@
         </div>
     </body>
 
-    <body style="display: flex; flex-direction: column; width: 100%; height: 100%; margin: 0;">
+    <body style="display: flex; flex-direction: column; width: 100%; height: 100%; margin: 0; visibility: hidden;">
         <div id="game-screen">
             <div>存在しないクイズ</div>
 
@@ -84,10 +84,6 @@
                 Explanation
             </div>
         </div>
-
-        <script>
-            $('game-screen').hide();
-        </script>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
