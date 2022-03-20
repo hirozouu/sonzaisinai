@@ -57,6 +57,7 @@ $('#start-button').on(
     {
         const objConfig = { strPlayerName: $("player-name").val() };
         socket.emit('enter-the-game', objConfig);
-        $('#start-screen').hide()
+        document.getElementById("start-screen").style.visibility = "hidden";
+        document.getElementById("game-screen").style.visibility = "visible";
     }
 );
