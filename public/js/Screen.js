@@ -39,12 +39,11 @@ class Screen
 
     renderQuestion(question)
     {
-        console.log(question.question);
-        document.getElementById("question").innerText = question.question;
-        document.getElementById("statement_ans1").innerText = question.statement_ans1;
-        document.getElementById("statement_ans2").innerText = question.statement_ans2;
-        document.getElementById("statement_ans3").innerText = question.statement_ans3;
-        document.getElementById("statement_ans4").innerText = question.statement_ans4;
+        document.getElementById("#game-screen > question").innerText = question.question;
+        document.getElementById("#game-screen > statement_ans1").innerText = question.statement_ans1;
+        document.getElementById("#game-screen > statement_ans2").innerText = question.statement_ans2;
+        document.getElementById("#game-screen > statement_ans3").innerText = question.statement_ans3;
+        document.getElementById("#game-screen > statement_ans4").innerText = question.statement_ans4;
         console.log("render : question");
     }
 
