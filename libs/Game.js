@@ -38,10 +38,10 @@ module.exports = class Game
                     question.setNewQuestion();
                     var json = {
                         "question": question.statement_question, 
-                        "statement_ans1": question.answers[0], 
-                        "statement_ans2": question.answers[1], 
-                        "statement_ans3": question.answers[2], 
-                        "statement_ans4": question.answers[3]
+                        "statement_ans1": question.getAnswers[0], 
+                        "statement_ans2": question.getAnswers[1], 
+                        "statement_ans3": question.getAnswers[2], 
+                        "statement_ans4": question.getAnswers[3]
                     }
                     socket.emit("set-question", json);
                 });
