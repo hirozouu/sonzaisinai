@@ -39,7 +39,6 @@ document.getElementById("button1").addEventListener('click', function()
         socket.emit("get-question");
         document.getElementById("example").innerText = ""
         document.getElementById("explanation").innerText = ""
-        screen.renderQuestion();
         this.value = "toExplanation";
     }
 });
