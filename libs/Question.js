@@ -39,8 +39,6 @@ module.exports = class Question
         }
 
         shuffle_answers = fisherYatesShuffle(this.answers);
-        console.log(shuffle_answers[0])
-        console.log("******")
         return shuffle_answers;
     }
 }
