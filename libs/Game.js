@@ -43,7 +43,7 @@ module.exports = class Game
                         "statement_ans2": answers[1], 
                         "statement_ans3": answers[2], 
                         "statement_ans4": answers[3]
-                    }
+                    };
                     socket.emit("set-question", json);
                 });
 
