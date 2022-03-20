@@ -49,3 +49,14 @@ socket.on("set-question",
 {
     screen.renderQuestion(question);
 });
+
+// start button
+$('#start-button').on(
+    'click', 
+    () =>
+    {
+        const objConfig = { strPlayerName: $("player-name").val() };
+        socket.emit('enter-the-game', objConfig);
+        $('#start-screen').hide()
+    }
+);

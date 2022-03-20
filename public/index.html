@@ -13,8 +13,32 @@
                 background-color: rgb(224, 224, 128);
                 cursor: crosshair;
             }
+
+            #start-screen {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                z-index: 10;
+                background-color: rgb(128, 128, 128, 0.5);
+            }
         </style>
     </head>
+    <body style="display: flex; flex: column; width: 100%; height: 100%; margin: 0;">
+        <div>存在しないクイズ</div>
+        <div style="flex: 1 1; position: relative; overflow: hidden;">
+            <div id="start-screen">
+                <div style="text-align: center; width: 100%; font-size: xx-large;">
+                    <input type="text" name="player-name" id="player-name" placeholder="Your Name" autofocus>
+                    <button style="font-size: xx-large;" id="start-button">Start</button>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <canvas id="canvas-2d">
+        </div>
+    </body>
     <body style="display: flex; flex-direction: column; width: 100%; height: 100%; margin: 0;">
         <div>存在しないクイズ</div>
 
