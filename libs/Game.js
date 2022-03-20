@@ -36,7 +36,7 @@ module.exports = class Game
                 {
                     console.log("get-question : socket.id = %s", socket.id);
                     question.setNewQuestion();
-                    let answers = question.getAnswers();
+                    var answers = question.getAnswers();
                     var json = {
                         "question": question.statement_question, 
                         "statement_ans1": answers[0], 

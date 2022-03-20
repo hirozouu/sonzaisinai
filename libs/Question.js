@@ -38,7 +38,7 @@ module.exports = class Question
             return arr;
         }
 
-        shuffle_answers = fisherYatesShuffle(this.answers);
+        var shuffle_answers = fisherYatesShuffle(this.answers);
         return shuffle_answers;
     }
 }
