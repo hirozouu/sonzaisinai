@@ -34,6 +34,10 @@ module.exports = class Game
                     console.log('enter-the-room : socket.id = %s', socket.id);
                     let strRoomName = objData.roomName;
                     let strPlayerName = objData.playerName;
+                    MEMBER[socket.id] = {
+                        name: strPlayerName, 
+                        room: strRoomName
+                    }
                     if (!strRoomName)
                     {
                         strRoomName = "*********NoName**********";
