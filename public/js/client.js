@@ -44,9 +44,9 @@ document.getElementById("button1").addEventListener('click', function()
 });
 
 socket.on("set-question", 
-(question) =>
+(objData) =>
 {
-    screen.renderQuestion(question);
+    screen.renderQuestion(objData);
 });
 
 // start button
@@ -54,9 +54,16 @@ $('#start-button').on(
     'click', 
     () =>
     {
-        const objConfig = { strPlayerName: $("player-name").val() };
-        socket.emit('enter-the-game', objConfig);
+        roomname = $("#room-name").val();
+        playername = $("#player-name").val();
+        const json = {
+            "roomName": roomname, 
+            "playerName": playername
+        };
+        socket.emit('enter-the-room', json);
         document.getElementById("start-screen").style.visibility = "hidden";
         document.getElementById("game-screen").style.visibility = "visible";
+        document.getElementById("room-name").value = roomname;
+        document.getElementById("player-name").value = playername;
     }
 );

@@ -41,6 +41,7 @@
             <div id="start-screen">
                 <div style="text-align: center; width: 100%; font-size: xx-large;">
                     <input type="text" name="player-name" id="player-name" placeholder="Your Name" autofocus>
+                    <input type="text" name="room-name" id="room-name" placeholder="Room Name">
                     <button style="font-size: xx-large;" id="start-button">Start</button>
                     <br />
                     <br />
@@ -53,6 +54,11 @@
         <div style="visibility: hidden;">
             <div id="game-screen">
                 <div>存在しないクイズ</div>
+
+                <div>
+                    <label id="room-name"></label>
+                    <label id="player-name"></label>
+                </div>
 
                 <div>
                     <label id="question">Question?</label>

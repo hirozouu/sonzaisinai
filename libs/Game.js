@@ -3,7 +3,11 @@ const World = require('./World.js');
 
 //constant
 const GameSettings = require('./GameSetting.js');
-const Question = require('./Question.js');
+const Question = require('./Question.js')
+
+// global veriable
+const MEMBER = {};
+let MEMBER_COUNT = 1;
 
 //class Game
 module.exports = class Game
@@ -24,11 +28,32 @@ module.exports = class Game
                 console.log('connection : socket.id = %s', socket.id);
 
                 // when game start
-                socket.on('enter-the-game', 
-                () => 
+                socket.on('enter-the-room',
+                (objData) => 
                 {
-                    console.log('enter-the-game : socket.id = %s', socket.id);
+                    console.log('enter-the-room : socket.id = %s', socket.id);
+                    let strRoomName = objData.roomName;
+                    let strPlayerName = objData.playerName;
+                    if (!strRoomName)
+                    {
+                        strRoomName = "*********NoName**********";
+                    }
+
+                    socket.join(strRoomName);
+                    socket.strRoomName = strRoomName;
                 });
+
+                socket.on("leave-the-room", 
+                () =>
+                {
+                    console.log("leave-the-room : ", socket.id);
+                    if ("strRoomName" in socket)
+                    {
+                        console.log("Room name : ", socket.strRoomName);
+                        socket.leave(socket.strRoomName);
+                        socket.strRoomName = ""
+                    }
+                })
 
                 // when get question
                 socket.on("get-question", 
