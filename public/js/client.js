@@ -63,7 +63,7 @@ $('#start-button').on(
         socket.emit('enter-the-room', json);
         document.getElementById("start-screen").style.visibility = "hidden";
         document.getElementById("game-screen").style.visibility = "visible";
-        document.getElementById("room-name").value = roomname;
-        document.getElementById("player-name").value = playername;
+        document.getElementById("room").value = roomname;
+        document.getElementById("name").value = playername;
     }
 );
