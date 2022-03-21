@@ -54,8 +54,8 @@ $('#start-button').on(
     'click', 
     () =>
     {
-        playername = $("#player-name").val();
-        roomname = $("#room-name").val();
+        let playername = $("#player-name").val();
+        let roomname = $("#room-name").val();
         const json = {
             "roomName": roomname, 
             "playerName": playername
