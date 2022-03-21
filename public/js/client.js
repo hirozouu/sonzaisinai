@@ -64,7 +64,7 @@ $('#start-button').on(
         document.getElementById("start-screen").style.visibility = "hidden";
         document.getElementById("game-screen").style.visibility = "visible";
         console.log(roomname)
-        document.getElementById("room").value = roomname;
-        document.getElementById("name").value = playername;
+        document.getElementById("room").innerText = roomname;
+        document.getElementById("name").innerText = playername;
     }
 );
