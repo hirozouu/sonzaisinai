@@ -32,17 +32,17 @@ module.exports = class Game
                 (objData) => 
                 {
                     console.log('enter-the-room : socket.id = %s', socket.id);
-                    let strRoomName = objData.roomName;
-                    let strPlayerName = objData.playerName;
+                    let roomname = objData.roomName;
+                    let playername = objData.playerName;
 
                     if (!strRoomName)
                     {
-                        strRoomName = "*********NoName**********";
+                        roomname = "*********NoName**********";
                     }
 
-                    socket.join(strRoomName);
-                    socket.strRoomName = strRoomName;
-                    socket.broadcast.to(strRoomName).emit("signaling", {from: socket.id, type: "join"});
+                    socket.join(roomname);
+                    socket.strRoomName = roomname;
+                    socket.broadcast.to(roomname).emit("signaling", {from: socket.id, type: "join"});
                 });
 
                 // when leave the room

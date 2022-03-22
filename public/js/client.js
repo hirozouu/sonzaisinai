@@ -6,6 +6,11 @@ const socket = io.connect();
 //canvas object
 const screen = new Screen(socket);
 
+let PLAYERNAME = null;
+let ROOMNAME = null;
+const MEMBER = {};
+let MEMBER_COUNT = 1;
+
 //when unload page
 $(window).on(
     'beforeunload', 
@@ -44,9 +49,9 @@ document.getElementById("button1").addEventListener('click', function()
 });
 
 socket.on("set-question", 
-(objData) =>
+(json) =>
 {
-    screen.renderQuestion(objData);
+    screen.renderQuestion(json);
 });
 
 // start button
@@ -54,16 +59,30 @@ $('#start-button').on(
     'click', 
     () =>
     {
-        let playername = $("#player-name").val();
-        let roomname = $("#room-name").val();
-        const json = {
-            "roomName": roomname, 
-            "playerName": playername
+        PLAYERNAME = $("#player-name").val();
+        ROOMNAME = $("#room-name").val();
+        MEMBER[socket.id] = {
+            playerName: PLAYERNAME, 
+            score: 0
+        }
+        var json = {
+            "playerName": PLAYERNAME, 
+            "key": socket.id
         };
-        socket.emit('enter-the-room', json);
+
+        socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
         document.getElementById("start-screen").style.visibility = "hidden";
         document.getElementById("game-screen").style.visibility = "visible";
-        document.getElementById("room").innerText = roomname;
-        document.getElementById("name").innerText = playername;
+        document.getElementById("room").innerText = ROOMNAME;
+        document.getElementById("name").innerText = PLAYERNAME;
     }
 );
+
+socket.on("enter-the-room", 
+(json) =>
+{
+    MEMBER[json.key] = {
+        playerName: json.playerName, 
+        score: 0
+    }
+});
