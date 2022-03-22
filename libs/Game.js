@@ -27,17 +27,14 @@ module.exports = class Game
             {
                 console.log('connection : socket.id = %s', socket.id);
 
-                // when game start
+                // when enter the room
                 socket.on('enter-the-room',
                 (objData) => 
                 {
                     console.log('enter-the-room : socket.id = %s', socket.id);
                     let strRoomName = objData.roomName;
                     let strPlayerName = objData.playerName;
-                    MEMBER[socket.id] = {
-                        name: strPlayerName, 
-                        room: strRoomName
-                    }
+
                     if (!strRoomName)
                     {
                         strRoomName = "*********NoName**********";
@@ -45,8 +42,10 @@ module.exports = class Game
 
                     socket.join(strRoomName);
                     socket.strRoomName = strRoomName;
+                    socket.broadcast.to(strRoomName).emit("signaling", {from: socket.id, type: "join"});
                 });
 
+                // when leave the room
                 socket.on("leave-the-room", 
                 () =>
                 {
