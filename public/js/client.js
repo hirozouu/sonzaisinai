@@ -64,7 +64,7 @@ $('#start-button').on(
         MEMBER[socket.id] = {
             playerName: PLAYERNAME, 
             score: 0
-        }
+        };
         var json = {
             "playerName": PLAYERNAME, 
             "key": socket.id
@@ -84,5 +84,6 @@ socket.on("enter-the-room",
     MEMBER[json.key] = {
         playerName: json.playerName, 
         score: 0
-    }
+    };
+    console.log("join : %s", json.playerName);
 });

@@ -42,7 +42,6 @@ module.exports = class Game
 
                     socket.join(roomname);
                     socket.strRoomName = roomname;
-                    socket.broadcast.to(roomname).emit("signaling", {from: socket.id, type: "join"});
                 });
 
                 // when leave the room
