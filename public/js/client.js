@@ -62,7 +62,7 @@ $('#start-button').on(
         };
         socket.emit('enter-the-room', json);
         document.getElementById("start-screen").style.display = "none";
-        document.getElementById("game-screen").style.display = "block";
+        document.getElementById("game-screen").style.display = "";
         document.getElementById("room").innerText = roomname;
         document.getElementById("name").innerText = playername;
     }
