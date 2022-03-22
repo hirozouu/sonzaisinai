@@ -61,8 +61,8 @@ $('#start-button').on(
             "playerName": playername
         };
         socket.emit('enter-the-room', json);
-        document.getElementById("start-screen").style.display = "none";
-        document.getElementById("game-screen").style.display = "block";
+        document.getElementById("start-screen").style.visibility = "hidden";
+        document.getElementById("game-screen").style.visibility = "visible";
         document.getElementById("room").innerText = roomname;
         document.getElementById("name").innerText = playername;
     }
