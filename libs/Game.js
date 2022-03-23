@@ -28,12 +28,12 @@ module.exports = class Game
                 console.log('connection : socket.id = %s', socket.id);
 
                 // when enter the room
-                socket.on('enter-the-room',
-                (objData) => 
+                socket.on('get-permission',
+                (json) => 
                 {
                     console.log('enter-the-room : socket.id = %s', socket.id);
-                    let roomname = objData.roomName;
-                    let playername = objData.playerName;
+                    let roomname = json.roomName;
+                    let playername = json.playerName;
 
                     if (!strRoomName)
                     {
@@ -42,6 +42,7 @@ module.exports = class Game
 
                     socket.join(roomname);
                     socket.strRoomName = roomname;
+                    io.to(socket.id).emit("give-permission");
                 });
 
                 // when leave the room

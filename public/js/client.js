@@ -70,13 +70,24 @@ $('#start-button').on(
             "key": socket.id
         };
 
-        socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
+        socket.emit("get-permission", json);
         document.getElementById("start-screen").style.visibility = "hidden";
         document.getElementById("game-screen").style.visibility = "visible";
         document.getElementById("room").innerText = ROOMNAME;
         document.getElementById("name").innerText = PLAYERNAME;
     }
 );
+
+socket.on("give-permission", 
+() =>
+{
+    var json = {
+        "playerName": PLAYERNAME, 
+        "key": socket.id
+    };
+    socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
+    console.log("enter-the-room : %s", PLAYERNAME)
+});
 
 socket.on("enter-the-room", 
 (json) =>
@@ -85,5 +96,5 @@ socket.on("enter-the-room",
         playerName: json.playerName, 
         score: 0
     };
-    console.log("join : %s", json.playerName);
+    console.log("enter-the-room : %s", json.playerName);
 });
