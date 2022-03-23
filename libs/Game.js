@@ -35,7 +35,7 @@ module.exports = class Game
                     let roomname = json.roomName;
                     let playername = json.playerName;
 
-                    if (!strRoomName)
+                    if (!roomname)
                     {
                         roomname = "*********NoName**********";
                     }
