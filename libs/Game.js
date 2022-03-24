@@ -57,7 +57,7 @@ module.exports = class Game
                     }
                 })
 
-                // relay message
+                // relay message enter-the-room
                 socket.on("enter-the-room", 
                 (json) =>
                     {
@@ -65,11 +65,19 @@ module.exports = class Game
                     }
                 );
 
-                // relay message
+                // relay message set-player-information
                 socket.on("set-player-information", 
                 (json) =>
                     {
                         socket.broadcast.to(json.roomName).emit("set-player-information", json);
+                    }
+                );
+
+                // relay message get-ready
+                socket.on("get-ready", 
+                (json) =>
+                    {
+                        socket.broadcast.to(json.roomName).emit("get-ready", json)
                     }
                 );
 

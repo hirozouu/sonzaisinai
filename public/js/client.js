@@ -101,9 +101,10 @@ $("#button_ready").on(
     () =>
     {
         var json = {
-            "playerName": PLAYERNAME
+            "playerName": PLAYERNAME, 
+            "roomName": ROOMNAME
         };
-        socket.to(ROOMNAME).emit("get-ready", json);
+        socket.emit("get-ready", json);
     }
 );
 
