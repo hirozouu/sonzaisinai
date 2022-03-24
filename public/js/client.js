@@ -114,6 +114,8 @@ socket.on("get-ready",
     {
         console.log("get-ready : %s", json.playerName);
         COUNTER++;
+        console.log(COUNTER);
+        console.log(MEMBER_COUNT)
         if (COUNTER >= MEMBER_COUNT)
         {
             console.log("start-the-game");
