@@ -42,15 +42,7 @@ $("#button_enter").on(
             "key": socket.id
         };
 
-        console.log("hugahuga");
         socket.emit("get-permission", json);
-    }
-);
-
-socket.on("get-permission", 
-() =>
-    {
-        console.log("hogehoge");
     }
 );
 
@@ -64,9 +56,10 @@ socket.on("give-permission",
         document.getElementById("roomname").style.innerText = ROOMNAME;
         var json = {
             "playerName": PLAYERNAME, 
+            "roomName": ROOMNAME, 
             "key": socket.id
         };
-        socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
+        socket.emit("enter-the-room", json);
         console.log("enter-the-room : %s", PLAYERNAME);
     }
 );
@@ -85,9 +78,10 @@ socket.on("enter-the-room",
         var data = {
             "playerName": PLAYERNAME, 
             "score": SCORE, 
+            "roomName": ROOMNAME, 
             "key": socket.id
         };
-        socket.to(json.key).emit("set-player-information", data);
+        socket.emit("set-player-information", data);
     }
 );
 

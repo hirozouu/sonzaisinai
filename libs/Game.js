@@ -18,7 +18,6 @@ module.exports = class Game
         //variable
         const world = new World(io);
         const question = new Question();
-        let iTimeLast = Date.now();
 
         //when connect
         io.on(
@@ -57,6 +56,22 @@ module.exports = class Game
                         socket.strRoomName = ""
                     }
                 })
+
+                // relay message
+                socket.on("enter-the-room", 
+                (json) =>
+                    {
+                        socket.broadcast.to(json.roomName).emit("enter-the-room", json);
+                    }
+                );
+
+                // relay message
+                socket.on("set-player-information", 
+                (json) =>
+                    {
+                        socket.broadcast.to(json.roomName).emit("set-player-information", json);
+                    }
+                );
 
                 // when get question
                 socket.on("get-question", 
