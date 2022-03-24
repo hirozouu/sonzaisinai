@@ -61,7 +61,7 @@ module.exports = class Game
                 socket.on("enter-the-room", 
                 (json) =>
                     {
-                        socket.to("hoge").emit("enter-the-room", json);
+                        socket.in(roomName).emit("enter-the-room", json);
                     }
                 );
 
