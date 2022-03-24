@@ -3,108 +3,47 @@
         <title>
             No Exist Quiz
         </title>
-        <style>
-            #canvas-2d {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                z-index: 2;
-                object-fit: contain;
-                background-color: rgb(224, 224, 128);
-                cursor: crosshair;
-            }
-
-            #game-screen {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                position: absolute;
-                z-index: 10;
-                background-color: rgb(64, 224, 208, 0.5);
-            }
-
-            #start-screen {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                position: absolute;
-                z-index: 10;
-                background-color: rgb(128, 128, 128, 0.5);
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="sample.css">
     </head>
-    <body style="display: flex; flex-direction: column; width: 100%; height: 100%; margin: 0;">
-        <div style="flex: 1 1; position: relative; overflow: hidden;">
-            <div id="start-screen">
-                <div>存在しないクイズ</div>
-                <div style="text-align: center; width: 100%; font-size: xx-large;">
-                    <input type="text" name="player-name" id="player-name" placeholder="Your Name" autofocus>
-                    <input type="text" name="room-name" id="room-name" placeholder="Room Name">
-                    <button style="font-size: xx-large;" id="start-button">Start</button>
-                    <br />
-                    <br />
-                </div>
+    <body>
+        <div id="start_scene" class="scene">
+            <div class="box_start">
+                <p>存在しないクイズ</p>
+            </div>
+            <div class="box_start">
+                <input type="text" id="input_playername" class="input_start" placeholder="Your Name" autofocus>
+                <input type="text" id="input_roomname" class="input_start" placeholder="RoomName">
+                <button id="button_start">はじめる</button>
             </div>
         </div>
-    </body>
-
-    <body style="display: flex; flex-direction: column; width: 100%;">
-        <div style = "visibility: hidden;">
-            <div id="game-screen">
-                <div>存在しないクイズ</div>
-
-                <div>
-                    <label id="room"></label>
-                    <label id="name"></label>
+        <div id="game_scene" class="scene">
+            <div id="score">
+                <div id="score1"></div>
+            </div>
+            <div id="question1">
+                <p id="state_question">Question</p>
+                <div id="select1" class="selection">
+                    <p id="state1">Answer1</p>
                 </div>
-
-                <div>
-                    <label id="question">Question?</label>
+                <div id="select2" class="selection">
+                    <p id="state2">Answer2</p>
                 </div>
-
-                <div>
-                    <input type="radio" id="answer1" name="answer" checked>
-                    <label for="answer1" id="statement_ans1">Answer1</label>
+                <div id="select3" class="selection">
+                    <p id="state3">Answer3</p>
                 </div>
-        
-                <div>
-                    <input type="radio" id="answer2" name="answer">
-                    <label for="answer2" id="statement_ans2">Answer2</label>
-                </div>
-        
-                <div>
-                    <input type="radio" id="answer3" name="answer">
-                    <label for="answer3" id="statement_ans3">Answer3</label>
-                </div>
-        
-                <div>
-                    <input type="radio" id="answer4" name="answer">
-                    <label for="answer4" id="statement_ans4">Answer4</label>
-                </div>
-        
-                <button type="button" id="button1" value="toGame">はじめる</button>
-        
-                <div id="example">
-                    Example
-                </div>
-        
-                <div id="explanation">
-                    Explanation
+                <div id="select4" class="selection">
+                    <p id="state4">Answer4</p>
                 </div>
             </div>
+            <div id="question2">
+                <button id="button_answer">かくてい</button>
+            </div>
+            <div id="answer">
+                <p>X. Answer</p>
+            </div>
+            <div id="room">
+                <p></p>
+            </div>
         </div>
-        
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-        <!--Settings-->
-        <script src="./js/SharedSettings.js"></script>
-        <script src="./js/RenderingSettings.js"></script>
-        <!--Custom-->
-        <script src="./js/Assets.js"></script>
-        <script src="./js/Screen.js"></script>
-        <script src="./js/client.js"></script>
     </body>
 </html>

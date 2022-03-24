@@ -55,12 +55,12 @@ socket.on("set-question",
 });
 
 // start button
-$('#start-button').on(
+$('#button_start').on(
     'click', 
     () =>
     {
-        PLAYERNAME = $("#player-name").val();
-        ROOMNAME = $("#room-name").val();
+        PLAYERNAME = $("#input_playername").val();
+        ROOMNAME = $("#input_roomname").val();
         MEMBER[socket.id] = {
             playerName: PLAYERNAME, 
             score: 0
@@ -71,10 +71,9 @@ $('#start-button').on(
         };
 
         socket.emit("get-permission", json);
-        document.getElementById("start-screen").style.visibility = "hidden";
-        document.getElementById("game-screen").style.visibility = "visible";
+        document.getElementById("start_scene").style.display = "none";
+        document.getElementById("game_scene").style.display = "block";
         document.getElementById("room").innerText = ROOMNAME;
-        document.getElementById("name").innerText = PLAYERNAME;
     }
 );
 
