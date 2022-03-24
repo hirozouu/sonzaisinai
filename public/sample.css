@@ -24,6 +24,7 @@ body {
         margin: 2em 0;
         font-weight: bold;
         border: solid 3px #000000;
+        text-align: center;
 }
 
 .box_start p {
@@ -37,4 +38,25 @@ body {
 
 .game_scene {
     display: none;
+}
+
+.box_score {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
+
+
+
+.selection {
+    padding: 0.5em 1em;
+        margin: 2em 0;
+        font-weight: bold;
+        border: solid 3px #000000;
+}
+
+.selection p {
+    margin: 0; 
+    padding: 0;
 }
