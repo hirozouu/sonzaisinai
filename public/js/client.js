@@ -58,7 +58,7 @@ socket.on("give-permission",
             "playerName": PLAYERNAME, 
             "key": socket.id
         };
-        socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
+        socket.broadcast.emit(ROOMNAME).emit("enter-the-room", json);
         console.log("enter-the-room : %s", PLAYERNAME);
     }
 );
@@ -79,7 +79,7 @@ socket.on("enter-the-room",
             "score": SCORE, 
             "key": socket.id
         };
-        io.to(json.key).emit("set-player-information", data);
+        socket.to(json.key).emit("set-player-information", data);
     }
 );
 
