@@ -77,7 +77,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 (json) =>
                     {
-                        socket.emit("get-ready", json);
+                        socket.broadcast.to(json.roomName).emit("get-ready", json);
                     }
                 );
 
