@@ -16,6 +16,7 @@ body {
 #start_scene {
     display: flex;
     flex-direction: row;
+    text-align: center;
 }
 
 .box_start {
@@ -23,7 +24,6 @@ body {
         margin: 2em 0;
         font-weight: bold;
         border: solid 3px #000000;
-        text-align: center;
 }
 
 .box_start p {
