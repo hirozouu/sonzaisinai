@@ -72,7 +72,7 @@ $('#button_start').on(
 
         socket.emit("get-permission", json);
         document.getElementById("start_scene").style.display = "none";
-        document.getElementById("game_scene").style.display = "block";
+        document.getElementById("game_scene").style.display = "flex";
         document.getElementById("room").innerText = ROOMNAME;
     }
 );

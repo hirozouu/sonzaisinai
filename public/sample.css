@@ -37,6 +37,8 @@ body {
 
 #game_scene {
     display: none;
+    flex-direction: column;
+    text-align: center;
 }
 
 #box_score {
@@ -56,4 +58,8 @@ body {
 .selection p {
     margin: 0; 
     padding: 0;
+}
+
+#answer {
+    display: none
 }
