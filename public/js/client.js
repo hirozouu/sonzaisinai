@@ -100,7 +100,6 @@ $("#button_ready").on(
     "click", 
     () =>
     {
-        console.log("press button");
         var json = {
             "playerName": PLAYERNAME, 
             "roomName": ROOMNAME
