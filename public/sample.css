@@ -15,7 +15,7 @@ body {
 
 #start_scene {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
 }
 
