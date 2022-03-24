@@ -109,7 +109,7 @@ $("#button_ready").on(
 );
 
 // other player get ready
-socket.on("get-ready", 
+socket.on("get-ready-from-server", 
     (json) =>
     {
         console.log("get-ready : %s", json.playerName);

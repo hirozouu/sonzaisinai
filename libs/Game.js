@@ -61,7 +61,6 @@ module.exports = class Game
                 socket.on("enter-the-room", 
                 (json) =>
                     {
-                        socket.in(roomName).emit("enter-the-room", json);
                     }
                 );
 
@@ -69,7 +68,6 @@ module.exports = class Game
                 socket.on("set-player-information", 
                 (json) =>
                     {
-                        socket.broadcast.to(json.roomName).emit("set-player-information", json);
                     }
                 );
 
@@ -77,7 +75,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 (json) =>
                     {
-                        socket.broadcast.to(json.roomName).emit("get-ready", json);
+                        socket.broadcast.to(json.roomName).emit("get-ready-from-server", json);
                     }
                 );
 
