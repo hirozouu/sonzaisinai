@@ -42,6 +42,7 @@ $("#button_enter").on(
             "key": socket.id
         };
 
+        console.log("hugahuga");
         socket.emit("get-permission", json);
     }
 );
@@ -49,7 +50,7 @@ $("#button_enter").on(
 socket.on("get-permission", 
 () =>
     {
-        console.log("hogehoge")
+        console.log("hogehoge");
     }
 );
 
