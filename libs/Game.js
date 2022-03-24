@@ -76,7 +76,7 @@ module.exports = class Game
                 (json) =>
                     {
                         console.log("hogehoge")
-                        io.to(json.roomName).emit("get-ready-from-server", json);
+                        io.to(socket.id).emit("get-ready-from-server", json);
                     }
                 );
 
