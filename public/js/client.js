@@ -116,6 +116,7 @@ socket.on("get-ready",
         COUNTER++;
         if (COUNTER >= MEMBER_COUNT)
         {
+            console.log("start-the-game");
             document.getElementById("box_ready").style.display = "none";
             document.getElementsByClassName("question").style.display = "flex";
             COUNTER = 1;
