@@ -75,6 +75,8 @@ module.exports = class Game
                 socket.on("get-ready", 
                 (json) =>
                     {
+                        var temp = io.sockets.clients(json.roomName);
+                        console.log("%s", temp)
                         console.log("hogehoge");
                         socket.broadcast.to(json.roomName).emit("get-ready-from-server", json);
                     }
