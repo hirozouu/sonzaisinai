@@ -15,6 +15,7 @@ body {
 
 #start_scene {
     display: flex;
+    flex-direction: row;
 }
 
 .box_start {
