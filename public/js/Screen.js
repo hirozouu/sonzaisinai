@@ -39,11 +39,11 @@ class Screen
 
     renderQuestion(question)
     {
-        document.getElementById("state_question").innerText = question.question;
-        document.getElementById("state1").innerText = question.statement_ans1;
-        document.getElementById("state2").innerText = question.statement_ans2;
-        document.getElementById("state3").innerText = question.statement_ans3;
-        document.getElementById("state4").innerText = question.statement_ans4;
+        document.getElementById("text_question").innerText = question.text_question;
+        document.getElementById("text1").innerText = question.selection1;
+        document.getElementById("text2").innerText = question.selection2;
+        document.getElementById("text3").innerText = question.selection3;
+        document.getElementById("text4").innerText = question.selection4;
         console.log("render : question");
     }
 

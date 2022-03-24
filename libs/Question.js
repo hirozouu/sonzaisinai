@@ -9,24 +9,24 @@ module.exports = class Question
     constructor()
     {
         this.id = "0000" // id
-        this.statement_question = "Question?"; // question satement
-        // answers (answers[0] = correct ans)
-        this.answers = ["Correct Answer", "Incorrect Answer1", 
+        this.text_question = "Question?"; // question text
+        // selection (selection[0] = correct answer)
+        this.selection = ["Correct Answer", "Incorrect Answer1", 
             "Incorrect Answer2", "Incorrect Answer3"];
-        this.explanation = "Explanation"; // explanation
+        this.text_answer = "Answer"; // answer text
     }
 
     // get new question from database
     setNewQuestion()
     {
         this.id = "0000"
-        this.statement_question = "存在しないカードは？";
-        this.answers = ["サイバー・チャージャー", "アクア・チャージャー", 
+        this.text_question = "存在しないカードは？";
+        this.selection = ["サイバー・チャージャー", "アクア・チャージャー", 
             "エナジー・チャージャー", "スパイラル・チャージャー"];
-        this.explanation = "存在しないのはサイバー・チャージャー";
+        this.text_answer = "サイバー・チャージャー";
     }
 
-    getAnswers()
+    getSelection()
     {
         // random shuffle
         function fisherYatesShuffle(arr){
@@ -38,7 +38,7 @@ module.exports = class Question
             return arr;
         }
 
-        var shuffle_answers = fisherYatesShuffle(this.answers);
+        var shuffle_answers = fisherYatesShuffle(this.selection);
         return shuffle_answers;
     }
 }

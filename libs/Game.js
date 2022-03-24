@@ -64,13 +64,13 @@ module.exports = class Game
                 {
                     console.log("get-question : socket.id = %s", socket.id);
                     question.setNewQuestion();
-                    var answers = question.getAnswers();
+                    var selection = question.getSelection();
                     var json = {
-                        "question": question.statement_question, 
-                        "statement_ans1": answers[0], 
-                        "statement_ans2": answers[1], 
-                        "statement_ans3": answers[2], 
-                        "statement_ans4": answers[3]
+                        "text_question": question.text_question, 
+                        "selection1": selection[0], 
+                        "selection2": selection[1], 
+                        "selection3": selection[2], 
+                        "selection4": selection[3]
                     };
                     socket.emit("set-question", json);
                 });

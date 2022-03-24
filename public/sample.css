@@ -42,6 +42,11 @@ body {
 }
 
 #box_score {
+    display: flex;
+    flex-direction: row;
+}
+
+.score {
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
