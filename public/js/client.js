@@ -59,6 +59,7 @@ $('#button_start').on(
     'click', 
     () =>
     {
+        console.log("click : button = button_start")
         PLAYERNAME = $("#input_playername").val();
         ROOMNAME = $("#input_roomname").val();
         MEMBER[socket.id] = {
