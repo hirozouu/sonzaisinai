@@ -20,10 +20,10 @@ body {
 }
 
 .box_start {
-        padding: 0.5em 1em;
-        margin: 2em 0;
-        font-weight: bold;
-        border: solid 3px #000000;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
 }
 
 .box_start p {
@@ -31,7 +31,7 @@ body {
     padding: 0;
 }
 
-.button_start {
+#button_enter {
     font-size: xx-large;
 }
 
@@ -53,11 +53,26 @@ body {
     border: solid 3px #000000;
 }
 
+#box_ready {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
+
+#button_ready {
+    font-size: xx-large;
+}
+
+.question {
+    display: none;
+}
+
 .selection {
     padding: 0.5em 1em;
-        margin: 2em 0;
-        font-weight: bold;
-        border: solid 3px #000000;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
 }
 
 .selection p {
@@ -67,4 +82,8 @@ body {
 
 #answer {
     display: none
+}
+
+#room {
+    text-align: left;
 }

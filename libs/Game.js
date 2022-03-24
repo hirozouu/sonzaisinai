@@ -76,10 +76,10 @@ module.exports = class Game
                 });
 
                 // when finish question
-                socket.on("finish-question", 
+                socket.on("finish-answer", 
                 () =>
                 {
-                    console.log("finish-question : socket.id = %s", socket.id);
+                    console.log("finish-answer : socket.id = %s", socket.id);
                 });
 
                 //when disconnect

@@ -13,9 +13,10 @@
             <div class="box_start">
                 <input type="text" id="input_playername" class="input_start" placeholder="Your Name" autofocus>
                 <input type="text" id="input_roomname" class="input_start" placeholder="RoomName">
-                <button id="button_start">はじめる</button>
+                <button id="button_enter">はじめる</button>
             </div>
         </div>
+
         <div id="game_scene" class="scene">
             <div id="box_score">
                 <div id="score1" class="score">
@@ -23,7 +24,12 @@
                     <p id="player1score">X</p>
                 </div>
             </div>
-            <div id="question1">
+
+            <div id="box_ready">
+                <button id="button_ready">準備完了</button>
+            </div>
+
+            <div id="question1" class="question">
                 <p id="text_question">Question</p>
                 <div id="select1" class="selection">
                     <p id="text1">Answer1</p>
@@ -38,12 +44,15 @@
                     <p id="text4">Answer4</p>
                 </div>
             </div>
-            <div id="question2">
+
+            <div id="question2" class="question">
                 <button id="button_answer">かくてい</button>
             </div>
+
             <div id="answer">
                 <p id="text_answer">X. Answer</p>
             </div>
+
             <div id="room">
                 <p id="roomname"></p>
             </div>
