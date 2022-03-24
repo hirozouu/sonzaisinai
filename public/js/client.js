@@ -11,7 +11,7 @@ let ROOMNAME = null;
 let SCORE = 0;
 const MEMBER = {};
 let MEMBER_COUNT = 1;
-let COUNTER = 1;
+let COUNTER = 0;
 
 //when unload page
 $(window).on(
@@ -43,10 +43,6 @@ $("#button_enter").on(
         };
 
         socket.emit("get-permission", json);
-        document.getElementById("start_scene").style.display = "none";
-        document.getElementById("game_scene").style.display = "flex";
-        document.getElementById("player1name").style.innerText = PLAYERNAME;
-        document.getElementById("roomname").style.innerText = ROOMNAME;
     }
 );
 
@@ -54,12 +50,16 @@ $("#button_enter").on(
 socket.on("give-permission", 
 () =>
     {
+        document.getElementById("start_scene").style.display = "none";
+        document.getElementById("game_scene").style.display = "flex";
+        document.getElementById("player1name").style.innerText = PLAYERNAME;
+        document.getElementById("roomname").style.innerText = ROOMNAME;
         var json = {
             "playerName": PLAYERNAME, 
             "key": socket.id
         };
         socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
-        console.log("enter-the-room : %s", PLAYERNAME)
+        console.log("enter-the-room : %s", PLAYERNAME);
     }
 );
 
@@ -73,6 +73,13 @@ socket.on("enter-the-room",
         };
         MEMBER_COUNT++;
         console.log("enter-the-room : %s", json.playerName);
+
+        var data = {
+            "playerName": PLAYERNAME, 
+            "score": SCORE, 
+            "key": socket.id
+        };
+        io.to(json.key).emit("set-player-information", data);
     }
 );
 
@@ -82,7 +89,7 @@ socket.on("leave-the-room",
     {
         delete MEMBER[json.key];
         MEMBER_COUNT--;
-        console.log("leave-the-room : %s", json.playerName)
+        console.log("leave-the-room : %s", json.playerName);
     }
 );
 
@@ -91,15 +98,26 @@ $("#button_ready").on(
     "click", 
     () =>
     {
-        socket.broadcast.to(ROOMNAME).emit("get-ready")
+        var json = {
+            "playerName": PLAYERNAME
+        };
+        socket.to(ROOMNAME).emit("get-ready", json);
     }
 );
 
+// other player get ready
 socket.on("get-ready", 
-    () =>
+    (json) =>
     {
+        console.log("get-ready : %s", json.playerName);
         COUNTER++;
-    })
+        if (COUNTER >= MEMBER_COUNT)
+        {
+            document.getElementById("box_ready").style.display = "none";
+            document.getElementsByClassName("question").style.display = "flex";
+            COUNTER = 1;
+        };
+    });
 
 // set question and selection
 socket.on("set-question", 
