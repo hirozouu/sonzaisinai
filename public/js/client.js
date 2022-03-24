@@ -20,34 +20,6 @@ $(window).on(
     }
 );
 
-//press button1
-document.getElementById("button1").addEventListener('click', function()
-{
-    console.log("press : button = %s", this.value);
-    if (this.value == "toGame")
-    {
-        socket.emit("get-question");
-        this.value = "toExplanation";
-        this.innerText = "次に進む";
-    }
-
-    else if (this.value == "toExplanation")
-    {
-        socket.emit("finish-answer");
-        screen.renderExample();
-        screen.renderExplanation();
-        this.value = "toQuestion";
-    }
-
-    else if (this.value == "toQuestion")
-    {
-        socket.emit("get-question");
-        document.getElementById("example").innerText = ""
-        document.getElementById("explanation").innerText = ""
-        this.value = "toExplanation";
-    }
-});
-
 socket.on("set-question", 
 (json) =>
 {
