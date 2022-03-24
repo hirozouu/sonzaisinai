@@ -46,6 +46,13 @@ $("#button_enter").on(
     }
 );
 
+socket.on("get-permission", 
+() =>
+    {
+        console.log("hogehoge")
+    }
+);
+
 // enter the room
 socket.on("give-permission", 
 () =>
