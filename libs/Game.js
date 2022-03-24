@@ -75,6 +75,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 (json) =>
                     {
+                        console.log("%s", io.sockets.manager.rooms[0])
                         console.log("hogehoge");
                         console.log("hogehoge");
                         console.log("hogehoge");
