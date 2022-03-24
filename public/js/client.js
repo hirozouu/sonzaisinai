@@ -58,7 +58,7 @@ socket.on("give-permission",
             "playerName": PLAYERNAME, 
             "key": socket.id
         };
-        socket.broadcast.emit(ROOMNAME).emit("enter-the-room", json);
+        socket.broadcast.to(ROOMNAME).emit("enter-the-room", json);
         console.log("enter-the-room : %s", PLAYERNAME);
     }
 );
