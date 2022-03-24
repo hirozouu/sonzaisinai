@@ -13,8 +13,8 @@ body {
     overflow: hidden;
 }
 
-.start_scene {
-    display: block;
+#start_scene {
+    display: flex;
 }
 
 .box_start {
@@ -34,11 +34,11 @@ body {
     font-size: xx-large;
 }
 
-.game_scene {
+#game_scene {
     display: none;
 }
 
-.box_score {
+#box_score {
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
