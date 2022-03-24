@@ -78,7 +78,7 @@ module.exports = class Game
                 (json) =>
                     {
                         console.log("hogehoge")
-                        console.log("json.roomName")
+                        console.log("%s", json.roomName)
                         console.log("hogehoge")
                         socket.broadcast.to(json.roomName).emit("get-ready", json);
                     }
