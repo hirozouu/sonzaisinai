@@ -38,7 +38,8 @@ module.exports = class Question
             return arr;
         }
 
-        var shuffle_answers = fisherYatesShuffle(this.selection);
-        return shuffle_answers;
+        var idx = [0, 1, 2, 3]
+        var shuffle_idx = fisherYatesShuffle(arr);
+        return shuffle_idx;
     }
 }
