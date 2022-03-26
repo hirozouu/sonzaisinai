@@ -109,13 +109,11 @@ $("#button_ready").on(
 );
 
 // other player get ready
-socket.on("get-ready-from-server", 
+socket.on("get-ready", 
     (json) =>
     {
         console.log("get-ready : %s", json.playerName);
         COUNTER++;
-        console.log("%s", COUNTER);
-        console.log("%s", MEMBER_COUNT)
         if (COUNTER >= MEMBER_COUNT)
         {
             console.log("start-the-game");
