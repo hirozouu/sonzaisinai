@@ -118,7 +118,8 @@ socket.on("get-ready",
         {
             console.log("start-the-game");
             document.getElementById("box_ready").style.display = "none";
-            document.getElementsByClassName("question").style.display = "flex";
+            document.getElementById("question1").style.display = "flex";
+            document.getElementById("question2").style.display = "flex";
             COUNTER = 1;
         };
     });
