@@ -121,7 +121,7 @@ socket.on("get-ready",
             document.getElementById("question1").style.display = "flex";
             document.getElementById("question2").style.display = "flex";
             COUNTER = 1;
-            socket.emit("get-question", "data");
+            socket.emit("get-question");
         };
     });
 
