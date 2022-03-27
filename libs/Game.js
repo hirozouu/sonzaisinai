@@ -93,7 +93,6 @@ module.exports = class Game
                         "selection3": question.selection[idx[2]], 
                         "selection4": question.selection[idx[3]]
                     };
-                    console.log("あいうえお")
                     io.to(socket.id).emit("set-question", json);
                 });
 
