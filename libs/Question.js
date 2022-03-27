@@ -39,7 +39,7 @@ module.exports = class Question
         }
 
         var idx = [0, 1, 2, 3]
-        var shuffle_idx = fisherYatesShuffle(arr);
+        var shuffle_idx = fisherYatesShuffle(idx);
         return shuffle_idx;
     }
 }
