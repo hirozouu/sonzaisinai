@@ -144,7 +144,7 @@ $("#button_answer").on(
             "playerName": PLAYERNAME, 
             "roomName": ROOMNAME
         };
-        socket.emit("finish-answer");
+        socket.emit("finish-answer", json);
     }
 );
 
