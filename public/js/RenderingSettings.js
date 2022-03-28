@@ -1,6 +1,5 @@
 // class rendering settings
 
-let SELECT = 
 class RenderingSettings
 {
 
