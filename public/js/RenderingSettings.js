@@ -6,11 +6,11 @@ class RenderingSettings
 }
 
 function clickSelection(element, num) {
-    $('#select1 > p').css('color') = 'black'
-    $('#select2 > p').css('color') = 'black'
-    $('#select3 > p').css('color') = 'black'
-    $('#select4 > p').css('color') = 'black'
-    this.children('p').css('color') = "red";
+    $("#select1 > p").css("color", "black")
+    $("#select2 > p").css("color", "black")
+    $("#select3 > p").css("color", "black")
+    $("#select4 > p").css("color", "black")
+    this.children('p').css('color', "red")
     console.log("click : selection%s", num)
     SELECT = num;
 }
