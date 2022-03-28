@@ -79,6 +79,14 @@ module.exports = class Game
                     }
                 );
 
+                // echo finish-answer
+                socket.on("finish-answer", 
+                (json) =>
+                    {
+                        socket.emit("finish-answer",  json)
+                    }
+                );
+
                 // when get question
                 socket.on("get-question", 
                 () =>
@@ -94,13 +102,6 @@ module.exports = class Game
                         "selection4": question.selection[idx[3]]
                     };
                     io.to(socket.id).emit("set-question", json);
-                });
-
-                // when finish question
-                socket.on("finish-answer", 
-                () =>
-                {
-                    console.log("finish-answer : socket.id = %s", socket.id);
                 });
 
                 //when disconnect

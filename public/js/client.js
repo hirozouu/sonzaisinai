@@ -12,7 +12,7 @@ let SCORE = 0;
 const MEMBER = {};
 let MEMBER_COUNT = 1;
 let COUNTER = 0;
-let SELECT = 0;
+let SELECT = -1;
 
 //when unload page
 $(window).on(
@@ -121,15 +121,47 @@ socket.on("get-ready",
             document.getElementById("box_ready").style.display = "none";
             document.getElementById("question1").style.display = "flex";
             document.getElementById("question2").style.display = "flex";
-            COUNTER = 1;
+            COUNTER = 0;
             socket.emit("get-question");
         };
-    });
+    }
+);
 
 // set question and selection
 socket.on("set-question", 
 (json) =>
     {
         screen.renderQuestion(json);
+    }
+);
+
+// click answer button
+$("button_answer").on(
+    "click", 
+    () =>
+    {
+        var json = {
+            "playerName": PLAYERNAME, 
+            "roomName": ROOMNAME, 
+            "select": SELECT
+        };
+        socket.emit("finish-answer", json);
+    }
+);
+
+// other player finish answer
+socket.on("finish-answer", 
+(json) =>
+    {
+        console.log("finish-answer : %s", json.playerName);
+        COUNTER++;
+        if (COUNTER >= MEMBER_COUNT)
+        {
+            document.getElementById("question1").style.display = "none";
+            document.getElementById("question2").style.display = "none";
+            document.getElementById("answer").style.display = "flex";
+            COUNTER = 0;
+            socket.emit("get-answer");
+        };
     }
 );
