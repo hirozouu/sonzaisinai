@@ -3,7 +3,8 @@ const World = require('./World.js');
 
 //constant
 const GameSettings = require('./GameSetting.js');
-const Question = require('./Question.js')
+const Question = require('./Question.js');
+const { json } = require('express/lib/response');
 
 // global veriable
 const MEMBER = {};
@@ -18,6 +19,7 @@ module.exports = class Game
         //variable
         const world = new World(io);
         const question = new Question();
+        let idx = null;
 
         //when connect
         io.on(
@@ -89,20 +91,34 @@ module.exports = class Game
 
                 // when get question
                 socket.on("get-question", 
+                    () =>
+                    {
+                        console.log("%s : get-question", json.playerName);
+                        question.setNewQuestion();
+                        idx = question.getSelection();
+                        var json = {
+                            "text_question": question.text_question, 
+                            "selection1": question.selection[idx[0]], 
+                            "selection2": question.selection[idx[1]], 
+                            "selection3": question.selection[idx[2]], 
+                            "selection4": question.selection[idx[3]]
+                        };
+                        io.to(socket.id).emit("set-question", json);
+                    }
+                );
+
+                socket.on("get-answer", 
                 () =>
-                {
-                    console.log("get-question : socket.id = %s", socket.id);
-                    question.setNewQuestion();
-                    var idx = question.getSelection();
-                    var json = {
-                        "text_question": question.text_question, 
-                        "selection1": question.selection[idx[0]], 
-                        "selection2": question.selection[idx[1]], 
-                        "selection3": question.selection[idx[2]], 
-                        "selection4": question.selection[idx[3]]
-                    };
-                    io.to(socket.id).emit("set-question", json);
-                });
+                    {
+                        console.log("%s : get-answer", json.playerName)
+                        var check = idx[json.select] == 0 ? "right" : "wrong";
+                        var json = {
+                            "correct": check, 
+                            "text_answer": question.text_answer
+                        };
+                        io.to(socket.id).emit("set-answer", json);
+                    }
+                );
 
                 //when disconnect
                 socket.on("disconnect", 

@@ -37,6 +37,12 @@ class Screen
         )
     }
 
+    renderProfile(playerName, score)
+    {
+        document.getElementById("player1name").innerText = playerName;
+        document.getElementById("player1score").innerText = score;
+    }
+
     renderQuestion(question)
     {
         document.getElementById("text_question").innerText = question.text_question;
@@ -47,15 +53,13 @@ class Screen
         console.log("render : question");
     }
 
-    renderExample()
+    renderAnswer(answer)
     {
-        document.getElementById("example").innerText = "正解 : "
-        console.log("render : example")
-    }
-
-    renderExplanation()
-    {
-        document.getElementById("explanation").innerText = "ぐぐれ";
-        console.log("render : explanation");
+        document.getElementById("text_answer").innerText = answer.text_answer;
+        if (answer.check == "right")
+        {
+            SCORE++;
+            document.getElementById("player1score").innerText = SCORE;
+        }
     }
 }

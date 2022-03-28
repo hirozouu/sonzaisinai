@@ -53,7 +53,7 @@ socket.on("give-permission",
     {
         document.getElementById("start_scene").style.display = "none";
         document.getElementById("game_scene").style.display = "flex";
-        document.getElementById("player1name").innerText = PLAYERNAME;
+        screen.renderProfile(PLAYERNAME, SCORE);
         document.getElementById("roomname").innerText = ROOMNAME;
         var json = {
             "playerName": PLAYERNAME, 
@@ -142,10 +142,9 @@ $("#button_answer").on(
     {
         var json = {
             "playerName": PLAYERNAME, 
-            "roomName": ROOMNAME, 
-            "select": SELECT
+            "roomName": ROOMNAME
         };
-        socket.emit("finish-answer", json);
+        socket.emit("finish-answer");
     }
 );
 
@@ -161,7 +160,20 @@ socket.on("finish-answer",
             document.getElementById("question2").style.display = "none";
             document.getElementById("answer").style.display = "flex";
             COUNTER = 0;
-            socket.emit("get-answer");
+            var json = {
+                "playerName": PLAYERNAME, 
+                "roomName": ROOMNAME, 
+                "select": SELECT
+            }
+            socket.emit("get-answer", json);
         };
+    }
+);
+
+// check answer
+socket.on("set-answer", 
+(json) =>
+    {
+        screen.renderAnswer(json);
     }
 );
