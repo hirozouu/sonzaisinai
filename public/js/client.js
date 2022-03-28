@@ -140,6 +140,7 @@ $("button_answer").on(
     "click", 
     () =>
     {
+        console.log("test")
         var json = {
             "playerName": PLAYERNAME, 
             "roomName": ROOMNAME, 
