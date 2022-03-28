@@ -107,14 +107,14 @@ module.exports = class Game
                 );
 
                 socket.on("get-answer", 
-                () =>
+                (json) =>
                     {
                         var check = idx[json.select] == 0 ? "right" : "wrong";
-                        var json = {
+                        var data = {
                             "correct": check, 
                             "text_answer": question.text_answer
                         };
-                        io.to(socket.id).emit("set-answer", json);
+                        io.to(socket.id).emit("set-answer", data);
                     }
                 );
 
