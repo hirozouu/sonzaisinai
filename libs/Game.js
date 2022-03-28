@@ -77,7 +77,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 (json) =>
                     {
-                        socket.emit("get-ready", json);
+                        socket.broadcast.emit("get-ready", json);
                     }
                 );
 
@@ -85,7 +85,7 @@ module.exports = class Game
                 socket.on("finish-answer", 
                 (json) =>
                     {
-                        socket.emit("finish-answer",  json)
+                        socket.broadcast.emit("finish-answer",  json)
                     }
                 );
 

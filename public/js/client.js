@@ -156,7 +156,7 @@ socket.on("finish-answer",
         COUNTER++;
         if (COUNTER >= MEMBER_COUNT)
         {
-            document.getElementById("question1").style.display = "none";
+            document.getElementById("question2").style.display = "none";
             document.getElementById("answer").style.display = "flex";
             COUNTER = 0;
             var json = {
