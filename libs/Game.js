@@ -93,7 +93,6 @@ module.exports = class Game
                 socket.on("get-question", 
                     () =>
                     {
-                        console.log("%s : get-question", json.playerName);
                         question.setNewQuestion();
                         idx = question.getSelection();
                         var json = {
@@ -110,7 +109,6 @@ module.exports = class Game
                 socket.on("get-answer", 
                 () =>
                     {
-                        console.log("%s : get-answer", json.playerName)
                         var check = idx[json.select] == 0 ? "right" : "wrong";
                         var json = {
                             "correct": check, 
