@@ -136,11 +136,10 @@ socket.on("set-question",
 );
 
 // click answer button
-$("button_answer").on(
+$("#button_answer").on(
     "click", 
     () =>
     {
-        console.log("test")
         var json = {
             "playerName": PLAYERNAME, 
             "roomName": ROOMNAME, 

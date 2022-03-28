@@ -86,6 +86,10 @@ body {
     display: none
 }
 
+#button_answer {
+    font-size: xx-large;
+}
+
 #room {
     text-align: left;
 }
