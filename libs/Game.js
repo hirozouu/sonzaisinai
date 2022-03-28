@@ -114,6 +114,7 @@ module.exports = class Game
                             check = "right";
                         }
                         var data = {
+                            "playerName": json.playerName, 
                             "correct": check, 
                             "text_answer": question.text_answer
                         };

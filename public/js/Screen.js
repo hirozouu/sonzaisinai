@@ -58,8 +58,13 @@ class Screen
         document.getElementById("text_answer").innerText = answer.text_answer;
         if (answer.check == "right")
         {
+            console.log("%s : right-answer", json.playerName);
             SCORE++;
             document.getElementById("player1score").innerText = SCORE;
+        }
+        else
+        {
+            console.log("%s : wrong-answer", json.playerName);
         }
     }
 }
