@@ -10,7 +10,7 @@ function clickSelection(element, num) {
     $("#select2 > p").css("color", "black")
     $("#select3 > p").css("color", "black")
     $("#select4 > p").css("color", "black")
-    this.children('p').css('color', "red")
+    $("#select${num} > p").css('color', "red")
     console.log("click : selection%s", num)
     SELECT = num;
 }

@@ -12,7 +12,7 @@ let SCORE = 0;
 const MEMBER = {};
 let MEMBER_COUNT = 1;
 let COUNTER = 0;
-let SELECT = -1;
+let SELECT = 0;
 
 //when unload page
 $(window).on(
