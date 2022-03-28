@@ -1,15 +1,18 @@
 // class rendering settings
+
+let SELECT = 
 class RenderingSettings
 {
-    //background tile size
-    static get FIELDTILE_WIDTH() {return 512;}
-    static get FIELDTILE_HEIGHT() {return 512;}
 
-    //field
-    static get FIELD_LINECOLOR() {return 'blue';}
-    static get FIELD_LINEWIDTH() {return 5;}
+}
 
-    //processing time
-    static get PROCESSINGTIME_FONT() {return '30px Bold Arial';}
-    static get PROCESSINGTIME_COLOR() {return 'black';}
+document
+
+function clickSelection(element, num) {
+    document.getElementById("select1").class = "selection";
+    document.getElementById("select2").class = "selection";
+    document.getElementById("select3").class = "selection";
+    document.getElementById("select4").class = "selection";
+    element.class = "selection_selected";
+    SELECT = num;
 }
