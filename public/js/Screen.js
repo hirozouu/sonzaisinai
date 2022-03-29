@@ -42,7 +42,7 @@ class Screen
         var div_element = document.createElement("div");
         div_element.id = "box_" + playerName;
         div_element.class = "box_player";
-        $("#box_"+playerName).css({
+        $("#box_hoge").css({
             "padding": "0.5em 1em", 
             "margin": "2em 0", 
             "font-weight": "bold", 
