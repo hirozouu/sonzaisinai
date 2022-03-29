@@ -42,6 +42,13 @@ class Screen
         var div_element = document.createElement("div");
         div_element.id = "box_" + playerName;
         div_element.class = "box_player";
+        div_element.css({
+            "padding": "0.5em 1em", 
+            "margin": "2em 0", 
+            "font-weight": "bold", 
+            "border": "solid 3px #000000"
+            }
+        );
 
         var name_element = document.createElement("p");
         name_element.id = "name_" + playerName;
@@ -52,6 +59,7 @@ class Screen
         score_element.id = "score_" + playerName;
         score_element.innerText = score;
         div_element.appendChild(score_element);
+
 
         document.getElementById("box_players").appendChild(div_element);
     }
