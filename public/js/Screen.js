@@ -39,8 +39,18 @@ class Screen
 
     renderProfile(playerName, score)
     {
-        document.getElementById("player1name").innerText = playerName;
-        document.getElementById("player1score").innerText = score;
+        var div_element = document.createElement("div");
+        div_element.id = "box_" + playerName;
+
+        var name_element = document.createElement("p");
+        name_element.id = "name_" + playerName;
+        div_element.appendChild(name_element);
+
+        var score_element = document.createElement("p");
+        score_element.id = "score_" + playerName;
+        div_element.appendChild(score_element);
+
+        document.getElementById("box_score").appendChild(div_element);
     }
 
     renderQuestion(question)
