@@ -44,10 +44,12 @@ class Screen
 
         var name_element = document.createElement("p");
         name_element.id = "name_" + playerName;
+        name_element.innerText = playerName;
         div_element.appendChild(name_element);
 
         var score_element = document.createElement("p");
         score_element.id = "score_" + playerName;
+        score_element.innerText = score;
         div_element.appendChild(score_element);
 
         document.getElementById("box_score").appendChild(div_element);
