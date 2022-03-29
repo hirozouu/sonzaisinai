@@ -89,7 +89,12 @@ socket.on("enter-the-room",
 socket.on("set-player-information", 
 (json) =>
     {
-
+        MEMBER[json.key] = {
+            playerName: json.playerName, 
+            score: json.score
+        };
+        renderProfile(json.playerName, json.score);
+        console.log("%s : get-player-information %s", PLAYERNAME, json.playerName)
     }
 );
 
