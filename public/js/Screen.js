@@ -53,7 +53,7 @@ class Screen
         score_element.innerText = score;
         div_element.appendChild(score_element);
 
-        document.getElementById("box_score").appendChild(div_element);
+        document.getElementById("box_players").appendChild(div_element);
     }
 
     renderQuestion(question)
