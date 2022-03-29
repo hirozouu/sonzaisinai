@@ -6,7 +6,7 @@ class Screen
     {
         this.socket = socket;
 
-        this.assets = new Assets()
+        this.assets = new Assets();
         this.iProcessingTimeNanoSec = 0;
 
         //init socket
@@ -21,7 +21,7 @@ class Screen
             'connect', 
             () =>
             {
-                console.log('connect : socket.id = %s', socket.id)
+                console.log('connect : socket.id = %s', socket.id);
                 //send to server
                 this.socket.emit('enter-the-game');
             }
