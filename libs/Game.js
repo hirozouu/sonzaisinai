@@ -110,6 +110,7 @@ module.exports = class Game
                 (json) =>
                     {
                         console.log("%s", json.select);
+                        console.log("%s", idx[json.select])
                         var check = "wrong";
                         if (idx[parseInt(json.select)] == 0){
                             check = "right";
