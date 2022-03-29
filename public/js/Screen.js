@@ -60,7 +60,6 @@ class Screen
         {
             console.log("%s : right-answer", answer.playerName);
             SCORE++;
-            console.log("%s", SCORE);
             document.getElementById("player1score").innerText = SCORE;
         }
         else

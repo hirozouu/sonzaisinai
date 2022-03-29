@@ -110,7 +110,7 @@ module.exports = class Game
                 (json) =>
                     {
                         var check = "wrong";
-                        if (idx[json.select] == 0){
+                        if (idx[int(json.select)] == 0){
                             check = "right";
                         }
                         var data = {
