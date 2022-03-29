@@ -41,12 +41,12 @@ body {
     text-align: center;
 }
 
-#box_score {
+#box_players {
     display: flex;
     flex-direction: row;
 }
 
-.score {
+.box_player {
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;

@@ -41,6 +41,7 @@ class Screen
     {
         var div_element = document.createElement("div");
         div_element.id = "box_" + playerName;
+        div_element.class = "box_player";
 
         var name_element = document.createElement("p");
         name_element.id = "name_" + playerName;
