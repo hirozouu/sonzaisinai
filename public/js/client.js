@@ -86,6 +86,13 @@ socket.on("enter-the-room",
     }
 );
 
+socket.on("set-player-information", 
+(json) =>
+    {
+
+    }
+);
+
 // other player leave the room
 socket.on("leave-the-room", 
 (json) =>

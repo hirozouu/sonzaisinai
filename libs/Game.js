@@ -26,9 +26,14 @@ module.exports = class Game
             'connection', 
             (socket) => 
             {
+                MEMBER[socket.id] = {
+                    playerName: null, 
+                    count: MEMBER_COUNT
+                }
+                MEMBER_COUNT++;
                 console.log('connection : socket.id = %s', socket.id);
 
-                // when enter the room
+                // enter the room
                 socket.on('get-permission',
                 (json) => 
                 {
@@ -46,7 +51,7 @@ module.exports = class Game
                     io.to(socket.id).emit("give-permission");
                 });
 
-                // when leave the room
+                // leave the room
                 socket.on("leave-the-room", 
                 () =>
                 {
@@ -70,6 +75,7 @@ module.exports = class Game
                 socket.on("set-player-information", 
                 (json) =>
                     {
+                        socket.broadcast.emit("set-player-information", json);
                     }
                 );
 
@@ -125,9 +131,11 @@ module.exports = class Game
                 //when disconnect
                 socket.on("disconnect", 
                 () => 
-                {
-                    console.log('disconnect : socket.id = %s', socket.id)
-                });
+                    {
+                        delete MEMBER[socket.id];
+                        console.log('disconnect : socket.id = %s', socket.id);
+                    }
+                );
             });
     }
 }
