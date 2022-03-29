@@ -74,7 +74,7 @@ socket.on("enter-the-room",
             score: 0
         };
         MEMBER_COUNT++;
-        screen.renderProfile(json.playerName, 0)
+        screen.renderProfile(json.playerName, 0);
         console.log("enter-the-room : %s", json.playerName);
 
         var data = {
@@ -94,7 +94,7 @@ socket.on("set-player-information",
             playerName: json.playerName, 
             score: json.score
         };
-        screen.renderProfile(json.playerName, json.score);
+        // screen.renderProfile(json.playerName, json.score);
         console.log("%s : get-player-information %s", PLAYERNAME, json.playerName)
     }
 );
