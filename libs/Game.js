@@ -117,7 +117,7 @@ module.exports = class Game
                         }
                         var data = {
                             "playerName": json.playerName, 
-                            "correct": check, 
+                            "check": check, 
                             "text_answer": question.text_answer
                         };
                         io.to(socket.id).emit("set-answer", data);
