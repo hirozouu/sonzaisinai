@@ -74,6 +74,7 @@ socket.on("enter-the-room",
             score: 0
         };
         MEMBER_COUNT++;
+        screen.renderProfile(json.playerName, 0)
         console.log("enter-the-room : %s", json.playerName);
 
         var data = {
