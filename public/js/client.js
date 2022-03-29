@@ -94,7 +94,7 @@ socket.on("set-player-information",
             playerName: json.playerName, 
             score: json.score
         };
-        // screen.renderProfile(json.playerName, json.score);
+        screen.renderProfile(json.playerName, json.score);
         console.log("%s : get-player-information %s", PLAYERNAME, json.playerName)
     }
 );
