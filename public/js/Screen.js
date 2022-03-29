@@ -40,9 +40,9 @@ class Screen
     renderProfile(playerName, score)
     {
         var div_element = document.createElement("div");
-        div_element.id = "box_" + playerName;
+        div_element.id = "box_";
         div_element.class = "box_player";
-        $("#box_hoge").css({
+        $("#box_").css({
             "padding": "0.5em 1em", 
             "margin": "2em 0", 
             "font-weight": "bold", 
