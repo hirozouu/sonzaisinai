@@ -90,7 +90,8 @@ module.exports = class Game
                         io.to(socket.strRoomName).emit("enter-the-room", json);
                         var data = {};
                         for (var key of Object.keys(PLAYER)){
-                            if (PLAYER[key].roomName == socket.strRoomName){
+                            if (PLAYER[key].roomName == socket.strRoomName 
+                                && key != socket.id){
                                 data[key] = PLAYER[key];
                             }
                         }

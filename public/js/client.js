@@ -46,7 +46,6 @@ socket.on("give-permission",
     {
         document.getElementById("start_scene").style.display = "none";
         document.getElementById("game_scene").style.display = "flex";
-        screen.renderProfile(PLAYERNAME, SCORE);
         document.getElementById("roomname").innerText = ROOMNAME;
         var json = {
             "playerName": PLAYERNAME, 
@@ -57,7 +56,7 @@ socket.on("give-permission",
     }
 );
 
-// other player enter the room
+// when players enter the room
 socket.on("enter-the-room", 
 (json) =>
     {
@@ -66,6 +65,7 @@ socket.on("enter-the-room",
     }
 );
 
+// when server set other player information
 socket.on("set-player-information", 
 (json) =>
     {
