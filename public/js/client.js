@@ -52,7 +52,6 @@ socket.on("give-permission",
             "roomName": ROOMNAME, 
         };
         socket.emit("enter-the-room", json);
-        console.log("enter-the-room : %s", PLAYERNAME);
     }
 );
 
