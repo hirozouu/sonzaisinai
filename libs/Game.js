@@ -155,9 +155,11 @@ module.exports = class Game
                     COUNTER[socket.strRoomName]++;
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         var data = {};
-                        for (var key of Object.keys(PLAYER)){
+                        for (var key of Object.keys(PLAYER))
+                        {
                             if (PLAYER[key].roomName == socket.strRoomName 
-                                && key != socket.id){
+                                && key != socket.id)
+                                {
                                 data[key] = PLAYER[key];
                             }
                         }
@@ -170,6 +172,11 @@ module.exports = class Game
                 () => 
                 {
                     delete PLAYER[socket.id];
+                    ROOM[socket.strRoomName].memberCount--;
+                    if (ROOM[socket.strRoomName].memberCount == 0)
+                    {
+                        delete ROOM[socket.strRoomName];
+                    }
                     console.log('disconnect : socket.id = %s', socket.id);
                 });
             });
