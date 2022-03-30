@@ -1,7 +1,5 @@
 'use strict'
 
-const { json } = require("express/lib/response");
-
 //object
 const socket = io.connect();
 
