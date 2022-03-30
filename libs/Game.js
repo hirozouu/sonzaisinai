@@ -84,7 +84,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 (json) =>
                     {
-                        socket.emit("get-ready", json);
+                        io.to(roomname).emit("get-ready", json);
                     }
                 );
 
