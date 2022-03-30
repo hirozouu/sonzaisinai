@@ -104,7 +104,7 @@ module.exports = class Game
                 {
                     COUNTER[socket.strRoomName]++;
                     console.log(COUNTER[socket.strRoomName]);
-                    console.log(ROOM[strRoomName].memberCount);
+                    console.log(ROOM[socket.strRoomName].memberCount);
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-get-ready");
                         COUNTER[socket.strRoomName] = 0;
