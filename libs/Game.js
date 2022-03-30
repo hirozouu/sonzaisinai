@@ -141,6 +141,7 @@ module.exports = class Game
                     };
                     io.to(socket.id).emit("set-answer", data);
                     COUNTER[socket.strRoomName]++;
+                    console.log(COUNTER[socket.strRoomName])
                     
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         var data = {};

@@ -92,5 +92,6 @@ class Screen
             document.getElementById("score_"+data[key].playerName).innerText 
             = data[key].score;
         }
+        console.log("update-score");
     }
 }
