@@ -149,6 +149,7 @@ socket.on("update-score",
     }
 );
 
+// click next button
 $("#button_next").on(
     "click", 
     () =>
