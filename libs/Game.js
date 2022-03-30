@@ -66,7 +66,7 @@ module.exports = class Game
 
                     socket.join(roomname);
                     socket.strRoomName = roomname;
-                    ROOM[roomname].memberCount++;
+                    ROOM[socket.strRoomName].memberCount++;
                     io.to(socket.id).emit("give-permission");
                     console.log('enter-the-room : socket.id = %s', socket.id);
                 });
