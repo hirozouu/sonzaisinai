@@ -87,11 +87,7 @@ $("#button_ready").on(
     "click", 
     () =>
     {
-        var json = {
-            "playerName": PLAYERNAME, 
-            "roomName": ROOMNAME
-        };
-        socket.emit("get-ready", json);
+        socket.emit("get-ready");
     }
 );
 
