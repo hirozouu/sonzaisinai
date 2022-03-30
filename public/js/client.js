@@ -1,5 +1,7 @@
 'use strict'
 
+const { json } = require("express/lib/response");
+
 //object
 const socket = io.connect();
 
@@ -9,7 +11,6 @@ const screen = new Screen(socket);
 let PLAYERNAME = null;
 let ROOMNAME = null;
 let SCORE = 0;
-let COUNTER = 0;
 let SELECT = -1;
 
 //when unload page
@@ -79,9 +80,7 @@ socket.on("set-player-information",
 socket.on("leave-the-room", 
 (json) =>
     {
-        delete MEMBER[json.key];
-        MEMBER_COUNT--;
-        console.log("leave-the-room : %s", json.playerName);
+        console.log("%s : leave-the-room", json.playerName);
     }
 );
 
@@ -99,69 +98,54 @@ $("#button_ready").on(
 );
 
 // other player get ready
-socket.on("get-ready", 
-    (json) =>
+socket.on("everyone-get-ready", 
+    () =>
     {
-        console.log("get-ready : %s", json.playerName);
-        COUNTER++;
-        if (COUNTER >= MEMBER_COUNT)
-        {
-            console.log("start-the-game");
-            document.getElementById("box_ready").style.display = "none";
-            document.getElementById("question1").style.display = "flex";
-            document.getElementById("question2").style.display = "flex";
-            COUNTER = 0;
-            socket.emit("get-question");
-        };
+        console.log("start-the-game");
+        document.getElementById("box_ready").style.display = "none";
+        document.getElementById("question1").style.display = "flex";
+        document.getElementById("question2").style.display = "flex";
+        socket.emit("get-question");
     }
 );
 
-// set question and selection
+// render question and selection
 socket.on("set-question", 
-(json) =>
+    (json) =>
     {
         screen.renderQuestion(json);
-    }
-);
+    });
 
 // click answer button
 $("#button_answer").on(
     "click", 
     () =>
     {
-        var json = {
-            "playerName": PLAYERNAME, 
-            "roomName": ROOMNAME
-        };
-        socket.emit("finish-answer", json);
+        socket.emit("finish-answer");
     }
 );
 
 // other player finish answer
-socket.on("finish-answer", 
-(json) =>
+socket.on("everyone-finish-answer", 
+    () =>
     {
-        console.log("finish-answer : %s", json.playerName);
-        COUNTER++;
-        if (COUNTER >= MEMBER_COUNT)
-        {
-            document.getElementById("question2").style.display = "none";
-            document.getElementById("answer").style.display = "flex";
-            COUNTER = 0;
-            var json = {
-                "playerName": PLAYERNAME, 
-                "roomName": ROOMNAME, 
-                "select": SELECT
-            }
-            socket.emit("get-answer", json);
-        };
-    }
-);
+        document.getElementById("question2").style.display = "none";
+        document.getElementById("answer").style.display = "flex";
+        socket.emit("get-answer", SELECT);
+    });
 
-// check answer
+// render answer
 socket.on("set-answer", 
 (json) =>
     {
         screen.renderAnswer(json);
+    }
+);
+
+// render score
+socket.on("update-score", 
+(json) =>
+    {
+        screen.renderScore(json);
     }
 );

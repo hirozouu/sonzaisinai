@@ -9,7 +9,7 @@ const { json } = require('express/lib/response');
 // global veriable
 const ROOM = {};
 const PLAYER = {};
-let COUNTER = {};
+const COUNTER = {};
 
 //class Game
 module.exports = class Game
@@ -61,6 +61,7 @@ module.exports = class Game
                             memberCount: 0, 
                             question: null
                         };
+                        COUNTER[roomname] = 0;
                     }
 
                     socket.join(roomname);
@@ -74,20 +75,83 @@ module.exports = class Game
                 socket.on("leave-the-room", 
                 () =>
                 {
-                    console.log("leave-the-room : ", socket.id);
+                    console.log("leave-the-room : %s", socket.id);
                     if ("strRoomName" in socket)
                     {
-                        console.log("Room name : ", socket.strRoomName);
                         socket.leave(socket.strRoomName);
                         socket.strRoomName = ""
                     }
-                })
+                });
 
                 // echo enter-the-room
                 socket.on("enter-the-room", 
                 (json) =>
-                    {
-                        io.to(socket.strRoomName).emit("enter-the-room", json);
+                {
+                    io.to(socket.strRoomName).emit("enter-the-room", json);
+                    var data = {};
+                    for (var key of Object.keys(PLAYER)){
+                        if (PLAYER[key].roomName == socket.strRoomName 
+                            && key != socket.id){
+                            data[key] = PLAYER[key];
+                        }
+                    }
+                    io.to(socket.id).emit("set-player-information", data)
+                });
+
+                // when client get ready
+                socket.on("get-ready", 
+                () =>
+                {
+                    COUNTER[socket.roomName]++;
+                    if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
+                        io.to(roomname).emit("everyone-get-ready");
+                        COUNTER[socket.strRoomName] = 0;
+                    }
+                });
+
+                // when client finish answer
+                socket.on("finish-answer", 
+                () =>
+                {
+                    COUNTER[socket.roomName]++;
+                    if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
+                        io.to(roomname).emit("everyone-finish-answer");
+                        COUNTER[socket.strRoomName] = 0;
+                    }
+                });
+
+                // when client get question
+                socket.on("get-question", 
+                () =>
+                {
+                    question.setNewQuestion();
+                    idx = question.getSelection();
+                    var json = {
+                        "text_question": question.text_question, 
+                        "selection1": question.selection[idx[0]], 
+                        "selection2": question.selection[idx[1]], 
+                        "selection3": question.selection[idx[2]], 
+                        "selection4": question.selection[idx[3]]
+                    };
+                    io.to(socket.id).emit("set-question", json);
+                });
+
+                socket.on("get-answer", 
+                (json) =>
+                {
+                    var check = "wrong";
+                    if (idx[parseInt(json)] == 0){
+                        check = "right";
+                        PLAYER[socket.id].score++;
+                    }
+                    var data = {
+                        "check": check, 
+                        "text_answer": question.text_answer
+                    };
+                    io.to(socket.id).emit("set-answer", data);
+                    
+                    COUNTER[socket.strRoomName]++;
+                    if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         var data = {};
                         for (var key of Object.keys(PLAYER)){
                             if (PLAYER[key].roomName == socket.strRoomName 
@@ -95,67 +159,17 @@ module.exports = class Game
                                 data[key] = PLAYER[key];
                             }
                         }
-                        io.to(socket.id).emit("set-player-information", data)
+                        io.to(strRoomName).emit("update-score", data)
                     }
-                );
-
-                // echo get-ready
-                socket.on("get-ready", 
-                (json) =>
-                    {
-                        io.to(roomname).emit("get-ready", json);
-                    }
-                );
-
-                // echo finish-answer
-                socket.on("finish-answer", 
-                (json) =>
-                    {
-                        socket.emit("finish-answer",  json)
-                    }
-                );
-
-                // when get question
-                socket.on("get-question", 
-                    () =>
-                    {
-                        question.setNewQuestion();
-                        idx = question.getSelection();
-                        var json = {
-                            "text_question": question.text_question, 
-                            "selection1": question.selection[idx[0]], 
-                            "selection2": question.selection[idx[1]], 
-                            "selection3": question.selection[idx[2]], 
-                            "selection4": question.selection[idx[3]]
-                        };
-                        io.to(socket.id).emit("set-question", json);
-                    }
-                );
-
-                socket.on("get-answer", 
-                (json) =>
-                    {
-                        var check = "wrong";
-                        if (idx[parseInt(json.select)] == 0){
-                            check = "right";
-                        }
-                        var data = {
-                            "playerName": json.playerName, 
-                            "check": check, 
-                            "text_answer": question.text_answer
-                        };
-                        io.to(socket.id).emit("set-answer", data);
-                    }
-                );
+                });
 
                 //when disconnect
                 socket.on("disconnect", 
                 () => 
-                    {
-                        delete PLAYER[socket.id];
-                        console.log('disconnect : socket.id = %s', socket.id);
-                    }
-                );
+                {
+                    delete PLAYER[socket.id];
+                    console.log('disconnect : socket.id = %s', socket.id);
+                });
             });
     }
 }

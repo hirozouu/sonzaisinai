@@ -79,12 +79,18 @@ class Screen
         if (answer.check == "right")
         {
             console.log("%s : right-answer", answer.playerName);
-            SCORE++;
-            document.getElementById("player1score").innerText = SCORE;
         }
         else
         {
             console.log("%s : wrong-answer", answer.playerName);
+        }
+    }
+
+    renderScore(data)
+    {
+        for (var key of Object.keys(data)){
+            document.getElementById("score_"+data[key].playerName).innerText 
+            = data[key].score;
         }
     }
 }
