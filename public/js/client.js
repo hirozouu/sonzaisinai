@@ -9,8 +9,6 @@ const screen = new Screen(socket);
 let PLAYERNAME = null;
 let ROOMNAME = null;
 let SCORE = 0;
-const MEMBER = {};
-let MEMBER_COUNT = 1;
 let COUNTER = 0;
 let SELECT = -1;
 
@@ -34,10 +32,6 @@ $("#button_enter").on(
     {
         PLAYERNAME = $("#input_playername").val();
         ROOMNAME = $("#input_roomname").val();
-        MEMBER[socket.id] = {
-            playerName: PLAYERNAME, 
-            score: 0
-        };
         var json = {
             "playerName": PLAYERNAME, 
             "roomName": ROOMNAME, 
@@ -57,7 +51,6 @@ socket.on("give-permission",
         var json = {
             "playerName": PLAYERNAME, 
             "roomName": ROOMNAME, 
-            "key": socket.id
         };
         socket.emit("enter-the-room", json);
         console.log("enter-the-room : %s", PLAYERNAME);
@@ -68,33 +61,18 @@ socket.on("give-permission",
 socket.on("enter-the-room", 
 (json) =>
     {
-        MEMBER[json.key] = {
-            playerName: json.playerName, 
-            score: 0
-        };
-        MEMBER_COUNT++;
         screen.renderProfile(json.playerName, 0);
         console.log("enter-the-room : %s", json.playerName);
-
-        var data = {
-            "playerName": PLAYERNAME, 
-            "score": SCORE, 
-            "roomName": ROOMNAME, 
-            "key": socket.id
-        };
-        socket.emit("set-player-information", data);
     }
 );
 
 socket.on("set-player-information", 
 (json) =>
     {
-        MEMBER[json.key] = {
-            playerName: json.playerName, 
-            score: json.score
-        };
-        screen.renderProfile(json.playerName, json.score);
-        console.log("%s : get-player-information %s", PLAYERNAME, json.playerName)
+        for (var key of Object.keys(json)){
+            screen.renderProfile(json[key].playerName, json[key].score);
+            console.log("%s : get-player-information %s", PLAYERNAME, json[key].playerName)
+        }
     }
 );
 

@@ -8,6 +8,8 @@ const { json } = require('express/lib/response');
 
 // global veriable
 const ROOM = {};
+const PLAYER = {};
+let COUNTER = {};
 
 //class Game
 module.exports = class Game
@@ -27,17 +29,19 @@ module.exports = class Game
             {
                 let playername = null;
                 let roomname = null;
-
+                MEMBER[socket.id] = {
+                    playerName: null, 
+                    roomName: null, 
+                    score: 0
+                };
                 console.log('connection : socket.id = %s', socket.id);
 
                 // enter the room
                 socket.on('get-permission',
                 (json) => 
                 {
-                    console.log('enter-the-room : socket.id = %s', socket.id);
                     playername = json.playerName;
                     roomname = json.roomName;
-                    
 
                     if (!playername)
                     {
@@ -49,10 +53,21 @@ module.exports = class Game
                         roomname = "*********NoName**********";
                     }
 
+                    MEMBER[socket.id].playerName = playername;
+                    MEMBER[socket.id].roomName = roomname;
+                    if (!ROOM[roomname])
+                    {
+                        ROOM[roomname] = {
+                            memberCount: 0, 
+                            question: null
+                        };
+                    }
+
                     socket.join(roomname);
-                    console.log(io.sockets.adapter.rooms[roomname]);
                     socket.strRoomName = roomname;
+                    ROOM[roomname].memberCount++;
                     io.to(socket.id).emit("give-permission");
+                    console.log('enter-the-room : socket.id = %s', socket.id);
                 });
 
                 // leave the room
@@ -72,15 +87,14 @@ module.exports = class Game
                 socket.on("enter-the-room", 
                 (json) =>
                     {
-                        socket.broadcast.emit("enter-the-room", json);
-                    }
-                );
-
-                // echo set-player-information
-                socket.on("set-player-information", 
-                (json) =>
-                    {
-                        socket.broadcast.emit("set-player-information", json);
+                        io.to(socket.strRoomName).emit("enter-the-room", json);
+                        var data = {};
+                        for (var key of Object.keys(MEMBER)){
+                            if (MEMBER[key].roomName == socket.strRoomName){
+                                data[key] = MEMBER[key];
+                            }
+                        }
+                        io.to(socket.id).emit("set-player-information", data)
                     }
                 );
 
