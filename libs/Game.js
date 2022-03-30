@@ -137,7 +137,7 @@ module.exports = class Game
                 {
                     var data = {
                         "check": ROOM[socket.strRoomName].question.answer[num], 
-                        "text_answer": question.text_answer
+                        "text_answer": ROOM[socket.strRoomName].question.text_answer
                     };
                     io.to(socket.id).emit("set-answer", data);
                     COUNTER[socket.strRoomName]++;

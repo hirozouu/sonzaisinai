@@ -24,6 +24,6 @@ module.exports = class Question
         this.selection = ["サイバー・チャージャー", "アクア・チャージャー", 
             "エナジー・チャージャー", "スパイラル・チャージャー"];
         this.answer = [true, false, false, false];
-        this.text_answer = "サイバー・チャージャー";
+        this.text_answer = "A. サイバー・チャージャー";
     }
 }
