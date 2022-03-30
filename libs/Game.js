@@ -50,7 +50,7 @@ module.exports = class Game
                     }
 
                     socket.join(roomname);
-                    console.log(io.of("/name").adapter.rooms[roomname]);
+                    console.log(io.sockets.adapter.rooms[roomname]);
                     socket.strRoomName = roomname;
                     io.to(socket.id).emit("give-permission");
                 });
