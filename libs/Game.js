@@ -102,7 +102,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 () =>
                 {
-                    COUNTER[socket.roomName]++;
+                    COUNTER[socket.strRoomName]++;
                     console.log(COUNTER[socket.strRoomName]);
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-get-ready");
@@ -114,7 +114,7 @@ module.exports = class Game
                 socket.on("finish-answer", 
                 () =>
                 {
-                    COUNTER[socket.roomName]++;
+                    COUNTER[socket.strRoomName]++;
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-finish-answer");
                         COUNTER[socket.strRoomName] = 0;
