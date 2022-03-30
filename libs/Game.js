@@ -135,8 +135,7 @@ module.exports = class Game
                 socket.on("get-answer", 
                 (num) =>
                 {
-                    check = ROOM[socket.strRoomName].question.answer[num];
-                    console.log(ROOM[socket.strRoomName].question.text_answer);
+                    var check = ROOM[socket.strRoomName].question.answer[num];
                     if (check)
                     {
                         PLAYER[socket.id].score++;
