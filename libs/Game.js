@@ -136,6 +136,7 @@ module.exports = class Game
                 (num) =>
                 {
                     check = ROOM[socket.strRoomName].question.answer[num];
+                    console.log(ROOM[socket.strRoomName].question.text_answer);
                     if (check)
                     {
                         PLAYER[socket.id].score++;
@@ -165,7 +166,6 @@ module.exports = class Game
                 () => 
                 {
                     delete PLAYER[socket.id];
-                    console.log(ROOM[socket.strRoomName].memberCount);
                     ROOM[socket.strRoomName].memberCount--;
                     if (ROOM[socket.strRoomName].memberCount == 0)
                     {
