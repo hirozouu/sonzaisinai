@@ -1,6 +1,6 @@
 // settings
-const SharedSettings = require('../public/js/SharedSettings.js');
-const GameSettings = require('./GameSetting.js');
+const SharedSettings = require("../public/js/SharedSettings.js");
+const GameSettings = require("./GameSetting.js");
 
 // class question
 module.exports = class Question
