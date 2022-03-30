@@ -29,7 +29,7 @@ module.exports = class Game
             {
                 let playername = null;
                 let roomname = null;
-                MEMBER[socket.id] = {
+                PLAYER[socket.id] = {
                     playerName: null, 
                     roomName: null, 
                     score: 0
@@ -53,8 +53,8 @@ module.exports = class Game
                         roomname = "*********NoName**********";
                     }
 
-                    MEMBER[socket.id].playerName = playername;
-                    MEMBER[socket.id].roomName = roomname;
+                    PLAYER[socket.id].playerName = playername;
+                    PLAYER[socket.id].roomName = roomname;
                     if (!ROOM[roomname])
                     {
                         ROOM[roomname] = {
@@ -89,9 +89,9 @@ module.exports = class Game
                     {
                         io.to(socket.strRoomName).emit("enter-the-room", json);
                         var data = {};
-                        for (var key of Object.keys(MEMBER)){
-                            if (MEMBER[key].roomName == socket.strRoomName){
-                                data[key] = MEMBER[key];
+                        for (var key of Object.keys(PLAYER)){
+                            if (PLAYER[key].roomName == socket.strRoomName){
+                                data[key] = PLAYER[key];
                             }
                         }
                         io.to(socket.id).emit("set-player-information", data)
