@@ -163,7 +163,7 @@ module.exports = class Game
                                 data[key] = PLAYER[key];
                             }
                         }
-                        io.to(strRoomName).emit("update-score", data)
+                        io.to(socket.strRoomName).emit("update-score", data)
                     }
                 });
 
