@@ -26,6 +26,9 @@ module.exports = class Game
             'connection', 
             (socket) => 
             {
+                let roomname = null;
+                let playername = null;
+
                 MEMBER[socket.id] = {
                     playerName: null, 
                     count: MEMBER_COUNT
@@ -38,8 +41,8 @@ module.exports = class Game
                 (json) => 
                 {
                     console.log('enter-the-room : socket.id = %s', socket.id);
-                    let roomname = json.roomName;
-                    let playername = json.playerName;
+                    roomname = json.roomName;
+                    playername = json.playerName;
 
                     if (!roomname)
                     {
