@@ -23,23 +23,7 @@ module.exports = class Question
         this.text_question = "存在しないカードは？";
         this.selection = ["サイバー・チャージャー", "アクア・チャージャー", 
             "エナジー・チャージャー", "スパイラル・チャージャー"];
+        this.answer = [true, false, false, false];
         this.text_answer = "サイバー・チャージャー";
-    }
-
-    getSelection()
-    {
-        // random shuffle
-        function fisherYatesShuffle(arr){
-            for(var i = arr.length-1; i>0; i--){
-                var j = Math.floor(Math.random() * (i + 1)); //random index
-                [arr[i],arr[j]]=[arr[j], arr[i]]; // swap
-            }
-
-            return arr;
-        }
-
-        var idx = [0, 1, 2, 3]
-        var shuffle_idx = fisherYatesShuffle(idx);
-        return shuffle_idx;
     }
 }

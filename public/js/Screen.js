@@ -76,13 +76,13 @@ class Screen
     renderAnswer(answer)
     {
         document.getElementById("text_answer").innerText = answer.text_answer;
-        if (answer.check == "right")
+        if (answer.check)
         {
-            console.log("%s : right-answer", answer.playerName);
+            console.log("%s : right-answer", PLAYERNAME);
         }
         else
         {
-            console.log("%s : wrong-answer", answer.playerName);
+            console.log("%s : wrong-answer", PLAYERNAME);
         }
     }
 

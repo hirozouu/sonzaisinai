@@ -18,9 +18,6 @@ module.exports = class Game
     start(io)
     {
         //variable
-        const world = new World(io);
-        const question = new Question();
-        let idx = null;
 
         //when connect
         io.on(
@@ -59,7 +56,7 @@ module.exports = class Game
                     {
                         ROOM[roomname] = {
                             memberCount: 0, 
-                            question: null
+                            question: new Question
                         };
                         COUNTER[roomname] = 0;
                     }
@@ -124,33 +121,27 @@ module.exports = class Game
                 socket.on("get-question", 
                 () =>
                 {
-                    question.setNewQuestion();
-                    idx = question.getSelection();
+                    ROOM[socket.strRoomName].question.setNewQuestion();
                     var json = {
-                        "text_question": question.text_question, 
-                        "selection1": question.selection[idx[0]], 
-                        "selection2": question.selection[idx[1]], 
-                        "selection3": question.selection[idx[2]], 
-                        "selection4": question.selection[idx[3]]
+                        "text_question": ROOM[socket.strRoomName].question.text_question, 
+                        "selection1": ROOM[socket.strRoomName].question.selection[0], 
+                        "selection2": ROOM[socket.strRoomName].question.selection[1], 
+                        "selection3": ROOM[socket.strRoomName].question.selection[2], 
+                        "selection4": ROOM[socket.strRoomName].question.selection[3]
                     };
                     io.to(socket.id).emit("set-question", json);
                 });
 
                 socket.on("get-answer", 
-                (json) =>
+                (num) =>
                 {
-                    var check = "wrong";
-                    if (idx[parseInt(json)] == 0){
-                        check = "right";
-                        PLAYER[socket.id].score++;
-                    }
                     var data = {
-                        "check": check, 
+                        "check": ROOM[socket.strRoomName].question.answer[num], 
                         "text_answer": question.text_answer
                     };
                     io.to(socket.id).emit("set-answer", data);
-                    
                     COUNTER[socket.strRoomName]++;
+                    
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         var data = {};
                         for (var key of Object.keys(PLAYER))
