@@ -151,7 +151,7 @@ module.exports = class Game
                 socket.on("disconnect", 
                 () => 
                     {
-                        delete MEMBER[socket.id];
+                        delete PLAYER[socket.id];
                         console.log('disconnect : socket.id = %s', socket.id);
                     }
                 );
