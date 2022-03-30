@@ -135,13 +135,17 @@ module.exports = class Game
                 socket.on("get-answer", 
                 (num) =>
                 {
+                    check = ROOM[socket.strRoomName].question.answer[num];
+                    if (check)
+                    {
+                        PLAYER[socket.id].score++;
+                    }
                     var data = {
-                        "check": ROOM[socket.strRoomName].question.answer[num], 
+                        "check": check,  
                         "text_answer": ROOM[socket.strRoomName].question.text_answer
                     };
                     io.to(socket.id).emit("set-answer", data);
                     COUNTER[socket.strRoomName]++;
-                    console.log(COUNTER[socket.strRoomName])
                     
                     if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
                         var data = {};
