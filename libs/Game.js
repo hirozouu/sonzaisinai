@@ -7,8 +7,7 @@ const Question = require('./Question.js');
 const { json } = require('express/lib/response');
 
 // global veriable
-const MEMBER = {};
-let MEMBER_COUNT = 1;
+const ROOM = {};
 
 //class Game
 module.exports = class Game
@@ -26,14 +25,9 @@ module.exports = class Game
             'connection', 
             (socket) => 
             {
-                let roomname = null;
                 let playername = null;
+                let roomname = null;
 
-                MEMBER[socket.id] = {
-                    playerName: null, 
-                    count: MEMBER_COUNT
-                }
-                MEMBER_COUNT++;
                 console.log('connection : socket.id = %s', socket.id);
 
                 // enter the room
@@ -41,8 +35,14 @@ module.exports = class Game
                 (json) => 
                 {
                     console.log('enter-the-room : socket.id = %s', socket.id);
-                    roomname = json.roomName;
                     playername = json.playerName;
+                    roomname = json.roomName;
+                    
+
+                    if (!playername)
+                    {
+                        playername = "**********NoName**********";
+                    }
 
                     if (!roomname)
                     {
@@ -50,6 +50,7 @@ module.exports = class Game
                     }
 
                     socket.join(roomname);
+                    console.log(io.of("/name").adapter.rooms[roomname]);
                     socket.strRoomName = roomname;
                     io.to(socket.id).emit("give-permission");
                 });

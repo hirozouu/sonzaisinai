@@ -40,9 +40,8 @@ $("#button_enter").on(
         };
         var json = {
             "playerName": PLAYERNAME, 
-            "key": socket.id
+            "roomName": ROOMNAME, 
         };
-
         socket.emit("get-permission", json);
     }
 );
