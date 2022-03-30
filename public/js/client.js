@@ -88,6 +88,7 @@ $("#button_ready").on(
     () =>
     {
         socket.emit("get-ready");
+        console.log("get-ready");
     }
 );
 
@@ -99,6 +100,7 @@ socket.on("everyone-get-ready",
         document.getElementById("box_ready").style.display = "none";
         document.getElementById("question1").style.display = "flex";
         document.getElementById("question2").style.display = "flex";
+        document.getElementById("answer").style.display = "none";
         socket.emit("get-question");
     }
 );
@@ -108,7 +110,8 @@ socket.on("set-question",
     (json) =>
     {
         screen.renderQuestion(json);
-    });
+    }
+);
 
 // click answer button
 $("#button_answer").on(
@@ -116,6 +119,7 @@ $("#button_answer").on(
     () =>
     {
         socket.emit("finish-answer");
+        console.log("finish-answer")
     }
 );
 
@@ -126,7 +130,8 @@ socket.on("everyone-finish-answer",
         document.getElementById("question2").style.display = "none";
         document.getElementById("answer").style.display = "flex";
         socket.emit("get-answer", SELECT);
-    });
+    }
+);
 
 // render answer
 socket.on("set-answer", 
@@ -143,3 +148,12 @@ socket.on("update-score",
         screen.renderScore(json);
     }
 );
+
+$("#button_next").on(
+    "click", 
+    () =>
+    {
+        socket.emit("get-ready");
+        console.log("get-ready");
+    }
+)

@@ -157,6 +157,7 @@ module.exports = class Game
                             }
                         }
                         io.to(socket.strRoomName).emit("update-score", data)
+                        COUNTER[socket.strRoomName] = 0;
                     }
                 });
 
@@ -169,6 +170,7 @@ module.exports = class Game
                     if (ROOM[socket.strRoomName].memberCount == 0)
                     {
                         delete ROOM[socket.strRoomName];
+                        delete COUNTER[socket.strRoomName];
                     }
                     console.log('disconnect : socket.id = %s', socket.id);
                 });
