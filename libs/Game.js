@@ -165,6 +165,7 @@ module.exports = class Game
                 () => 
                 {
                     delete PLAYER[socket.id];
+                    console.log(ROOM[socket.strRoomName].memberCount);
                     ROOM[socket.strRoomName].memberCount--;
                     if (ROOM[socket.strRoomName].memberCount == 0)
                     {
