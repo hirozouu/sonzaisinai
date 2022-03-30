@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": { 
+  "scripts": {
     "start": "node server.js"
   },
   "repository": {
@@ -18,11 +18,12 @@
   "homepage": "https://github.com/hirozouu/not#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "pg": "^8.7.3",
     "pixi.js": "^6.2.2",
     "socket.io": "^4.4.1"
-  }, 
+  },
   "engines": {
-    "node": "16.14.0", 
+    "node": "16.14.0",
     "npm": "8.3.1"
   }
 }
