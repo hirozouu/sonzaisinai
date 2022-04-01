@@ -23,7 +23,7 @@ const client = new Client({
 const PORT_NO = process.env.PORT || 1337;
 
 // connect databse
-client.connect();
+// client.connect();
 
 // new game
 const game = new Game();
