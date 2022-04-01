@@ -27,13 +27,9 @@ module.exports = class Question
         {
             if (err)
             {
-                console.log("ERROR");
                 throw err;
-                console.log("ERROR");
             }
-            console.log("*");
             console.log(res);
-            console.log("*");
         })
 
         this.id = 0;
