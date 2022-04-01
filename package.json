@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/hirozouu/not#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "pg": "^8.7.3",
     "pixi.js": "^6.2.2",
     "socket.io": "^4.4.1"
   },
