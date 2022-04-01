@@ -1,4 +1,5 @@
 // settings
+const { rows } = require("pg/lib/defaults");
 const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
 
@@ -26,13 +27,13 @@ module.exports = class Question
         {
             if (err)
             {
-                throw err
+                console.log("ERROR");
+                throw err;
+                console.log("ERROR");
             }
-
-            for (let row of res.rows)
-            {
-                console.log(JSON.stringify(row));
-            }
+            console.log("*");
+            console.log(res);
+            console.log("*");
         })
 
         this.id = 0;
