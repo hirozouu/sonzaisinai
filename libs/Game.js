@@ -22,6 +22,7 @@ module.exports = class Game
             {
                 let playername = null;
                 let roomname = null;
+                socket.strRoomName = null;
                 PLAYER[socket.id] = {
                     playerName: null, 
                     roomName: null, 
