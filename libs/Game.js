@@ -22,7 +22,6 @@ module.exports = class Game
             {
                 let playername = null;
                 let roomname = null;
-                socket.strRoomName = null;
                 PLAYER[socket.id] = {
                     playerName: null, 
                     roomName: null, 
@@ -163,7 +162,7 @@ module.exports = class Game
                 () => 
                 {
                     delete PLAYER[socket.id];
-                    if (ROOM[strRoomName])
+                    if (ROOM[socket.strRoomName])
                     {
                         ROOM[socket.strRoomName].memberCount--;
                         if (ROOM[socket.strRoomName].memberCount == 0)
