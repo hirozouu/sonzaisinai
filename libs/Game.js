@@ -161,16 +161,15 @@ module.exports = class Game
                 socket.on("disconnect", 
                 () => 
                 {
-                    console.log(socket.strRoomName);
-                    console.log(socket.id);
-                    console.log(ROOM[socket.strRoomName].question.text_answer);
-                    console.log(ROOM[socket.strRoomName].memberCount);
                     delete PLAYER[socket.id];
-                    ROOM[socket.strRoomName].memberCount--;
-                    if (ROOM[socket.strRoomName].memberCount == 0)
+                    if (ROOM[strRoomName])
                     {
-                        delete ROOM[socket.strRoomName];
-                        delete COUNTER[socket.strRoomName];
+                        ROOM[socket.strRoomName].memberCount--;
+                        if (ROOM[socket.strRoomName].memberCount == 0)
+                        {
+                            delete ROOM[socket.strRoomName];
+                            delete COUNTER[socket.strRoomName];
+                        }
                     }
                     console.log('disconnect : socket.id = %s', socket.id);
                 });
