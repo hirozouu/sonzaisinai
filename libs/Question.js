@@ -20,10 +20,10 @@ module.exports = class Question
     setNewQuestion()
     {
         this.id = "0000"
-        this.text_question = "存在しないカードは？";
-        this.selection = ["サイバー・チャージャー", "アクア・チャージャー", 
-            "エナジー・チャージャー", "スパイラル・チャージャー"];
+        this.text_question = "存在しないものは？";
+        this.selection = ["存在しないもの", "存在するもの", 
+            "存在するもの", "存在しないもの"];
         this.answer = [true, false, false, false];
-        this.text_answer = "A. サイバー・チャージャー";
+        this.text_answer = "A. 存在しないもの";
     }
 }
