@@ -1,9 +1,7 @@
 //module
 const World = require('./World.js');
-
-//constant
-const GameSettings = require('./GameSetting.js');
 const Question = require('./Question.js');
+const GameSettings = require('./GameSetting.js');
 const { json } = require('express/lib/response');
 
 // global veriable
@@ -15,11 +13,9 @@ const COUNTER = {};
 module.exports = class Game
 {
     //start
-    start(io)
+    start(io, client)
     {
-        //variable
-
-        //when connect
+        // when connect
         io.on(
             'connection', 
             (socket) => 
@@ -56,7 +52,7 @@ module.exports = class Game
                     {
                         ROOM[roomname] = {
                             memberCount: 0, 
-                            question: new Question
+                            question: new Question(client)
                         };
                         COUNTER[roomname] = 0;
                     }
