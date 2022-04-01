@@ -161,6 +161,10 @@ module.exports = class Game
                 socket.on("disconnect", 
                 () => 
                 {
+                    console.log(socket.strRoomName);
+                    console.log(socket.id);
+                    console.log(ROOM[socket.strRoomName].question.text_answer);
+                    console.log(ROOM[socket.strRoomName].memberCount);
                     delete PLAYER[socket.id];
                     ROOM[socket.strRoomName].memberCount--;
                     if (ROOM[socket.strRoomName].memberCount == 0)
