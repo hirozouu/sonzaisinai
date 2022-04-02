@@ -18,7 +18,11 @@ const PORT_NO = process.env.PORT || 1337;
 
 const client = new Client({
     connectionString: process.env.DB_URL, 
-    ssl: true
+    ssl: 
+    {
+        require: true, 
+        rejectUnauthorized: false
+    }
 });
 
 // connect databse
@@ -27,11 +31,11 @@ client.connect(
     {
         if (err)
         {
-            console.error("Database", err.stack)
+            console.error(err.stack);
         }
         else
         {
-            console.log("Connection : Database")
+            console.log("Connection : Database");
         }
     }
 );
