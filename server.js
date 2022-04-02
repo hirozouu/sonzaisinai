@@ -17,10 +17,10 @@ const io = socketIO(server);
 const PORT_NO = process.env.PORT || 1337;
 
 const client = new Client({
-    host: DB_HOST, 
-    port: DB_PORT, 
-    user: DB_USER, 
-    password: DB_PASS
+    host: process.env.DB_HOST, 
+    port: process.env.DB_PORT, 
+    user: process.env.DB_USER, 
+    password: process.env.DB_PASS
 });
 
 // connect databse
