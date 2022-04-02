@@ -20,7 +20,10 @@ const client = new Client({
     host: process.env.DB_HOST, 
     port: process.env.DB_PORT, 
     user: process.env.DB_USER, 
-    password: process.env.DB_PASS
+    password: process.env.DB_PASS, 
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 // connect databse
@@ -29,7 +32,7 @@ client.connect(
     {
         if (err)
         {
-            console.error("Connection Error : Database", err.stack)
+            console.error("Database", err.stack)
         }
         else
         {
