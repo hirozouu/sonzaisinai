@@ -18,9 +18,7 @@ const PORT_NO = process.env.PORT || 1337;
 
 const client = new Client({
     connectionString: process.env.DB_URL, 
-    ssl: {
-        rejectUnauthorized: false
-    }
+    ssl: true
 });
 
 // connect databse
