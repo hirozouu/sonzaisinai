@@ -1,5 +1,4 @@
 // settings
-const { rows } = require("pg/lib/defaults");
 const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
 
@@ -29,15 +28,12 @@ module.exports = class Question
             {
                 throw err;
             }
-            console.log(res);
-            console.log("***");
-            console.log("***");
-            console.log("***");
-        })
+            for (let row of res.rows)
+            {
+                console.log(JSON.stringify(row));
+            }
+        });
 
-        console.log("this");
-        console.log("this");
-        console.log("this");
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 
