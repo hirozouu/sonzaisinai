@@ -12,15 +12,16 @@ const Game = require('./libs/Game.js');
 const app = express();
 const server = http.Server(app);
 const io = socketIO(server);
+
+// constant
+const PORT_NO = process.env.PORT || 1337;
+
 const client = new Client({
     connectionString: process.env.DB_URL, 
     ssl: {
         rejectUnauthorized: false
     }
 });
-
-// constant
-const PORT_NO = process.env.PORT || 1337;
 
 // connect databse
 client.connect();
