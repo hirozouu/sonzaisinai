@@ -24,21 +24,6 @@ const client = new Client({
     }
 });
 
-// connect databse
-client.connect(
-    err =>
-    {
-        if (err)
-        {
-            console.error(err.stack);
-        }
-        else
-        {
-            console.log("Connection : Database");
-        }
-    }
-);
-
 // new game
 const game = new Game();
 game.start(io, client);

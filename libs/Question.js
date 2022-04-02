@@ -21,6 +21,7 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
+        this.client.connect()
         this.client.query('SELECT * FROM question WHERE id=(SELECT id FROM question ORDER BY random() LIMIT 1);', 
         (err, res) =>
         {
@@ -33,6 +34,7 @@ module.exports = class Question
                 console.log(JSON.stringify(row));
             }
         });
+        this.client.end();
 
         this.id = 0;
         this.text_question = "存在しないものは？";
