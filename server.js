@@ -17,12 +17,26 @@ const io = socketIO(server);
 const PORT_NO = process.env.PORT || 1337;
 
 const client = new Client({
-    connectionString: process.env.DB_URL, 
-    ssl: true
+    host: DB_HOST, 
+    port: DB_PORT, 
+    user: DB_USER, 
+    password: DB_PASS
 });
 
 // connect databse
-client.connect();
+client.connect(
+    err =>
+    {
+        if (err)
+        {
+            console.error("Connection Error : Database", err.stack)
+        }
+        else
+        {
+            console.log("Connection : Database")
+        }
+    }
+);
 
 // new game
 const game = new Game();
