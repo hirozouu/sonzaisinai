@@ -17,13 +17,8 @@ const io = socketIO(server);
 const PORT_NO = process.env.PORT || 1337;
 
 const client = new Client({
-    host: process.env.DB_HOST, 
-    port: process.env.DB_PORT, 
-    user: process.env.DB_USER, 
-    password: process.env.DB_PASS, 
-    ssl: {
-        rejectUnauthorized: false
-    }
+    connectionString: process.env.DB_URL, 
+    ssl: true
 });
 
 // connect databse
