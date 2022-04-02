@@ -35,6 +35,9 @@ module.exports = class Question
             console.log("***");
         })
 
+        console.log("this");
+        console.log("this");
+        console.log("this");
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 
