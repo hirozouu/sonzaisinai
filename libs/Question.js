@@ -30,6 +30,9 @@ module.exports = class Question
                 throw err;
             }
             console.log(res);
+            console.log("***");
+            console.log("***");
+            console.log("***");
         })
 
         this.id = 0;
