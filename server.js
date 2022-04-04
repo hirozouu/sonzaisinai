@@ -25,6 +25,19 @@ const client = new Client({
 });
 
 client.connect();
+client.query('SELECT * FROM question WHERE id=(SELECT (max(id) * random())::int FROM entry);', 
+(err, res) =>
+{
+    if (err)
+    {
+        throw err;
+    }
+    for (let row in res.rows)
+    {
+        console.log(JSON.stringify(row))
+    }
+    client.end();
+})
 
 // new game
 const game = new Game();
