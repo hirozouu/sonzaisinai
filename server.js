@@ -17,7 +17,7 @@ const io = socketIO(server);
 const PORT_NO = process.env.PORT || 1337;
 
 const client = new Client({
-    connectionString: process.env.DB_URL, 
+    connectionString: process.env.DATABASE_URL, 
     ssl: 
     {
         rejectUnauthorized: false
