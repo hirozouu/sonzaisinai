@@ -24,6 +24,9 @@ const client = new Client({
     }
 });
 
+client.connect();
+client.end();
+
 // new game
 const game = new Game();
 game.start(io);
