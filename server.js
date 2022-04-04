@@ -32,7 +32,7 @@ client.query('SELECT * FROM question;',
     {
         throw err;
     }
-    console.log(res.rows[0]);
+    console.log(res.rows[0].name);
     client.end();
 })
 
