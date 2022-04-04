@@ -25,7 +25,7 @@ const client = new Client({
 });
 
 client.connect();
-client.query('SELECT * FROM question WHERE id=(SELECT (max(id) * random())::int FROM question);', 
+client.query('SELECT * FROM question;', 
 (err, res) =>
 {
     if (err)
