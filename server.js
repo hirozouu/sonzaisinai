@@ -32,10 +32,7 @@ client.query('SELECT * FROM question;',
     {
         throw err;
     }
-    for (let row in res.rows)
-    {
-        console.log(JSON.stringify(row))
-    }
+    console.log(res);
     client.end();
 })
 
