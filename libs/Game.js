@@ -13,7 +13,7 @@ const COUNTER = {};
 module.exports = class Game
 {
     //start
-    start(io, client)
+    start(io)
     {
         // when connect
         io.on(
@@ -52,7 +52,7 @@ module.exports = class Game
                     {
                         ROOM[roomname] = {
                             memberCount: 0, 
-                            question: new Question(client)
+                            question: new Question()
                         };
                         COUNTER[roomname] = 0;
                     }

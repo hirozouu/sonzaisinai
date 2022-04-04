@@ -26,7 +26,7 @@ const client = new Client({
 
 // new game
 const game = new Game();
-game.start(io, client);
+game.start(io);
 
 // public folder
 app.use(express.static(__dirname+'/public'))
