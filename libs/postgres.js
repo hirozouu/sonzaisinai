@@ -12,7 +12,7 @@ class Postgres
 
     async execute(query)
     {
-        return (await this.client.query(query)).rows();
+        return (await this.client.query(query)).rows;
     }
 
     async release()
