@@ -10,9 +10,9 @@ class Postgres
         this.client = await pool.connect();
     }
 
-    async execute(query, params = [])
+    async execute(query)
     {
-        return (await this.client.query(query, params)).rows();
+        return (await this.client.query(query)).rows();
     }
 
     async release()

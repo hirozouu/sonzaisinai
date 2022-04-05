@@ -27,10 +27,10 @@ module.exports = class Question
             try
             {
                 const sql = "SELECT * FROM question;";
-                const params = []
 
                 await db.begin();
-                await db.execute(sql, params);
+                let res = await db.execute(sql);
+                console.log(res);
                 await db.commit();
             }
             catch (err)
