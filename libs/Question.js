@@ -22,10 +22,10 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
-        this.client.connect();
         const query = "SELECT * FROM question;";
         (async () =>
             {
+                this.client.connect();
                 let rows;
                 await this.client.query(query)
                 .then(res =>
