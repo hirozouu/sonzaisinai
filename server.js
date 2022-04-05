@@ -24,21 +24,9 @@ const client = new Client({
     }
 });
 
-client.connect();
-client.query('SELECT * FROM question;', 
-(err, res) =>
-{
-    if (err)
-    {
-        throw err;
-    }
-    console.log(res.rows[0].name);
-    client.end();
-})
-
 // new game
 const game = new Game();
-game.start(io);
+game.start(io, client);
 
 // public folder
 app.use(express.static(__dirname+'/public'))

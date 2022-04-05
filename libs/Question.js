@@ -6,8 +6,9 @@ const GameSettings = require("./GameSetting.js");
 module.exports = class Question
 {
     //constructor
-    constructor()
+    constructor(client)
     {
+        this.client = client;
         this.id = 0; // id
         this.text_question = "Question?"; // question text
         this.selection = ["Select0", "Select1", 
@@ -20,6 +21,17 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
+        client.connect();
+        client.query('SELECT * FROM question;', 
+        (err, res) =>
+        {
+            if (err)
+            {
+                throw err;
+            }
+            console.log(res.rows[0].name);
+            client.end();
+        })
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 
