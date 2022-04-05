@@ -30,7 +30,7 @@ module.exports = class Question
                 await this.client.query(query)
                 .then(res =>
                 {
-                    rows = res.rows();
+                    rows = res.rows;
                     this.client.end();
                 })
                 .catch(err =>
