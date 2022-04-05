@@ -21,8 +21,8 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
-        client.connect();
-        client.query('SELECT * FROM question;', 
+        this.client.connect();
+        this.client.query('SELECT * FROM question;', 
         (err, res) =>
         {
             if (err)
@@ -30,7 +30,7 @@ module.exports = class Question
                 throw err;
             }
             console.log(res.rows[0].name);
-            client.end();
+            this.client.end();
         })
         this.id = 0;
         this.text_question = "存在しないものは？";
