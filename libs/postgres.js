@@ -12,6 +12,7 @@ class Postgres
 
     async execute(query)
     {
+        console.log("Database : EXECUTE-QUERY");
         return (await this.client.query(query)).rows;
     }
 
