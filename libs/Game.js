@@ -1,5 +1,4 @@
 //module
-const World = require('./World.js');
 const Question = require('./Question.js');
 const GameSettings = require('./GameSetting.js');
 const { json } = require('express/lib/response');

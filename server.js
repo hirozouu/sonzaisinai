@@ -4,7 +4,6 @@ require('dotenv').config();
 // module
 const express = require('express');
 const http = require('http');
-const { Client } = require('pg');
 const socketIO = require('socket.io');
 const Game = require('./libs/Game.js');
 
@@ -16,17 +15,9 @@ const io = socketIO(server);
 // constant
 const PORT_NO = process.env.PORT || 1337;
 
-const client = new Client({
-    connectionString: process.env.DATABASE_URL, 
-    ssl: 
-    {
-        rejectUnauthorized: false
-    }
-});
-
 // new game
 const game = new Game();
-game.start(io, client);
+game.start(io);
 
 // public folder
 app.use(express.static(__dirname+'/public'))

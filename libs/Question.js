@@ -1,7 +1,7 @@
 // settings
-const { query } = require("express");
 const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
+const {getPostgresClient} = require("./postgres.js");
 
 // class question
 module.exports = class Question
@@ -22,25 +22,26 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
-        const query = "SELECT * FROM question;";
-        (async () =>
+        async function someFunc() {
+            const db = await getPostgresClient();
+            try
             {
-                this.client.connect();
-                let rows;
-                await this.client.query(query)
-                .then(res =>
-                {
-                    rows = res.rows;
-                    this.client.end();
-                })
-                .catch(err =>
-                {
-                    console.error(err.stack);
-                    this.client.end();
-                });
-                console.log(rows);
-            })();
+                const sql = "SELECT * FROM question;";
+                const params = []
 
+                await db.begin();
+                await db.execute(sql, params);
+                await db.commit();
+            }
+            catch (err)
+            {
+                throw err;
+            }
+            finally
+            {
+                await db.release;
+            }
+        }
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 
