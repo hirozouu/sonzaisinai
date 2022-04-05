@@ -23,7 +23,7 @@ module.exports = class Question
     setNewQuestion()
     {
         this.client.connect();
-        query = "SELECT * FROM question;"
+        const query = "SELECT * FROM question;";
         (async () =>
             {
                 let rows;
