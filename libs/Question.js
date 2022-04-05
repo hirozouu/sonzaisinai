@@ -42,7 +42,8 @@ module.exports = class Question
                 await db.release;
             }
         }
-        
+
+        someFunc();
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 
