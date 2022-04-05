@@ -38,7 +38,7 @@ module.exports = class Question
                     console.error(err.stack);
                     this.client.end();
                 });
-                console.log(rows[0]);
+                console.log(rows);
             })();
 
         this.id = 0;
