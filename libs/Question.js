@@ -1,4 +1,5 @@
 // settings
+const { query } = require("express");
 const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
 
@@ -22,16 +23,24 @@ module.exports = class Question
     setNewQuestion()
     {
         this.client.connect();
-        this.client.query('SELECT * FROM question;', 
-        (err, res) =>
-        {
-            if (err)
+        query = "SELECT * FROM question;"
+        (async () =>
             {
-                throw err;
-            }
-            console.log(res.rows[0].name);
-            this.client.end();
-        })
+                let rows;
+                await this.client.query(query)
+                .then(res =>
+                {
+                    rows = res.rows();
+                    this.client.end();
+                })
+                .catch(err =>
+                {
+                    console.error(err.stack);
+                    this.client.end();
+                });
+                console.log(rows);
+            })();
+
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 
