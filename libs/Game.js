@@ -11,17 +11,17 @@ const COUNTER = {};
 
 const select = async () =>
 {
+    const client = new Client(
+        {
+            connectionString: process.env.DATABASE_URL, 
+            ssl: 
+            {
+                rejectUnauthorized: false
+            }
+        }
+    );
     try
     {
-        const client = new Client(
-            {
-                connectionString: process.env.DATABASE_URL, 
-                ssl: 
-                {
-                    rejectUnauthorized: false
-                }
-            }
-        );
         await client.connect();
         console.log("DATABASE : CONNECT");
         const result = await client.query("SELECT * FROM question");
