@@ -22,7 +22,7 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
-        postgres.selectRandom();
+        let result = postgres.selectRandom();
 
         this.id = 0;
         this.text_question = "存在しないものは？";
