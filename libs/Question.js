@@ -1,7 +1,6 @@
 // settings
 const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
-const {getPostgresClient} = require("./postgres.js");
 
 // class question
 module.exports = class Question
@@ -22,28 +21,6 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
-        async function someFunc() {
-            const db = await getPostgresClient();
-            try
-            {
-                const sql = "SELECT * FROM question;";
-
-                await db.begin();
-                let res = await db.execute(sql);
-                console.log(res);
-                await db.commit();
-            }
-            catch (err)
-            {
-                throw err;
-            }
-            finally
-            {
-                await db.release;
-            }
-        }
-
-        someFunc();
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 

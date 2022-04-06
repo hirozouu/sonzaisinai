@@ -2,11 +2,41 @@
 const Question = require('./Question.js');
 const GameSettings = require('./GameSetting.js');
 const { json } = require('express/lib/response');
+const { Client } = require('pg');
 
 // global veriable
 const ROOM = {};
 const PLAYER = {};
 const COUNTER = {};
+const client = new Client(
+    {
+        connectionString: process.env.DATABASE_URL, 
+        ssl: 
+        {
+            rejectUnauthorized: false
+        }
+    }
+);
+
+const select = async () =>
+{
+    try
+    {
+        await client.connect();
+        console.log("DATABASE : CONNECT");
+        const result = await client.query("SELECT * FROM question");
+        console.log(result);
+    }
+    catch(err)
+    {
+        console.log(err.stack);
+    }
+    finally
+    {
+        await client.end();
+        console.log("DATABASE : DISCONNECT");
+    }
+}
 
 //class Game
 module.exports = class Game
@@ -116,6 +146,7 @@ module.exports = class Game
                 socket.on("get-question", 
                 () =>
                 {
+                    select();
                     ROOM[socket.strRoomName].question.setNewQuestion();
                     var json = {
                         "text_question": ROOM[socket.strRoomName].question.text_question, 
