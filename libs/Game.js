@@ -8,20 +8,20 @@ const { Client } = require('pg');
 const ROOM = {};
 const PLAYER = {};
 const COUNTER = {};
-const client = new Client(
-    {
-        connectionString: process.env.DATABASE_URL, 
-        ssl: 
-        {
-            rejectUnauthorized: false
-        }
-    }
-);
 
 const select = async () =>
 {
     try
     {
+        const client = new Client(
+            {
+                connectionString: process.env.DATABASE_URL, 
+                ssl: 
+                {
+                    rejectUnauthorized: false
+                }
+            }
+        );
         await client.connect();
         console.log("DATABASE : CONNECT");
         const result = await client.query("SELECT * FROM question");
