@@ -17,7 +17,7 @@ const selectRandom = async () =>
         await client.connect();
         console.log("DATABASE : CONNECT");
         const result = await client.query(
-            "SELECT * FROM question WHERE id=(ELECT id FROM question ORDER BY random() LIMIT 1);");
+            "SELECT * FROM question WHERE id=(SELECT id FROM question ORDER BY random() LIMIT 1);");
         console.log(result.rows[0].name);
         return result.rows[0];
     }
