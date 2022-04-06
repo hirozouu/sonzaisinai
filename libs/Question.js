@@ -1,6 +1,7 @@
 // settings
 const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
+const postgres = require("./postgres.js");
 
 // class question
 module.exports = class Question
@@ -21,6 +22,8 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
+        postgres.selectRandom();
+
         this.id = 0;
         this.text_question = "存在しないものは？";
         this.selection = ["存在しないもの", "存在するもの", 

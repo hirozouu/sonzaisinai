@@ -2,41 +2,11 @@
 const Question = require('./Question.js');
 const GameSettings = require('./GameSetting.js');
 const { json } = require('express/lib/response');
-const { Client } = require('pg');
 
 // global veriable
 const ROOM = {};
 const PLAYER = {};
 const COUNTER = {};
-
-const select = async () =>
-{
-    const client = new Client(
-        {
-            connectionString: process.env.DATABASE_URL, 
-            ssl: 
-            {
-                rejectUnauthorized: false
-            }
-        }
-    );
-    try
-    {
-        await client.connect();
-        console.log("DATABASE : CONNECT");
-        const result = await client.query("SELECT * FROM question");
-        console.log(result.rows[0].name);
-    }
-    catch(err)
-    {
-        console.log(err.stack);
-    }
-    finally
-    {
-        await client.end();
-        console.log("DATABASE : DISCONNECT");
-    }
-}
 
 //class Game
 module.exports = class Game
