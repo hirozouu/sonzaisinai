@@ -116,7 +116,6 @@ module.exports = class Game
                 socket.on("get-question", 
                 () =>
                 {
-                    select();
                     ROOM[socket.strRoomName].question.setNewQuestion();
                     var json = {
                         "text_question": ROOM[socket.strRoomName].question.text_question, 
