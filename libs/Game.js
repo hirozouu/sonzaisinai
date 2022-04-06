@@ -25,7 +25,7 @@ const select = async () =>
         await client.connect();
         console.log("DATABASE : CONNECT");
         const result = await client.query("SELECT * FROM question");
-        console.log(result);
+        console.log(result.rows[0].name);
     }
     catch(err)
     {
