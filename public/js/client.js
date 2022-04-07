@@ -100,10 +100,13 @@ $("#button_ready").on(
 socket.on("everyone-get-ready", 
     () =>
     {
-        console.log("start-the-game");
+        document.getElementById("button_ready").style.display = "flex";
+        document.getElementById("loader_button_ready").style.display = "none"
         document.getElementById("box_ready").style.display = "none";
         document.getElementById("question1").style.display = "flex";
         document.getElementById("question2").style.display = "flex";
+        document.getElementById("button_next").style.display = "flex";
+        document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         socket.emit("get-question");
     }
@@ -133,6 +136,8 @@ $("#button_answer").on(
 socket.on("everyone-finish-answer", 
     () =>
     {
+        document.getElementById("button_answer").style.display = "flex";
+        document.getElementById("loader_button_answer").style.display = "none"
         document.getElementById("question2").style.display = "none";
         document.getElementById("answer").style.display = "flex";
         socket.emit("get-answer", SELECT);
@@ -163,6 +168,5 @@ $("#button_next").on(
         document.getElementById("button_next").style.display = "none";
         document.getElementById("loader_button_next").style.display = "block";
         socket.emit("get-ready");
-        console.log("get-ready");
     }
 )
