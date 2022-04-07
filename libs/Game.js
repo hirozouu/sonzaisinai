@@ -26,8 +26,8 @@ module.exports = class Game
                 socket.on('get-permission',
                 (json) => 
                 {
-                    playername = json.playerName;
-                    roomname = json.roomName;
+                    var playername = json.playerName;
+                    var roomname = json.roomName;
 
                     if (!playername)
                     {
