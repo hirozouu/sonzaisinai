@@ -144,8 +144,8 @@ module.exports = class Game
                             "text_answer": ROOM[socket.strRoomName].question.text_answer, 
                             "text_explanation": ROOM[socket.strRoomName].question.text_explanation
                         };
-                        await io.to(socket.id).emit("set-answer", data);
-                        await ROOM[socket.strRoomName].incrementCount();
+                        io.to(socket.id).emit("set-answer", data);
+                        ROOM[socket.strRoomName].incrementCount();
                     }
 
                     // update score
