@@ -54,7 +54,7 @@ class Screen
                 "color": "white"
             }
         );
-        $("score_"+playerName).css(
+        $(score_element.id).css(
             {
                 "color": "white"
             }
