@@ -132,34 +132,47 @@ module.exports = class Game
                 (num) =>
                 {
                     // check answer
-                    var check = ROOM[socket.strRoomName].question.answer[num];
-                    console.log(num)
-                    console.log(check)
-                    if (check)
+                    function checkAnswer()
                     {
-                        PLAYER[socket.id].incrementScore();
-                    }
-                    var data = {
-                        "check": check,  
-                        "text_answer": ROOM[socket.strRoomName].question.text_answer, 
-                        "text_explanation": ROOM[socket.strRoomName].question.text_explanation
-                    };
-                    io.to(socket.id).emit("set-answer", data);
-                    ROOM[socket.strRoomName].incrementCount();
-                    
-                    // update score
-                    if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
-                        var data = {};
-                        for (var key of Object.keys(PLAYER))
+                        var check = ROOM[socket.strRoomName].question.answer[num];
+                        if (check)
                         {
-                            if (PLAYER[key].roomName == socket.strRoomName)
-                            {
-                                data[key] = PLAYER[key];
-                            }
+                            PLAYER[socket.id].incrementScore();
                         }
-                        io.to(socket.strRoomName).emit("update-score", data)
-                        ROOM[socket.strRoomName].resetCount();
+                        var data = {
+                            "check": check,  
+                            "text_answer": ROOM[socket.strRoomName].question.text_answer, 
+                            "text_explanation": ROOM[socket.strRoomName].question.text_explanation
+                        };
+                        await io.to(socket.id).emit("set-answer", data);
+                        await ROOM[socket.strRoomName].incrementCount();
                     }
+
+                    // update score
+                    function updateScore()
+                    {
+                        if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount)
+                        {
+                            var data = {};
+                            for (var key of Object.keys(PLAYER))
+                            {
+                                if (PLAYER[key].roomName == socket.strRoomName)
+                                {
+                                    data[key] = PLAYER[key];
+                                }
+                            }
+                            io.to(socket.strRoomName).emit("update-score", data)
+                            ROOM[socket.strRoomName].resetCount();
+                        }
+                    }
+
+                    const setAnswer = async () =>
+                    {
+                        await checkAnswer();
+                        updateScore();
+                    }
+
+                    setAnswer();
                 });
 
                 //when disconnect
