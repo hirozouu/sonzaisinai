@@ -29,6 +29,8 @@ $("#button_enter").on(
     "click", 
     () =>
     {
+        document.getElementById("button_enter").style.display = "none";
+        document.getElementById("loader_button_enter").style.display = "block"
         PLAYERNAME = $("#input_playername").val();
         ROOMNAME = $("#input_roomname").val();
         var json = {
@@ -69,7 +71,7 @@ socket.on("set-player-information",
     {
         for (var key of Object.keys(json)){
             screen.renderProfile(json[key].playerName, json[key].score);
-            console.log("%s : get-player-information %s", PLAYERNAME, json[key].playerName)
+            console.log("get-player-information : %s", json[key].playerName)
         }
     }
 );
@@ -87,6 +89,8 @@ $("#button_ready").on(
     "click", 
     () =>
     {
+        document.getElementById("button_ready").style.display = "none";
+        document.getElementById("loader_button_ready").style.display = "block";
         socket.emit("get-ready");
         console.log("get-ready");
     }
@@ -118,6 +122,8 @@ $("#button_answer").on(
     "click", 
     () =>
     {
+        document.getElementById("button_answer").style.display = "none";
+        document.getElementById("loader_button_answer").style.display = "block";
         socket.emit("finish-answer");
         console.log("finish-answer")
     }
@@ -154,6 +160,8 @@ $("#button_next").on(
     "click", 
     () =>
     {
+        document.getElementById("button_next").style.display = "none";
+        document.getElementById("loader_button_next").style.display = "block";
         socket.emit("get-ready");
         console.log("get-ready");
     }

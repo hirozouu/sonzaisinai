@@ -15,7 +15,7 @@ module.exports = class Question
         this.selection = ["Select0", "Select1", 
             "Select2", "Select3"]; // selection
         this.text_answer = "Answer"; // answer text
-        this.answer = [true, false, false, false];
+        this.answer = [false, false, false, false];
         this.text_explanation = "Explamation"; // explanation
     }
 
@@ -24,12 +24,13 @@ module.exports = class Question
     {
         let result = postgres.selectRandom();
 
-        this.id = 0;
-        this.text_question = "存在しないものは？";
-        this.selection = ["存在しないもの", "存在するもの", 
-            "存在するもの", "存在しないもの"];
-        this.text_answer = "存在しないもの";
-        this.answer = [true, false, false, false];
-        this.text_explanation = "解説"
+        this.id = result.id;
+        this.text_question = result.text_question;
+        this.selection = [result.selection0, result.selection1, 
+            result.selection2, result.selection3];
+        this.text_answer = result.text_answer;
+        this.answer = [false, false, false, false];
+        this.answer[result.answer] = true;
+        this.text_explanation = result.text_explanation;
     }
 }

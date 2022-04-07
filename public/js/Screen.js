@@ -23,15 +23,6 @@ class Screen
                 this.socket.emit('enter-the-game');
             }
         )
-
-        //when get from server
-        this.socket.on(
-            'update', 
-            (iProcessingTimeNanoSec) =>
-            {
-                this.iProcessingTimeNanoSec = iProcessingTimeNanoSec;
-            }
-        )
     }
 
     renderProfile(playerName, score)
@@ -73,6 +64,7 @@ class Screen
     renderAnswer(answer)
     {
         document.getElementById("text_answer").innerText = answer.text_answer;
+        document.getElementById("text_explanation").innerText = answer.text_explanation;
         if (answer.check)
         {
             console.log("%s : right-answer", PLAYERNAME);

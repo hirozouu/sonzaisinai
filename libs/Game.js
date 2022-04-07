@@ -1,12 +1,13 @@
 //module
 const Question = require('./Question.js');
+const Player = require('./Player.js');
+const Room = require('./Room.js');
 const GameSettings = require('./GameSetting.js');
 const { json } = require('express/lib/response');
 
 // global veriable
 const ROOM = {};
 const PLAYER = {};
-const COUNTER = {};
 
 //class Game
 module.exports = class Game
@@ -19,14 +20,7 @@ module.exports = class Game
             'connection', 
             (socket) => 
             {
-                let playername = null;
-                let roomname = null;
-                PLAYER[socket.id] = {
-                    playerName: null, 
-                    roomName: null, 
-                    score: 0
-                };
-                console.log('connection : socket.id = %s', socket.id);
+                console.log('CONNECT : socket.id = %s', socket.id);
 
                 // enter the room
                 socket.on('get-permission',
@@ -45,29 +39,26 @@ module.exports = class Game
                         roomname = "*********NoName**********";
                     }
 
-                    PLAYER[socket.id].playerName = playername;
-                    PLAYER[socket.id].roomName = roomname;
+                    // new player object
+                    PLAYER[socket.id] = new Player(playername, roomname, 0);
+
                     if (!ROOM[roomname])
                     {
-                        ROOM[roomname] = {
-                            memberCount: 0, 
-                            question: new Question(client)
-                        };
-                        COUNTER[roomname] = 0;
+                        ROOM[roomname] = new Room();
                     }
 
                     socket.join(roomname);
                     socket.strRoomName = roomname;
-                    ROOM[socket.strRoomName].memberCount++;
+                    ROOM[socket.strRoomName].joinMember();
                     io.to(socket.id).emit("give-permission");
-                    console.log('enter-the-room : socket.id = %s', socket.id);
+                    console.log('ENTER-THE-ROOM : socket.id = %s', socket.id);
                 });
 
                 // leave the room
                 socket.on("leave-the-room", 
                 () =>
                 {
-                    console.log("leave-the-room : %s", socket.id);
+                    console.log("LEAVE-THE-ROOM : %s", socket.id);
                     if ("strRoomName" in socket)
                     {
                         socket.leave(socket.strRoomName);
@@ -79,6 +70,7 @@ module.exports = class Game
                 socket.on("enter-the-room", 
                 (json) =>
                 {
+                    // echo enter-the-room
                     io.to(socket.strRoomName).emit("enter-the-room", json);
                     var data = {};
                     for (var key of Object.keys(PLAYER)){
@@ -94,10 +86,10 @@ module.exports = class Game
                 socket.on("get-ready", 
                 () =>
                 {
-                    COUNTER[socket.strRoomName]++;
-                    if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
+                    ROOM[strRoomName].incrementCount();
+                    if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-get-ready");
-                        COUNTER[socket.strRoomName] = 0;
+                        ROOM[strRoomName].resetCount();
                     }
                 });
 
@@ -105,10 +97,10 @@ module.exports = class Game
                 socket.on("finish-answer", 
                 () =>
                 {
-                    COUNTER[socket.strRoomName]++;
-                    if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
+                    ROOM[socket.strRoomName].incrementCount();
+                    if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-finish-answer");
-                        COUNTER[socket.strRoomName] = 0;
+                        ROOM[strRoomName].resetCount();
                     }
                 });
 
@@ -116,33 +108,41 @@ module.exports = class Game
                 socket.on("get-question", 
                 () =>
                 {
-                    ROOM[socket.strRoomName].question.setNewQuestion();
-                    var json = {
-                        "text_question": ROOM[socket.strRoomName].question.text_question, 
-                        "selection1": ROOM[socket.strRoomName].question.selection[0], 
-                        "selection2": ROOM[socket.strRoomName].question.selection[1], 
-                        "selection3": ROOM[socket.strRoomName].question.selection[2], 
-                        "selection4": ROOM[socket.strRoomName].question.selection[3]
-                    };
-                    io.to(socket.id).emit("set-question", json);
+                    ROOM[strRoomName].incrementCount();
+                    if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
+                        ROOM[strRoomName].resetCount();
+                        ROOM[socket.strRoomName].question.setNewQuestion();
+                        var json = {
+                            "text_question": ROOM[socket.strRoomName].question.text_question, 
+                            "selection1": ROOM[socket.strRoomName].question.selection[0], 
+                            "selection2": ROOM[socket.strRoomName].question.selection[1], 
+                            "selection3": ROOM[socket.strRoomName].question.selection[2], 
+                            "selection4": ROOM[socket.strRoomName].question.selection[3]
+                        };
+                        io.to(socket.strRoomName).emit("set-question", json);
+                    }
                 });
 
+                // check answer and update score
                 socket.on("get-answer", 
                 (num) =>
                 {
+                    // check answer
                     var check = ROOM[socket.strRoomName].question.answer[num];
                     if (check)
                     {
-                        PLAYER[socket.id].score++;
+                        PLAYER[socket.id].incrementScore();
                     }
                     var data = {
                         "check": check,  
-                        "text_answer": ROOM[socket.strRoomName].question.text_answer
+                        "text_answer": ROOM[socket.strRoomName].question.text_answer, 
+                        "text_explanation": ROOM[socket.strRoomName].question.text_explanation
                     };
                     io.to(socket.id).emit("set-answer", data);
-                    COUNTER[socket.strRoomName]++;
+                    ROOM[strRoomName].incrementCount();
                     
-                    if (COUNTER[socket.strRoomName] >= ROOM[socket.strRoomName].memberCount){
+                    // update score
+                    if (ROOM[strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         var data = {};
                         for (var key of Object.keys(PLAYER))
                         {
@@ -152,7 +152,7 @@ module.exports = class Game
                             }
                         }
                         io.to(socket.strRoomName).emit("update-score", data)
-                        COUNTER[socket.strRoomName] = 0;
+                        ROOM[strRoomName].resetCount();
                     }
                 });
 
@@ -160,17 +160,21 @@ module.exports = class Game
                 socket.on("disconnect", 
                 () => 
                 {
-                    delete PLAYER[socket.id];
+                    if (PLAYER[socket.id])
+                    {
+                        delete PLAYER[socket.id];
+                        console.log('DISCONNECT : socket.id = %s', socket.id);
+                    }
+
                     if (ROOM[socket.strRoomName])
                     {
-                        ROOM[socket.strRoomName].memberCount--;
+                        ROOM[socket.strRoomName].leaveMember();
                         if (ROOM[socket.strRoomName].memberCount == 0)
                         {
                             delete ROOM[socket.strRoomName];
-                            delete COUNTER[socket.strRoomName];
+                            console.log('DELETE : roomname = %s', socket.strRoomName)
                         }
                     }
-                    console.log('disconnect : socket.id = %s', socket.id);
                 });
             });
     }

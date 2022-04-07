@@ -2,12 +2,19 @@
 const SharedSettings = require('../public/js/SharedSettings.js');
 const GameSettings = require('./GameSetting.js');
 
-// class question
+// class player
 module.exports = class Player
 {
     //constructor
-    constructor(){
-        this.id = null;
-        this.name = null;
+    constructor(name, playerName, score)
+    {
+        this.name = name;
+        this.playerName = playerName;
+        this.score = score;
+    }
+
+    incrementScore()
+    {
+        this.score++;
     }
 }
