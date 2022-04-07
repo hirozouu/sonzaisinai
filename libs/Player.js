@@ -6,10 +6,10 @@ const GameSettings = require('./GameSetting.js');
 module.exports = class Player
 {
     //constructor
-    constructor(name, playerName, score)
+    constructor(playerName, roomName, score)
     {
-        this.name = name;
         this.playerName = playerName;
+        this.roomName = roomName;
         this.score = score;
     }
 
