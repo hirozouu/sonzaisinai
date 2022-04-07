@@ -42,13 +42,23 @@ class Screen
         div_element.appendChild(score_element);
 
         document.getElementById("box_players").appendChild(div_element);
-        $("#box_"+playerName).css({
+        $("#box_"+playerName).css(
+        {
             "padding": "0.5em 1em", 
             "margin": "2em 0", 
             "font-weight": "bold", 
             "border": "solid 3px #000000"
+        });
+        $("#name_"+playerName).css(
+            {
+                "color": "white"
             }
         );
+        $("score_"+playerName).css(
+            {
+                "color": "white"
+            }
+        )
     }
 
     renderQuestion(question)
