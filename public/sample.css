@@ -63,7 +63,7 @@ body input {
 }
 
 .input_start {
-    font-size: x-large;
+    font-size: large;
 }
 
 #button_enter {
@@ -74,7 +74,7 @@ body input {
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
-    font-size: x-large;
+    font-size: large;
 }
 
 #button_enter:active {
