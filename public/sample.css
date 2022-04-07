@@ -9,6 +9,7 @@ body {
 
 body p {
     font-family: "メイリオ";
+    color: white;
 }
 
 body button {
@@ -226,8 +227,6 @@ body input {
 }
 
 #button_answer {
-    padding: 0.5em 1em;
-    margin: 2em 0;
     font-size: xx-large;
 }
 
