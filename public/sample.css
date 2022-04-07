@@ -12,7 +12,7 @@ body p {
 }
 
 body button {
-    display: flex;
+    display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
     background: #8ef1ff;/*ボタン色*/
@@ -48,7 +48,7 @@ body input {
 
 #box_start_title {
     padding: 0.5em 1em;
-    margin: 2em 0;
+    margin: 2em 2em;
     color: white;
     background: #8ef1ff;
     border-top: solid 5px #87e5f2;
