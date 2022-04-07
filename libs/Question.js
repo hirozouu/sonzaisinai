@@ -31,6 +31,7 @@ module.exports = class Question
         this.text_answer = result.text_answer;
         this.answer = [false, false, false, false];
         this.answer[result.answer] = true;
+        console.log(this.answer);
         this.text_explanation = result.text_explanation;
     }
 }
