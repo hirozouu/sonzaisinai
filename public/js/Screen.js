@@ -58,7 +58,7 @@ class Screen
             {
                 "color": "white"
             }
-        )
+        );
     }
 
     renderQuestion(question)
