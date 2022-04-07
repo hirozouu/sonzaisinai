@@ -133,6 +133,8 @@ module.exports = class Game
                 {
                     // check answer
                     var check = ROOM[socket.strRoomName].question.answer[num];
+                    console.log(num)
+                    console.log(check)
                     if (check)
                     {
                         PLAYER[socket.id].incrementScore();
