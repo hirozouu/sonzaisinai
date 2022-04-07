@@ -86,7 +86,7 @@ module.exports = class Game
                 socket.on("get-ready", 
                 () =>
                 {
-                    ROOM[strRoomName].incrementCount();
+                    ROOM[socket.strRoomName].incrementCount();
                     if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-get-ready");
                         ROOM[socket.strRoomName].resetCount();
