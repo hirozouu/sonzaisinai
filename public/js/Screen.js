@@ -48,7 +48,7 @@ class Screen
             "padding": "0.5em 1em", 
             "margin": "2em 0", 
             "font-weight": "bold", 
-            "border": "solid 3px #000000"
+            "border": "solid 3px white", 
         });
         $("#name_"+playerName).css(
             {
