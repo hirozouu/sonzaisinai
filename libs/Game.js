@@ -122,8 +122,8 @@ module.exports = class Game
                                 "selection4": ROOM[socket.strRoomName].question.selection[3]
                             };
                             io.to(socket.strRoomName).emit("set-question", json);
-
                         }
+                        getQuestion;
                     }
                 });
 
