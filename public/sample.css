@@ -73,6 +73,7 @@ body input {
     margin: 0; 
     padding: 0;
     font-size: xx-large;
+    font-weight: bold;
     color: black;
 }
 
@@ -99,7 +100,7 @@ body input {
 
 .box_player {
     padding: 0.5em 1em;
-    margin: 2em 0;
+    margin: 2em 1em;
     font-weight: bold;
     border: solid 3px #000000;
 }
