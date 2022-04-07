@@ -111,15 +111,19 @@ module.exports = class Game
                     ROOM[socket.strRoomName].incrementCount();
                     if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         ROOM[socket.strRoomName].resetCount();
-                        ROOM[socket.strRoomName].question.setNewQuestion();
-                        var json = {
-                            "text_question": ROOM[socket.strRoomName].question.text_question, 
-                            "selection1": ROOM[socket.strRoomName].question.selection[0], 
-                            "selection2": ROOM[socket.strRoomName].question.selection[1], 
-                            "selection3": ROOM[socket.strRoomName].question.selection[2], 
-                            "selection4": ROOM[socket.strRoomName].question.selection[3]
-                        };
-                        io.to(socket.strRoomName).emit("set-question", json);
+                        const getQuestion = async () =>
+                        {
+                            await ROOM[socket.strRoomName].question.setNewQuestion();
+                            var json = {
+                                "text_question": ROOM[socket.strRoomName].question.text_question, 
+                                "selection1": ROOM[socket.strRoomName].question.selection[0], 
+                                "selection2": ROOM[socket.strRoomName].question.selection[1], 
+                                "selection3": ROOM[socket.strRoomName].question.selection[2], 
+                                "selection4": ROOM[socket.strRoomName].question.selection[3]
+                            };
+                            io.to(socket.strRoomName).emit("set-question", json);
+
+                        }
                     }
                 });
 
