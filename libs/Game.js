@@ -89,7 +89,7 @@ module.exports = class Game
                     ROOM[strRoomName].incrementCount();
                     if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-get-ready");
-                        ROOM[strRoomName].resetCount();
+                        ROOM[socket.strRoomName].resetCount();
                     }
                 });
 
@@ -100,7 +100,7 @@ module.exports = class Game
                     ROOM[socket.strRoomName].incrementCount();
                     if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         io.to(socket.strRoomName).emit("everyone-finish-answer");
-                        ROOM[strRoomName].resetCount();
+                        ROOM[socket.strRoomName].resetCount();
                     }
                 });
 
@@ -108,9 +108,9 @@ module.exports = class Game
                 socket.on("get-question", 
                 () =>
                 {
-                    ROOM[strRoomName].incrementCount();
+                    ROOM[socket.strRoomName].incrementCount();
                     if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
-                        ROOM[strRoomName].resetCount();
+                        ROOM[socket.strRoomName].resetCount();
                         ROOM[socket.strRoomName].question.setNewQuestion();
                         var json = {
                             "text_question": ROOM[socket.strRoomName].question.text_question, 
@@ -139,10 +139,10 @@ module.exports = class Game
                         "text_explanation": ROOM[socket.strRoomName].question.text_explanation
                     };
                     io.to(socket.id).emit("set-answer", data);
-                    ROOM[strRoomName].incrementCount();
+                    ROOM[socket.strRoomName].incrementCount();
                     
                     // update score
-                    if (ROOM[strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
+                    if (ROOM[socket.strRoomName].counter >= ROOM[socket.strRoomName].memberCount){
                         var data = {};
                         for (var key of Object.keys(PLAYER))
                         {
@@ -152,7 +152,7 @@ module.exports = class Game
                             }
                         }
                         io.to(socket.strRoomName).emit("update-score", data)
-                        ROOM[strRoomName].resetCount();
+                        ROOM[socket.strRoomName].resetCount();
                     }
                 });
 
