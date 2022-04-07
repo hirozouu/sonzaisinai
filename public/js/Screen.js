@@ -46,7 +46,7 @@ class Screen
         $("#box_"+playerName).css(
         {
             "padding": "0.5em 1em", 
-            "margin": "2em 2em", 
+            "margin": "2em 1em", 
             "font-weight": "bold", 
             "border": "solid 3px white", 
         });
