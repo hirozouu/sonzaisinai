@@ -123,7 +123,7 @@ module.exports = class Game
                             };
                             io.to(socket.strRoomName).emit("set-question", json);
                         }
-                        getQuestion;
+                        getQuestion();
                     }
                 });
 
