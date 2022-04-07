@@ -23,7 +23,7 @@ body p {
     text-align: center;
 }
 
-.box_start {
+#box_start_title {
     padding: 0.5em 1em;
     margin: 2em 0;
     color: #5d627b;
