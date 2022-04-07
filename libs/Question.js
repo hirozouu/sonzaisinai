@@ -23,6 +23,7 @@ module.exports = class Question
     async setNewQuestion()
     {
         const result = await postgres.selectRandom();
+        console.log(result.name)
 
         this.id = result.id;
         this.text_question = result.text_question;
