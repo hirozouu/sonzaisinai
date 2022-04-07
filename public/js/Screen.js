@@ -80,7 +80,7 @@ class Screen
         for (var key of Object.keys(data)){
             document.getElementById("score_"+data[key].playerName).innerText 
             = data[key].score;
-            console.log(data[key].score);
+            console.log(data);
         }
         console.log("update-score");
     }
