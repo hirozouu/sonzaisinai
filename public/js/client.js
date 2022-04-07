@@ -138,7 +138,6 @@ socket.on("everyone-finish-answer",
         document.getElementById("button_answer").style.display = "block";
         document.getElementById("loader_button_answer").style.display = "none"
         document.getElementById("question2").style.display = "none";
-        document.getElementById("answer").style.display = "flex";
         socket.emit("get-answer", SELECT);
     }
 );
@@ -148,6 +147,7 @@ socket.on("set-answer",
 (json) =>
     {
         screen.renderAnswer(json);
+        document.getElementById("answer").style.display = "flex";
     }
 );
 
