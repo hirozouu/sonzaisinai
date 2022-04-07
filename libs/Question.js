@@ -22,7 +22,8 @@ module.exports = class Question
     // get new question from database
     setNewQuestion()
     {
-        let result = postgres.selectRandom();
+        const result = postgres.selectRandom();
+        console.log(result)
 
         this.id = result.id;
         this.text_question = result.text_question;

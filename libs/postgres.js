@@ -15,10 +15,10 @@ const selectRandom = async () =>
     try
     {
         await client.connect();
-        console.log("DATABASE : CONNECT");
+        console.log("CONNECT : PostgreSQL");
         const result = await client.query(
             "SELECT * FROM question WHERE id=(SELECT id FROM question ORDER BY random() LIMIT 1);");
-        console.log(result.rows[0].name);
+        console.log("SELECT : id = %s", result.rows[0].id);
         return result.rows[0];
     }
     catch(err)
@@ -28,7 +28,7 @@ const selectRandom = async () =>
     finally
     {
         await client.end();
-        console.log("DATABASE : DISCONNECT");
+        console.log("DISCONNECT : PostgreSQL");
     }
 }
 
