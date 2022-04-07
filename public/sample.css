@@ -206,19 +206,23 @@ body input {
 
 .question p {
     color: white;
+    font-size: large;
 }
 
 .selection {
     padding: 0.5em 1em;
     margin: 2em 0;
-    font-weight: bold;
-    border: solid 3px white;
+    color: #4838c0;
+    background: #5342eb;
+    border-top: solid 5px #4838c0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
 .selection p {
     margin: 0; 
     padding: 0;
     color: white;
+    font-size: large;
 }
 
 #button_answer {
