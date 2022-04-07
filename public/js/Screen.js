@@ -2,12 +2,9 @@
 class Screen
 {
     //constructor
-    constructor(socket, canvas)
+    constructor(socket)
     {
         this.socket = socket;
-
-        this.assets = new Assets();
-        this.iProcessingTimeNanoSec = 0;
 
         //init socket
         this.initSocket();
