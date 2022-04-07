@@ -8,8 +8,7 @@ const screen = new Screen(socket);
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
-let SCORE = 0;
-let SELECT = -1;
+let SELECT = 0;
 
 //when unload page
 $(window).on(

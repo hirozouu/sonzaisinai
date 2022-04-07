@@ -74,7 +74,7 @@ class Screen
 
     renderAnswer(answer)
     {
-        document.getElementById("text_answer").innerText = answer.text_answer;
+        document.getElementById("text_answer").innerText = "A." + answer.text_answer;
         document.getElementById("text_explanation").innerText = answer.text_explanation;
         if (answer.check)
         {
