@@ -42,6 +42,12 @@ class Screen
         div_element.appendChild(score_element);
 
         document.getElementById("box_players").appendChild(div_element);
+
+        $("#score"+playerName).css(
+            {
+                "color": "white"
+            }
+        );
         $("#box_"+playerName).css(
         {
             "padding": "0.5em 1em", 
@@ -50,11 +56,6 @@ class Screen
             "border": "solid 3px #000000"
         });
         $("#name_"+playerName).css(
-            {
-                "color": "white"
-            }
-        );
-        $("#score"+playerName).css(
             {
                 "color": "white"
             }
