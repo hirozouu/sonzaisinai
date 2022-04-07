@@ -173,6 +173,7 @@ module.exports = class Game
                     }
 
                     setAnswer();
+                    console.log(PLAYER[socket.id].score);
                 });
 
                 //when disconnect
