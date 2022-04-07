@@ -241,6 +241,15 @@ body input {
     flex-direction: column;
 }
 
+#text_answer {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#text_explanation {
+    font-size: large;
+}
+
 #loader_button_next {
     display: none;
 }
