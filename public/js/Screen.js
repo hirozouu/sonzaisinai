@@ -52,12 +52,14 @@ class Screen
         });
         $("#name_"+playerName).css(
             {
-                "color": "white"
+                "color": "white", 
+                "font-size": "x-large"
             }
         );
         $("#score_"+playerName).css(
             {
-                "color": "white"
+                "color": "white", 
+                "font-size": "xx-large"
             }
         );
     }
