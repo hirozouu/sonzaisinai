@@ -158,7 +158,7 @@ body input {
 .input_start {
     padding: 0.5em 0.5em;
     margin: 0.5em 0.25em;
-    font-size: large;
+    font-size: xx-large;
 }
 
 #button_enter {
@@ -209,7 +209,7 @@ body input {
 
 .question p {
     color: white;
-    font-size: large;
+    font-size: xx-large;
 }
 
 .selection {
@@ -225,7 +225,7 @@ body input {
     margin: 0; 
     padding: 0;
     color: white;
-    font-size: large;
+    font-size: xx-large;
 }
 
 #button_answer {
@@ -244,12 +244,12 @@ body input {
 }
 
 #text_answer {
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: bold;
 }
 
 #text_explanation {
-    font-size: large;
+    font-size: xx-large;
 }
 
 #loader_button_next {
@@ -263,5 +263,5 @@ body input {
 #room {
     text-align: left;
     color: white;
-    font-size: small;
+    font-size: medium;
 }
