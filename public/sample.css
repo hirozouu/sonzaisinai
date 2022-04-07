@@ -7,6 +7,10 @@ body {
     background-color: #8EF1FF;
 }
 
+body p {
+    font-family: "MS Pゴシック";
+}
+
 .scene {
     flex: 1 1;
     position: relative;
@@ -29,6 +33,7 @@ body {
 .box_start p {
     margin: 0; 
     padding: 0;
+    font-size: large;
 }
 
 #button_enter {
