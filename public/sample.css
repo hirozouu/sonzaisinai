@@ -124,8 +124,6 @@ body input {
 }
 
 #start_scene {
-    display: flex;
-    flex-direction: column;
     text-align: center;
 }
 
@@ -140,16 +138,12 @@ body input {
 
 #box_start_button {
     padding: 0.5em 1em;
-    margin: 2em 2em;
-    display: flex;
-    flex-direction: column;
+    margin: 2em 0;
 }
 
 #box_start_button_input {
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    flex-direction: row;
 }
 
 .box_start p {
@@ -210,17 +204,21 @@ body input {
     flex-direction: column;
 }
 
+.question p {
+    color: white;
+}
+
 .selection {
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
-    border: solid 3px #000000;
+    border: solid 3px white;
 }
 
 .selection p {
     margin: 0; 
     padding: 0;
-    color: black;
+    color: white;
 }
 
 #button_answer {
