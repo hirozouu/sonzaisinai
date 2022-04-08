@@ -99,14 +99,6 @@ $("#button_ready").on(
 socket.on("everyone-get-ready", 
     () =>
     {
-        document.getElementById("button_ready").style.display = "block";
-        document.getElementById("loader_button_ready").style.display = "none"
-        document.getElementById("box_ready").style.display = "none";
-        document.getElementById("question1").style.display = "flex";
-        document.getElementById("question2").style.display = "flex";
-        document.getElementById("button_next").style.display = "block";
-        document.getElementById("loader_button_next").style.display = "none"
-        document.getElementById("answer").style.display = "none";
         socket.emit("get-question");
     }
 );
@@ -115,6 +107,14 @@ socket.on("everyone-get-ready",
 socket.on("set-question", 
     (json) =>
     {
+        document.getElementById("button_ready").style.display = "block";
+        document.getElementById("loader_button_ready").style.display = "none"
+        document.getElementById("box_ready").style.display = "none";
+        document.getElementById("question1").style.display = "flex";
+        document.getElementById("question2").style.display = "flex";
+        document.getElementById("button_next").style.display = "block";
+        document.getElementById("loader_button_next").style.display = "none"
+        document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
     }
 );
