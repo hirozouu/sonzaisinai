@@ -118,7 +118,6 @@ socket.on("set-question",
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
         document.getElementById("timer").style.visibility = "visible";
-        timer.resetTimer();
         timer.setTimer();
         timecount = setTimeout(function()
         {
