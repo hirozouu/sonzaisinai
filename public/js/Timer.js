@@ -25,9 +25,6 @@ class Timer
 
     resetTimer()
     {
-        $(".circle").css(
-            {
-                "animation": "none"
-            });
+        $(".circle").removeClass();
     }
 }
