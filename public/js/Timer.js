@@ -15,7 +15,8 @@ class Timer
         {
             window.requestAnimationFrame(function()
             {
-                document.getElementById("circle_timer").addClass("pie circle");
+                document.getElementById("circle_timer").addClass("circle");
+                document.getElementById("circle_timer").addClass("pie");
                 $(".circle").css({"animation": "pie "+ setTime*2 +"s linear"});
             });
         });
