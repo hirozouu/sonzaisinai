@@ -9,7 +9,8 @@ class Timer
 
     setTimer()
     {
-        var setTime = 10;   //60秒に設定
+    var setTime = 10;
+    var countTime = setTime;
     var second = 0;
     const circle = document.querySelector(".circle");
     const seconds = document.querySelector(".second");
@@ -23,7 +24,7 @@ class Timer
             }
             countTime = setTime - second;
             seconds.textContent= (countTime % 60);
-            if(countTime < 0){  //10秒切ったら文字が赤くなります
+            if(countTime < 0){
                 document.querySelector(".seconds").style.color = 'red';
             };
         }, 1000);
