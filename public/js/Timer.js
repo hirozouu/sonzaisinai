@@ -18,9 +18,9 @@ class Timer
                 $(".circle").addClass("pie");
                 $(".circle").css(
                     {
-                        "stroke-dasharray": "0, 157"
+                        "stroke-dasharray": "0,157"
                     }
-                )
+                );
                 $(".circle").css({"animation": "pie "+ setTime*2 +"s linear"});
             });
         });
