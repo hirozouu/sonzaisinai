@@ -27,7 +27,7 @@ class Timer
     {
         $(".circle").css(
             {
-                "animation": "pie 0s linear"
-            })
+                "animation": "none"
+            });
     }
 }
