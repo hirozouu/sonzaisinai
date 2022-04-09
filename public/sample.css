@@ -118,6 +118,61 @@ body input {
     }
 }
 
+.progressCircle{
+    height: 100px; 
+    width: 100px; 
+    display: block; 
+    position: relative;
+    margin-bottom:10px;
+}
+
+.progressCircle svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 0;
+    left: 0;
+    overflow: visible;
+}
+
+.circle {
+    fill: rgba(0,0,0,0);
+    stroke-width: 50;
+    stroke-dasharray: 0,157;
+    position: relative;
+}
+
+.seconds{
+    font-size:38px;
+    font-weight: bold;
+    color:#fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pie {
+    stroke: blue;
+    webkit-animation-name: pie;
+    animation: pie 120s linear;
+}
+
+.front{
+    fill: #333;
+}
+
+@-webkit-keyframes pie {
+    50%,100% { stroke-dasharray: 157,157,0,0;}
+}
+
+@keyframes pie {
+    50%,100% { stroke-dasharray: 157,157,0,0;}
+}
+
+
 .scene {
     flex: 1 1;
     position: relative;
