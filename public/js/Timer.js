@@ -10,13 +10,14 @@ class Timer
     setTimer()
     {
         var setTime = 10;
-        $(".circle").removeClass("pie")
+        $(".circle").removeClass("pie");
         window.requestAnimationFrame(function() 
         {
             window.requestAnimationFrame(function()
             {
-                // $(".circle").addClass("pie")
+                $(".circle").addClass("pie");
                 $(".circle").css({"animation": "pie "+ setTime*2 +"s linear"});
+                $(".circle").removeClass("pie");
             });
         });
     }
