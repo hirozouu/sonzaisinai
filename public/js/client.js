@@ -9,6 +9,8 @@ let PLAYERNAME = null;
 let ROOMNAME = null;
 let SELECT = 0;
 
+let flag = false;
+
 //when unload page
 $(window).on(
     'beforeunload', 
@@ -116,6 +118,13 @@ socket.on("set-question",
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
         timer.timer();
+        const timecount = setTimeout(function()
+        {
+            document.getElementById("button_answer").style.display = "none";
+            document.getElementById("loader_button_answer").style.display = "block";
+            socket.emit("finish-answer");
+            console.log("finish-answer");
+        }, 10000)
     }
 );
 
@@ -124,10 +133,11 @@ $("#button_answer").on(
     "click", 
     () =>
     {
+        clearTimeout(timecount)
         document.getElementById("button_answer").style.display = "none";
         document.getElementById("loader_button_answer").style.display = "block";
         socket.emit("finish-answer");
-        console.log("finish-answer")
+        console.log("finish-answer");
     }
 );
 
