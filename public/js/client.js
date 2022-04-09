@@ -1,12 +1,9 @@
 'use strict'
 
-const Timer = require("./Timer.js")
-
 //object
 const socket = io.connect();
-
-//canvas object
 const screen = new Screen(socket);
+const Timer = new Timer();
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
