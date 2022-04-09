@@ -17,7 +17,6 @@ class Timer
             {
                 $(".circle").addClass("pie");
                 $(".circle").css({"animation": "pie "+ setTime*2 +"s linear"});
-                $(".circle").removeClass("pie");
             });
         });
     }
