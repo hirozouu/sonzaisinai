@@ -117,6 +117,7 @@ socket.on("set-question",
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
+        timer.setTimer();
         timecount = setTimeout(function()
         {
             document.getElementById("button_answer").style.display = "none";
