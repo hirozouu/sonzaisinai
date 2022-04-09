@@ -11,18 +11,12 @@ class Timer
     {
         var setTime = 10;
         $(".circle").removeClass("pie");
-        window.requestAnimationFrame(function() 
-        {
-            window.requestAnimationFrame(function()
+        $(".circle")[0].offsetWidth = $(".circle")[0].offsetWidth;
+        $(".circle").addClass("pie");
+        $(".circle").css(
             {
-                $(".circle").addClass("pie");
-                $(".circle").css(
-                    {
-                        "stroke-dasharray": "0,157"
-                    }
-                );
-                $(".circle").css({"animation": "pie "+ setTime*2 +"s linear"});
-            });
-        });
+                "animation": "pie "+ setTime*2 +"s linear"
+            }
+        );
     }
 }
