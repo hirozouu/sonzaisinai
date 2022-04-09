@@ -10,12 +10,12 @@ class Timer
     setTimer()
     {
         var setTime = 10;
-        $(".circle").removeClass("pie");
+        document.getElementById("circle_timer").removeClass();
         window.requestAnimationFrame(function() 
         {
             window.requestAnimationFrame(function()
             {
-                $(".circle").addClass("pie");
+                document.getElementById("circle_timer").addClass("pie circle");
                 $(".circle").css({"animation": "pie "+ setTime*2 +"s linear"});
             });
         });

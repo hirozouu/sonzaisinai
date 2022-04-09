@@ -119,7 +119,6 @@ socket.on("set-question",
         screen.renderQuestion(json);
         document.getElementById("timer").style.visibility = "visible";
         timer.setTimer();
-        $(".circle").removeClass("pie");
         timecount = setTimeout(function()
         {
             document.getElementById("timer").style.visibility = "hidden";
