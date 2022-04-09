@@ -3,7 +3,7 @@
 //object
 const socket = io.connect();
 const screen = new Screen(socket);
-const Timer = new Timer();
+const timer = new Timer();
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
@@ -115,7 +115,7 @@ socket.on("set-question",
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
-        Timer.timer();
+        timer.timer();
     }
 );
 
