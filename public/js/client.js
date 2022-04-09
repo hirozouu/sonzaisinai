@@ -1,5 +1,7 @@
 'use strict'
 
+const Timer = require("./Timer.js")
+
 //object
 const socket = io.connect();
 
@@ -116,6 +118,7 @@ socket.on("set-question",
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
+        Timer.timer();
     }
 );
 
@@ -169,20 +172,3 @@ $("#button_next").on(
         socket.emit("get-ready");
     }
 )
-
-function timer(){
-    var setTime = 20;
-    var second = 0;
-    $('.circle').addClass('pie');
-    $('.circle').css({'animation': 'pie '+ setTime*2 +'s linear'})
-        var timerId = setInterval(function() {
-            second += 1;
-            if(second >= setTime){
-                clearInterval(timerId);
-            }
-            countTime = setTime - second;
-            $('.minute').text(countTime % 3600 / 60 | 0);
-            $('.second').text(countTime % 60);
-        }, 1000);
-}
-timer();
