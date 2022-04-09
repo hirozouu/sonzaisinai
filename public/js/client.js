@@ -9,7 +9,7 @@ let PLAYERNAME = null;
 let ROOMNAME = null;
 let SELECT = 0;
 
-let flag = false;
+let timecount = null;
 
 //when unload page
 $(window).on(
@@ -118,7 +118,7 @@ socket.on("set-question",
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
         timer.timer();
-        const timecount = setTimeout(function()
+        timecount = setTimeout(function()
         {
             document.getElementById("button_answer").style.display = "none";
             document.getElementById("loader_button_answer").style.display = "block";
