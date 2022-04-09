@@ -12,7 +12,7 @@ class Timer
         var setTime = 10;
         var second = 0;
         $('.circle').addClass('pie');
-        $('.circle').css({'animation': 'pie '+ setTime*2 +'s linear'})
+        $('.circle').css({'animation': 'pie '+ setTime*2 +'s linear'});
         var timerId = setInterval(function() 
         {
             second += 1;
@@ -25,7 +25,9 @@ class Timer
 
     resetTimer()
     {
-        document.getElementById("timer").style.display = "none";
-        document.getElementById("timer").style.display = "block";
+        $(".circle").css(
+            {
+                "animation": "pie 0s linear"
+            })
     }
 }
