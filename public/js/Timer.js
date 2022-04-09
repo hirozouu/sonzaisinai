@@ -25,6 +25,6 @@ class Timer
 
     resetTimer()
     {
-        $(".circle").removeClass();
+        $(".circle").removeClass('pie');
     }
 }
