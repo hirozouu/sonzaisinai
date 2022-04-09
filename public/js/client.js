@@ -117,10 +117,8 @@ socket.on("set-question",
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
-        document.getElementById("timer").style.visibility = "visible";
         timecount = setTimeout(function()
         {
-            document.getElementById("timer").style.visibility = "hidden";
             document.getElementById("button_answer").style.display = "none";
             document.getElementById("loader_button_answer").style.display = "block";
             socket.emit("finish-answer");
@@ -135,7 +133,6 @@ $("#button_answer").on(
     () =>
     {
         clearTimeout(timecount)
-        document.getElementById("timer").style.visibility = "hidden";
         document.getElementById("button_answer").style.display = "none";
         document.getElementById("loader_button_answer").style.display = "block";
         socket.emit("finish-answer");
