@@ -25,7 +25,6 @@ class Timer
 
     resetTimer()
     {
-        document.getElementById("timer").style.display="none";
-        document.getElementById("timer").style.display="block";
+        ;
     }
 }

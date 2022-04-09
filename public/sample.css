@@ -152,7 +152,6 @@ body input {
 
 .pie {
     stroke: #00bcac;
-    webkit-animation-name: pie;
     animation-name: pie;
 }
 
