@@ -7,7 +7,7 @@ class Timer
         ;
     }
 
-    timer()
+    setTimer()
     {
         var setTime = 10;
         var second = 0;
@@ -21,5 +21,11 @@ class Timer
                 clearInterval(timerId);
             }
         }, 1000);
+    }
+
+    resetTimer()
+    {
+        document.getElementById("timer").style.display="none";
+        document.getElementById("timer").style.display="block";
     }
 }
