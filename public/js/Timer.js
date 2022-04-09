@@ -11,6 +11,7 @@ class Timer
     {
         var setTime = 10;
         document.querySelector(".circle").class = "circle";
+        $(".circle").removeClass("pie")
         window.requestAnimationFrame(function() 
         {
             window.requestAnimationFrame(function()
