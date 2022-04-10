@@ -21,8 +21,8 @@ class Timer
             setTimeout(() =>
             {
                 circle.classList.add("pie");
-            })
-        })
+            }, 0);
+        });
         circle.style.animation =  'pie '+ setTime*2 +'s linear';
         var timerId = setInterval(function() 
         {
