@@ -120,7 +120,6 @@ socket.on("set-question",
         timer.setTimer();
         timecount = setTimeout(function()
         {
-            timer.resetTimer();
             document.getElementById("button_answer").style.display = "none";
             document.getElementById("loader_button_answer").style.display = "block";
             socket.emit("finish-answer");
@@ -134,7 +133,6 @@ $("#button_answer").on(
     "click", 
     () =>
     {
-        timer.resetTimer();
         clearTimeout(timecount)
         document.getElementById("button_answer").style.display = "none";
         document.getElementById("loader_button_answer").style.display = "block";
