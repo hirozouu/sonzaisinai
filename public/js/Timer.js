@@ -11,21 +11,12 @@ class Timer
 
     setTimer()
     {
-        var setTime = 10;
+        var setTime = 1;
         var countTime = setTime;
         var second = 0;
         const circle = document.querySelector(".circle");
         const seconds = document.querySelector(".second");
 
-        circle.classList.remove("pie");
-        requestAnimationFrame(() =>
-        {
-            setTimeout(() =>
-            {
-                circle.classList.add("pie");
-                circle.style.animation =  'pie '+ setTime*2 +'s linear';
-            }, 0);
-        });
         timerId = setInterval(function() 
         {
             second += 1;

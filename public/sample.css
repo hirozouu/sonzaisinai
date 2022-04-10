@@ -140,7 +140,7 @@ body input {
 .circle {
     fill: rgba(0,0,0,0);
     stroke-width: 50;
-    stroke-dasharray: 0,157;
+    stroke-dasharray: 0,0;
     position: relative;
 }
 
@@ -154,23 +154,9 @@ body input {
     transform: translate(-50%, -50%);
 }
 
-.pie {
-    stroke: blue;
-    animation: pie 120s linear;
-}
-
 .front{
     fill: #333;
 }
-
-@-webkit-keyframes pie {
-    50%,100% { stroke-dasharray: 157,157,0,0;}
-}
-
-@keyframes pie {
-    50%,100% { stroke-dasharray: 157,157,0,0;}
-}
-
 
 .scene {
     flex: 1 1;
