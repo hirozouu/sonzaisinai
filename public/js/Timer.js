@@ -1,5 +1,3 @@
-let timerId = null;
-
 //class timer
 class Timer
 {
@@ -11,28 +9,19 @@ class Timer
 
     setTimer()
     {
-        var setTime = 10;
-        var countTime = setTime;
-        var second = 0;
-        const circle = document.querySelector(".circle");
-        const seconds = document.querySelector(".second");
-
-        timerId = setInterval(function() 
-        {
-            second += 1;
-            if(second >= setTime){
-                clearInterval(timerId);
-            }
-            countTime = setTime - second;
-            seconds.textContent= (countTime % 60);
-            if(countTime < 0){
-                document.querySelector(".seconds").style.color = 'red';
-            };
+        var time = 10; 
+        var initialOffset = '280';
+        var i = 1
+        var interval = setInterval(function() {
+            $('.timer-circle').css('stroke-dashoffset', initialOffset-(i*(initialOffset/time)));
+            $('.timer-time').text(10-i);
+            if (i == time) { clearInterval(interval); } // 連続の場合： i=1; 
+            i++;  
         }, 1000);
     }
 
     resetTimer()
     {
-        clearInterval(timerId)
+        ;
     }
 }

@@ -30,18 +30,21 @@
             </div>
 
             <div id="question1" class="question">
-                <div id="box_timer">
-                    <div class="progressCircle">
-                        <svg viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="50" class="base" />   
-                            <circle cx="50" cy="50" r="25" class="circle" /> 
-                            <circle cx="50" cy="50" r="38" class="front" />  
-                        </svg>
-                        <div class="seconds">
-                            <span class="second">
-                        </div>
-                    </div>
+                <div class="item">
+                    <div class="timer-time">10</div>
+                    <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <title>Pie Timer</title>
+                        <circle id="circle" class="timer-circle" r="40" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+                    </g>
+                    </svg>
                 </div>
+                <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                    <title>Pie Timer</title>
+                    <circle id="circle" class="timer-circle" r="40" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+                    </g>
+                </svg>
                 <p id="text_question">Question</p>
                 <div id="select1" class="selection" onclick="clickSelection(this, 0)">
                     <p id="text1">Answer1</p>

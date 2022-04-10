@@ -118,44 +118,32 @@ body input {
     }
 }
 
-.progressCircle{
-    height: 100px; 
-    width: 100px; 
-    display: block; 
+/*  タイマーの表示場所指定   */
+.item {
     position: relative;
-    margin-bottom:10px;
+    float: left;
 }
 
-.progressCircle svg {
-    display: block;
-    height: 100%;
+/*  残量時間を円の中心に合わせ   */
+.timer-time {
+    text-align:center;
+    position: absolute;
+    line-height: 4em;
     width: 100%;
-    position: absolute;
+    font-size:2.5em;
+}
+
+/*  真上から円を描く指定   */
+svg {
+    -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    top: 0;
-    left: 0;
-    overflow: visible;
 }
 
-.circle {
-    fill: rgba(0,0,0,0);
-    stroke-width: 50;
-    stroke-dasharray: 0,157;
-    position: relative;
-}
-
-.seconds{
-    font-size:38px;
-    font-weight: bold;
-    color:#fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.front{
-    fill: #333;
+/*  円を描く動画の準備   */
+.timer-circle {
+    stroke-dasharray: 280; 
+    stroke-dashoffset: 280;
+    transition: all 1s linear;
 }
 
 .scene {
