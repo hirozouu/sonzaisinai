@@ -140,7 +140,7 @@ body input {
 .circle {
     fill: rgba(0,0,0,0);
     stroke-width: 50;
-    stroke-dasharray: 0,0;
+    stroke-dasharray: 0,157;
     position: relative;
 }
 

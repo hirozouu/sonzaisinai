@@ -11,7 +11,7 @@ class Timer
 
     setTimer()
     {
-        var setTime = 1;
+        var setTime = 10;
         var countTime = setTime;
         var second = 0;
         const circle = document.querySelector(".circle");
