@@ -31,20 +31,10 @@ class Timer
 
     resetTimer()
     {
-        document.querySelector(".circle").classList.remove("pie");
-        window.requestAnimationFrame(function(time)
-        {
-            window.requestAnimationFrame(function(time)
-            {
-                document.querySelector(".circle").classList.add("pie");
-                document.querySelector(".circle").getClientRects();
-            });
-        });
-
-        // var elem = document.querySelector(".progressCircle");
-        // var p = elem.parentElement;
-        // var dummy = document.createElement("div");
-        // p.replaceChild(dummy, elem);
-        // p.replaceChild(elem, dummy);
+        var setTime = 10;
+        elem = document.querySelector(".circle");
+        elem.style.animation = "none";
+        elem.offsetWidth;
+        elem.style.animation = 'pie '+ setTime*2 +'s linear'
     }
 }
