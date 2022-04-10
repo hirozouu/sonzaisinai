@@ -33,6 +33,6 @@ class Timer
     {
         const elem = document.querySelector(".circle");
         elem.style.animation = "none";
-        elem.offsetWidth;
+        void elem.offsetWidth;
     }
 }
