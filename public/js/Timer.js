@@ -31,10 +31,8 @@ class Timer
 
     resetTimer()
     {
-        var setTime = 10;
-        elem = document.querySelector(".circle");
+        const elem = document.querySelector(".circle");
         elem.style.animation = "none";
         elem.offsetWidth;
-        elem.style.animation = 'pie '+ setTime*2 +'s linear'
     }
 }
