@@ -15,6 +15,7 @@ class Timer
     const circle = document.querySelector(".circle");
     const seconds = document.querySelector(".second");
 
+    circle.classList.remove('pie');
     circle.classList.add('pie');
     circle.style.animation =  'pie '+ setTime*2 +'s linear';
         var timerId = setInterval(function() {
