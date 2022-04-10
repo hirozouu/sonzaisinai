@@ -33,10 +33,11 @@ class Timer
 
     resetTimer()
     {
-        var elem = document.querySelector(".progressCircle");
-        var p = elem.parentElement;
-        var dummy = document.createElement("div");
-        p.replaceChild(dummy, elem);
-        p.replaceChild(elem, dummy);
+        document.querySelector(".progressCircle").getClientRects();
+        // var elem = document.querySelector(".progressCircle");
+        // var p = elem.parentElement;
+        // var dummy = document.createElement("div");
+        // p.replaceChild(dummy, elem);
+        // p.replaceChild(elem, dummy);
     }
 }
