@@ -31,8 +31,9 @@ class Timer
 
     resetTimer()
     {
-        const elem = document.querySelector(".circle");
-        elem.style.animation = "none";
-        void elem.offsetWidth;
+        var elem = document.querySelector(".progressCircle");
+        var p = elem.parentElement;
+        p.removeChild(elem);
+        p.appendChild(elem);
     }
 }
