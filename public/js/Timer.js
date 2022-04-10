@@ -20,7 +20,7 @@ class Timer
         {
             setTimeout(() =>
             {
-                // circle.classList.add("pie");
+                circle.classList.add("pie");
                 circle.style.animation =  'pie '+ setTime*2 +'s linear';
             }, 0);
         });
