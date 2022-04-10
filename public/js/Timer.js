@@ -29,4 +29,13 @@ class Timer
             };
         }, 1000);
     }
+
+    resetTimer()
+    {
+        var elem = document.querySelector(".progressCircle");
+        var p = elem.parentElement;
+        var dummy = document.createElement("div");
+        p.replaceChild(dummy, elem);
+        p.replaceChild(elem, dummy);
+    }
 }
