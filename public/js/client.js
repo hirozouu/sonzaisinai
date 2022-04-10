@@ -118,11 +118,9 @@ socket.on("set-question",
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
         timer.resetTimer();
-        document.querySelector(".progressCircle").style.display = "block";
         timer.setTimer();
         timecount = setTimeout(function()
         {
-            document.querySelector(".progressCircle").style.display = "none";
             document.getElementById("button_answer").style.display = "none";
             document.getElementById("loader_button_answer").style.display = "block";
             socket.emit("finish-answer");
@@ -137,7 +135,6 @@ $("#button_answer").on(
     () =>
     {
         clearTimeout(timecount)
-        document.querySelector(".progressCircle").style.display = "none";
         document.getElementById("button_answer").style.display = "none";
         document.getElementById("loader_button_answer").style.display = "block";
         socket.emit("finish-answer");
