@@ -1,10 +1,12 @@
-//class timer
+let timerId = null;
 
+//class timer
 class Timer
 {
+
     constructor()
     {
-        ;
+
     }
 
     setTimer()
@@ -24,7 +26,7 @@ class Timer
                 circle.style.animation =  'pie '+ setTime*2 +'s linear';
             }, 0);
         });
-        var timerId = setInterval(function() 
+        timerId = setInterval(function() 
         {
             second += 1;
             if(second >= setTime){
@@ -40,6 +42,6 @@ class Timer
 
     resetTimer()
     {
-        ;
+        clearInterval(timerId)
     }
 }
