@@ -15,7 +15,6 @@ class Timer
     const circle = document.querySelector(".circle");
     const seconds = document.querySelector(".second");
 
-    circle.classList.add('pie');
     circle.style.animation =  'pie '+ setTime*2 +'s linear';
         var timerId = setInterval(function() {
             second += 1;
@@ -32,12 +31,12 @@ class Timer
 
     resetTimer()
     {
-        document.querySelector(".circle").className = "circle";
+        document.querySelector(".circle").classList.remove("pie");
         window.requestAnimationFrame(function(time)
         {
             window.requestAnimationFrame(function(time)
             {
-                document.querySelector(".circle").className = "circle pie"
+                document.querySelector(".circle").classList.add("pie");
             });
         });
 
