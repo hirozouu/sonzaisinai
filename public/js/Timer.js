@@ -37,6 +37,7 @@ class Timer
             window.requestAnimationFrame(function(time)
             {
                 document.querySelector(".circle").classList.add("pie");
+                document.querySelector(".circle").getClientRects();
             });
         });
 
