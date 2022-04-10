@@ -9,14 +9,23 @@ class Timer
 
     setTimer()
     {
-    var setTime = 10;
-    var countTime = setTime;
-    var second = 0;
-    const circle = document.querySelector(".circle");
-    const seconds = document.querySelector(".second");
+        var setTime = 10;
+        var countTime = setTime;
+        var second = 0;
+        const circle = document.querySelector(".circle");
+        const seconds = document.querySelector(".second");
 
-    circle.style.animation =  'pie '+ setTime*2 +'s linear';
-        var timerId = setInterval(function() {
+        circle.classList.remove("pie");
+        requestAnimationFrame(() =>
+        {
+            setTimeout(() =>
+            {
+                circle.classList.add("pie");
+            })
+        })
+        circle.style.animation =  'pie '+ setTime*2 +'s linear';
+        var timerId = setInterval(function() 
+        {
             second += 1;
             if(second >= setTime){
                 clearInterval(timerId);
@@ -31,9 +40,6 @@ class Timer
 
     resetTimer()
     {
-        var elem = document.querySelector(".progressCircle");
-        var p = elem.parentElement;
-        p.removeChild(elem);
-        p.appendChild(elem);
+        ;
     }
 }
