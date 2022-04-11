@@ -1,3 +1,5 @@
+var interval = null;
+
 //class timer
 class Timer
 {
@@ -9,11 +11,10 @@ class Timer
 
     setTimer()
     {
-        document.getElementById("timer").style.display = "block";
         var time = 10; 
         var initialOffset = '280';
         var i = 1
-        var interval = setInterval(function() {
+        interval = setInterval(function() {
             $('.timer-circle').css('stroke-dashoffset', initialOffset-(i*(initialOffset/time)));
             $('.timer-time').text(10-i);
             if (i == time) { clearInterval(interval); } // 連続の場合： i=1; 
@@ -23,6 +24,6 @@ class Timer
 
     resetTimer()
     {
-        document.getElementById("timer").style.display = "none";
+        clearInterval(interval);
     }
 }
