@@ -39,7 +39,7 @@ $("#button_enter").on(
         {
             alert("Your Nameを入力してください. ");
         }
-        else if (!PLAYERNAME)
+        else if (!ROOMNAME)
         {
             alert("Room Nameを入力してください. ")
         }
