@@ -29,8 +29,6 @@ $("#button_enter").on(
     "click", 
     () =>
     {
-        document.getElementById("button_enter").style.display = "none";
-        document.getElementById("loader_button_enter").style.display = "block"
         PLAYERNAME = $("#input_playername").val();
         ROOMNAME = $("#input_roomname").val();
         if (PLAYERNAME == false && ROOMNAME == false)
@@ -47,6 +45,8 @@ $("#button_enter").on(
         }
         else
         {
+            document.getElementById("button_enter").style.display = "none";
+            document.getElementById("loader_button_enter").style.display = "block";
             var json = {
                 "playerName": PLAYERNAME, 
                 "roomName": ROOMNAME, 
