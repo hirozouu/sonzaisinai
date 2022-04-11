@@ -33,11 +33,26 @@ $("#button_enter").on(
         document.getElementById("loader_button_enter").style.display = "block"
         PLAYERNAME = $("#input_playername").val();
         ROOMNAME = $("#input_roomname").val();
-        var json = {
-            "playerName": PLAYERNAME, 
-            "roomName": ROOMNAME, 
-        };
-        socket.emit("get-permission", json);
+        if (PLAYERNAME == false && ROOMNAME == false)
+        {
+            alert("Your NameとRoom Nameを入力してください. ");
+        }
+        else if (!PLAYERNAME)
+        {
+            alert("Your Nameを入力してください. ");
+        }
+        else if (!PLAYERNAME)
+        {
+            alert("Room Nameを入力してください. ")
+        }
+        else
+        {
+            var json = {
+                "playerName": PLAYERNAME, 
+                "roomName": ROOMNAME, 
+            };
+            socket.emit("get-permission", json);
+        }
     }
 );
 
