@@ -11,6 +11,7 @@ class Timer
 
     setTimer()
     {
+        document.getElementById("timer").style.display = "block";
         var time = 10; 
         var initialOffset = '280';
         var i = 1
