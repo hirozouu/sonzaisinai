@@ -220,6 +220,7 @@ $("#button_post").on(
         text_answer = $("textarea_text_answer").val();
         answer = $("select_answer").val();
         text_explanation = $("textarea_text_explanation").val();
+        console.log(quizname)
 
         if (!quizname)
         {
