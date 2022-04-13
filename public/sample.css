@@ -294,3 +294,15 @@ svg {
     flex-direction: column;
     text-align: center;
 }
+
+.textarea_post_name {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    background: #f2f2f2;
+    margin: 0.5em 0;
+    line-height: 1.5;
+    height: 1.5em;
+}
