@@ -197,7 +197,7 @@ $("#button_next").on(
     }
 )
 
-$("button_move").on(
+$("#button_move").on(
     "click", 
     () =>
     {
