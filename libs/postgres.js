@@ -58,7 +58,7 @@ const insertQuiz = async (quiz) =>
             + quiz.selection2 + ", "
             + quiz.selection3 + ", "
             + quiz.text_answer + ", "
-            + quiz.answer + ", "
+            + Number(quiz.answer) + ", "
             + quiz.text_explanation + ");"
         );
         console.log("INSERT : name = %s", quiz.name);
