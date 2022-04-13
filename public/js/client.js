@@ -223,27 +223,27 @@ $("#button_post").on(
 
         if (!quizname)
         {
-            $("#error_post_quizname").style.display = "block";
+            document.getElementById("#error_post_quizname").style.display = "block";
         }
         if (!writername)
         {
-            $("#error_post_writername").style.display = "block";
+            document.getElementById("#error_post_writername").style.display = "block";
         }
         if (!text_question)
         {
-            $("#box_post_question .error_post").style.display = "block";
+            document.getElementById("#error_post_question").style.display = "block";
         }
         if (!selection0 || !selection1 || !selection2 || !selection3)
         {
-            $("#box_post_selection .error_post").style.display = "block";
+            document.getElementById("#error_post_selection").style.display = "block";
         }
         if (!text_answer)
         {
-            $("#error_post_answer").style.display = "block";
+            document.getElementById("#error_post_answer").style.display = "block";
         }
         if (!text_explanation)
         {
-            $("#error_post_explanation").style.display = "block";
+            document.getElementById("#error_post_explanation").style.display = "block";
         }
         else
         {
