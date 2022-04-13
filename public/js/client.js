@@ -206,7 +206,7 @@ $("#button_move").on(
     }
 )
 
-$("button_post").on(
+$("#button_post").on(
     "click", 
     () =>
     {
