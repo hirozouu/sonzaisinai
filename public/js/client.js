@@ -250,7 +250,6 @@ $("#button_post").on(
         else
         {
             document.getElementById("textarea_quizname").value = "";
-            document.getElementById("textarea_writername").value = "";
             document.getElementById("textarea_text_question").value = "";
             document.getElementById("textarea_selection0").value = "";
             document.getElementById("textarea_selection1").value = "";
