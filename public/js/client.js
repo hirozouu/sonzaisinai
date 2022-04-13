@@ -273,6 +273,25 @@ $("#button_post").on(
     }
 )
 
+$("#button_repeat").on(
+    "click", 
+    () =>
+    {
+        document.getElementById("check_scene").style.display = "none";
+        document.getElementById("post_scene").style.display = "flex";
+    }
+)
+
+$(".button_back").on(
+    "click", 
+    () =>
+    {
+        document.getElementById("post_scene").style.display = "none";
+        document.getElementById("check_scene").style.display = "none";
+        document.getElementById("start_scene").style.display = "flex";
+    }
+)
+
 function resetErrorText()
 {
     document.getElementById("error_post_quizname").style.display = "none";
