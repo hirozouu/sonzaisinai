@@ -299,6 +299,10 @@ svg {
     font-size: large;
 }
 
+#post_scene select {
+    font-size: large;
+}
+
 #post_scene textarea {
     display: inline-block;
     width: 40%;
