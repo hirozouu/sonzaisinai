@@ -247,6 +247,7 @@ $("#button_post").on(
         }
         else
         {
+            $(".error_post").style.display = "none";
             document.getElementById("textarea_quizname").value = "";
             document.getElementById("textarea_writername").value = "";
             document.getElementById("textarea_text_question").value = "";
