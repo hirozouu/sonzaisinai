@@ -33,7 +33,8 @@ const selectRandom = async () =>
     }
 }
 
-const insertQuiz = async (quiz)
+// insert quiz into database
+const insertQuiz = async (quiz) =>
 {
     const client = new Client(
         {
