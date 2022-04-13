@@ -35,7 +35,7 @@ const selectRandom = async () =>
 
 const insertQuiz = function(quiz)
 {
-    client.query("INSERT INTO question (name, writer, text_question, selection0, selection1, selection2, selection3, text_answer, answer, text_explanation) VALUES (" 
+    client.query("INSERT INTO question (name, writer, text_question, selection0, selection1, selection2, selection3, text_answer, answer, text_explanation) VALUES ("
     + quiz.name + ", " 
     + quiz.writer + ", "
     + quiz.text_question + ", "
