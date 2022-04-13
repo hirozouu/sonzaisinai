@@ -198,6 +198,10 @@ svg {
     display: none;
 }
 
+#button_move {
+    font-size: x-large;
+}
+
 #game_scene {
     display: none;
     flex-direction: column;

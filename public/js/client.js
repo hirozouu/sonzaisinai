@@ -247,7 +247,8 @@ $("#button_post").on(
         }
         else
         {
-            ;
+            
+            document.getElementById("post_scene").style.display = "none"
         }
     }
 )
