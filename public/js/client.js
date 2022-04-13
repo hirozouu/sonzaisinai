@@ -247,8 +247,16 @@ $("#button_post").on(
         }
         else
         {
-            
-            document.getElementById("post_scene").style.display = "none"
+            document.getElementById("textarea_quizname").value = "";
+            document.getElementById("textarea_writername").value = "";
+            document.getElementById("textarea_text_question").value = "";
+            document.getElementById("textarea_selection0").value = "";
+            document.getElementById("textarea_selection1").value = "";
+            document.getElementById("textarea_selection2").value = "";
+            document.getElementById("textarea_selection3").value = "";
+            document.getElementById("textarea_text_answer").value = "";
+            document.getElementById("textarea_text_explanation").value = "";
+            document.getElementById("post_scene").style.display = "none";
         }
     }
 )
