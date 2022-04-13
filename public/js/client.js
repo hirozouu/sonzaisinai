@@ -261,7 +261,7 @@ $("#button_post").on(
             document.getElementById("post_scene").style.display = "none";
             document.getElementById("check_scene").style.display = "flex";
             document.getElementById("quizname_check").innerText = "クイズの名前 : " + quizname;
-            document.getElementById("writername_chck").innerText = "作成者 : " + writername;
+            document.getElementById("writername_check").innerText = "作成者 : " + writername;
             document.getElementById("text_question_check").innerText = "問題 : " + text_question;
             document.getElementById("selection0_check").innerText = "選択肢1 : " + selection0;
             document.getElementById("selection1_check").innerText = "選択肢2 : " + selection1;
