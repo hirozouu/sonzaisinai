@@ -33,7 +33,7 @@ const selectRandom = async () =>
     }
 }
 
-const insertQuiz = function(quiz)
+const insertQuiz = async (quiz)
 {
     const client = new Client(
         {
