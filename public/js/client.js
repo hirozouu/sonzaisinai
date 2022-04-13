@@ -288,7 +288,7 @@ $(".button_back").on(
     {
         document.getElementById("post_scene").style.display = "none";
         document.getElementById("check_scene").style.display = "none";
-        document.getElementById("start_scene").style.display = "flex";
+        document.getElementById("start_scene").style.display = "block";
     }
 )
 
