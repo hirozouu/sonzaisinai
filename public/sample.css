@@ -299,7 +299,7 @@ svg {
     font-size: large;
 }
 
-.textarea_post_name {
+#post_scene textarea {
     display: inline-block;
     width: 40%;
     padding: 10px;
@@ -312,15 +312,22 @@ svg {
     font-size: large;
 }
 
-#textarea_text_question {
-    display: inline-block;
-    width: 40%;
-    padding: 10px;
-    border: 1px solid #999;
-    box-sizing: border-box;
-    background: #f2f2f2;
-    margin: 0.5em 0;
-    line-height: 1.5;
+.textarea_post_name {
     height: 3em;
-    font-size: large;
+}
+
+#textarea_text_question {
+    height: 6em;
+}
+
+.textarea_post_selection {
+    height: 3em;
+}
+
+#textarea_text_answer {
+    height: 3em;
+}
+
+#textarea_text_explanation {
+    height: 6em;
 }
