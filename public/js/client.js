@@ -210,17 +210,16 @@ $("#button_post").on(
     "click", 
     () =>
     {
-        quizname = $("#textarea_quizname").val();
-        writername = $("textarea_writername").val();
-        text_question = $("textarea_text_question").val();
-        selection0 = $("textarea_selection0").val();
-        selection1 = $("textarea_selection1").val();
-        selection2 = $("textarea_selection2").val();
-        selection3 = $("textarea_selection3").val();
-        text_answer = $("textarea_text_answer").val();
-        answer = $("select_answer").val();
-        text_explanation = $("textarea_text_explanation").val();
-        console.log(quizname)
+        const quizname = $("#textarea_quizname").val();
+        const writername = $("textarea_writername").val();
+        const text_question = $("textarea_text_question").val();
+        const selection0 = $("textarea_selection0").val();
+        const selection1 = $("textarea_selection1").val();
+        const selection2 = $("textarea_selection2").val();
+        const selection3 = $("textarea_selection3").val();
+        const text_answer = $("textarea_text_answer").val();
+        const answer = $("select_answer").val();
+        const text_explanation = $("textarea_text_explanation").val();
 
         if (!quizname)
         {
