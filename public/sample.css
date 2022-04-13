@@ -349,6 +349,10 @@ svg {
     font-size: xx-large;
 }
 
+.box_button_back {
+    text-align: left;
+}
+
 .button_back {
     font-size: x-large;
 }
