@@ -50,9 +50,9 @@ const insertQuiz = async (quiz) =>
         console.log("CONNECT : PostgreSQL");
         const result = await client.query(
             "INSERT INTO question (name, writer, text_question, selection0, selection1, selection2, selection3, text_answer, answer, text_explanation) VALUES ("
-            + "'${quiz.name}', '${quiz.writer}', '${quiz.text_question}', "
-            + "'${quiz.selection0}', '${quiz.selection1}', '${quiz.selection2}', '${quiz.selection3}', "
-            + "'${quiz.text_answer}', " + Number(quiz.answer) + ", '${quiz.text_explanation}');" 
+            + "'" + quiz.name + "', '" + quiz.writer + "', '" + quiz.text_question + "', '"
+            + quiz.selection0 + "', '" + quiz.selection1 + "', '" + quiz.selection2 + "', '" + quiz.selection3 + "', '"
+            + quiz.text_answer + "', '" + Number(quiz.answer) + "', '" + quiz.text_explanation + ");"
         );
         console.log("INSERT : name = %s", quiz.name);
     }
