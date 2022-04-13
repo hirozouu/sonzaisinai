@@ -198,6 +198,12 @@ svg {
     display: none;
 }
 
+#post_scene {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+}
+
 #game_scene {
     display: none;
     flex-direction: column;
@@ -288,10 +294,4 @@ svg {
     text-align: left;
     color: white;
     font-size: medium;
-}
-
-#post_scene {
-    display: none;
-    flex-direction: column;
-    text-align: center;
 }
