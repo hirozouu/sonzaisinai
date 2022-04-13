@@ -316,6 +316,11 @@ svg {
     font-size: large;
 }
 
+.error_post {
+    display: none;
+    color: red;
+}
+
 #post_scene .textarea_post_name {
     height: 3em;
 }
@@ -334,4 +339,8 @@ svg {
 
 #post_scene #textarea_text_explanation {
     height: 6em;
+}
+
+#button_post {
+    font-size: xx-large;
 }

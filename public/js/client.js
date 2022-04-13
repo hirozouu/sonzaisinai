@@ -205,3 +205,49 @@ $("#button_move").on(
         document.getElementById("post_scene").style.display = "flex";
     }
 )
+
+$("button_post").on(
+    "click", 
+    () =>
+    {
+        quizname = $("#textarea_quizname").val();
+        writername = $("textarea_writername").val();
+        text_question = $("textarea_text_question").val();
+        selection0 = $("textarea_selection0").val();
+        selection1 = $("textarea_selection1").val();
+        selection2 = $("textarea_selection2").val();
+        selection3 = $("textarea_selection3").val();
+        text_answer = $("textarea_text_answer").val();
+        answer = $("select_answer").val();
+        text_explanation = $("textarea_text_explanation").val();
+
+        if (!quizname)
+        {
+            $("#error_post_quizname").style.display = "block";
+        }
+        if (!writername)
+        {
+            $("#error_post_writername").style.display = "block";
+        }
+        if (!text_question)
+        {
+            $("#box_post_question .error_post").style.display = "block";
+        }
+        if (!selection0 || !selection1 || !selection2 || !selection3)
+        {
+            $("#box_post_selection .error_post").style.display = "block";
+        }
+        if (!text_answer)
+        {
+            $("#error_post_answer").style.display = "block";
+        }
+        if (!text_explanation)
+        {
+            $("#error_post_explanation").style.display = "block";
+        }
+        else
+        {
+            ;
+        }
+    }
+)

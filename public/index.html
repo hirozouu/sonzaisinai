@@ -75,16 +75,20 @@
         <div id="post_scene" class="scene">
             <div id="box_post_name" class="box_post">
                 <p>1. クイズの名前</p>
+                <p id="error_post_quizname" class="error_post">入力必須</p>
                 <textarea id="textarea_quizname" class="textarea_post_name"></textarea>
                 <p>2. 作成者</p>
+                <p id="error_post_writername" class="error_post">入力必須</p>
                 <textarea id="textarea_writername" class="textarea_post_name"></textarea>
             </div>
             <div id="box_post_question" class="=box_post">
                 <p>3. 問題</p>
+                <p class="error_post">入力必須</p>
                 <textarea id="textarea_text_question"></textarea>
             </div>
             <div id="box_post_selection" class="box_post">
                 <p>4. 選択肢</p>
+                <p class="error_post">入力必須</p>
                 <p>選択肢1</p>
                 <textarea id="textarea_selection0" class="textaree_post_selection"></textarea>
                 <p>選択肢2</p>
@@ -104,14 +108,18 @@
                 </select>
             </div>
             <div id="box_post_answer" class="box_post">
+                <p id="error_post_answer">入力必須</p>
                 <textarea id="textarea_text_answer" class="textarea_post_answer"></textarea>
                 <p>6. 解説</p>
+                <p id="error_post_explanation">入力必須</p>
                 <textarea id="textarea_text_explanation" class="textarea_post_answer"></textarea>
             </div>
-            <div id="box_buttons_pre" class="box_buttons">
+            <div class="box_buttons">
                 <button id="button_post">投稿する</button>
             </div>
         </div>
+
+        <div id="check_scene" class="scene"></div>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
