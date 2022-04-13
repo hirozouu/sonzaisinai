@@ -220,6 +220,8 @@ $("#button_post").on(
         const text_answer = $("textarea_text_answer").val();
         const answer = $("select_answer").val();
         const text_explanation = $("textarea_text_explanation").val();
+        console.log(quizname);
+        console.log(writername)
 
         if (!quizname)
         {
