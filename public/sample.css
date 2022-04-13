@@ -348,3 +348,13 @@ svg {
 #button_post {
     font-size: xx-large;
 }
+
+#check_scene {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+#check_scene p {
+    font-size: xx-large;
+}

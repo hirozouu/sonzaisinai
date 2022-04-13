@@ -211,7 +211,7 @@ $("#button_post").on(
     () =>
     {
         resetErrorText();
-        
+
         const quizname = $("#textarea_quizname").val();
         const writername = $("#textarea_writername").val();
         const text_question = $("#textarea_text_question").val();
@@ -259,6 +259,17 @@ $("#button_post").on(
             document.getElementById("textarea_text_answer").value = "";
             document.getElementById("textarea_text_explanation").value = "";
             document.getElementById("post_scene").style.display = "none";
+            document.getElementById("check_scene").style.display = "flex";
+            document.getElementById("quizname_check").value = "クイズの名前 : " + quizname;
+            document.getElementById("writername_chck").value = "作成者 : " + writername;
+            document.getElementById("text_question_check").value = "問題 : " + text_question;
+            document.getElementById("selection0_check").value = "選択肢1 : " + selection0;
+            document.getElementById("selection1_check").value = "選択肢2 : " + selection1;
+            document.getElementById("selection2_check").value = "選択肢3 : " + selection2;
+            document.getElementById("selection3_check").value = "選択肢4 : " + selection3;
+            document.getElementById("text_answer_check").value = "答え : " + text_answer;
+            document.getElementById("answer_check").value = "正解の番号 : " + answer;
+            document.getElementById("text_explanation_check").value = "解説 : " + text_explanation;
         }
     }
 )
