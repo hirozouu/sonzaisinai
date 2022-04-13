@@ -196,3 +196,12 @@ $("#button_next").on(
         socket.emit("get-ready");
     }
 )
+
+$("button_move").on(
+    "click", 
+    () =>
+    {
+        document.getElementById("start_scene").style.display = "none";
+        document.getElementById("post_scene").style.display = "flex";
+    }
+)
