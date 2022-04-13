@@ -1,5 +1,4 @@
 const { Client } = require('pg');
-const client = require('pg/lib/native/client');
 
 // select randomly from database
 const selectRandom = async () =>
@@ -62,7 +61,7 @@ const insertQuiz = async (quiz) =>
             + quiz.answer + ", "
             + quiz.text_explanation + ");"
         );
-        console.log("INSERT : writer = %s", quiz.writer);
+        console.log("INSERT : name = %s", quiz.name);
     }
     catch(err)
     {
