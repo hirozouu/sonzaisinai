@@ -126,8 +126,8 @@ socket.on("set-question",
         document.getElementById("button_ready").style.display = "block";
         document.getElementById("loader_button_ready").style.display = "none"
         document.getElementById("box_ready").style.display = "none";
-        document.getElementById("question1").style.display = "flex";
-        document.getElementById("question2").style.display = "flex";
+        document.getElementById("question1").style.display = "block";
+        document.getElementById("question2").style.display = "block";
         document.getElementById("button_next").style.display = "block";
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
@@ -174,7 +174,7 @@ socket.on("set-answer",
         document.getElementById("button_answer").style.display = "block";
         document.getElementById("loader_button_answer").style.display = "none"
         document.getElementById("question2").style.display = "none";
-        document.getElementById("answer").style.display = "flex";
+        document.getElementById("answer").style.display = "block";
     }
 );
 
@@ -269,6 +269,20 @@ $("#button_post").on(
             document.getElementById("text_answer_check").innerText = "答え : " + text_answer;
             document.getElementById("answer_check").innerText = "正解の番号 : " + String(Number(answer)+1);
             document.getElementById("text_explanation_check").innerText = "解説 : " + text_explanation;
+            
+            var json = {
+                "name": quizname, 
+                "writer": writername, 
+                "text_question": text_question, 
+                "selection0": selection0, 
+                "selection1": selection1, 
+                "selection2": selection2, 
+                "selection3": selection3, 
+                "text_answer": text_answer, 
+                "answer": answer, 
+                "text_explanation": text_explanation
+            }
+            socket.emit("post-quiz", json);
         }
     }
 )
