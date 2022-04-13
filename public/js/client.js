@@ -268,7 +268,7 @@ $("#button_post").on(
             document.getElementById("selection2_check").innerText = "選択肢3 : " + selection2;
             document.getElementById("selection3_check").innerText = "選択肢4 : " + selection3;
             document.getElementById("text_answer_check").innerText = "答え : " + text_answer;
-            document.getElementById("answer_check").innerText = "正解の番号 : " + answer;
+            document.getElementById("answer_check").innerText = "正解の番号 : " + String(Number(answer)+1);
             document.getElementById("text_explanation_check").innerText = "解説 : " + text_explanation;
         }
     }
