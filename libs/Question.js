@@ -7,9 +7,8 @@ const postgres = require("./postgres.js");
 module.exports = class Question
 {
     //constructor
-    constructor(client)
+    constructor()
     {
-        this.client = client;
         this.id = 0; // id
         this.text_question = "Question?"; // question text
         this.selection = ["Select0", "Select1", 
