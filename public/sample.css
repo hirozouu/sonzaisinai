@@ -312,22 +312,22 @@ svg {
     font-size: large;
 }
 
-.textarea_post_name {
+#post_scene .textarea_post_name {
     height: 3em;
 }
 
-#textarea_text_question {
+#post_scene #textarea_text_question {
     height: 12em;
 }
 
-.textarea_post_selection {
+#post_scene .textarea_post_selection {
     height: 3em;
 }
 
-#textarea_text_answer {
+#post_scene #textarea_text_answer {
     height: 3em;
 }
 
-#textarea_text_explanation {
+#post_scene #textarea_text_explanation {
     height: 6em;
 }
