@@ -3,6 +3,7 @@ const Question = require('./Question.js');
 const Player = require('./Player.js');
 const Room = require('./Room.js');
 const GameSettings = require('./GameSetting.js');
+const postgres = require("./postgres.js");
 const { json } = require('express/lib/response');
 
 // global veriable
@@ -173,6 +174,13 @@ module.exports = class Game
                     }
 
                     setAnswer();
+                });
+
+                // when client post quiz
+                socket.on("post-quiz", 
+                (json) =>
+                {
+                    postgres.insertQuiz(json);
                 });
 
                 //when disconnect
