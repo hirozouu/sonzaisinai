@@ -289,7 +289,7 @@ svg {
     color: white;
     font-size: medium;
 }
-#post-scene {
+#post_scene {
     display: none;
     flex-direction: column;
     text-align: center;
