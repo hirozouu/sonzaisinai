@@ -210,6 +210,8 @@ $("#button_post").on(
     "click", 
     () =>
     {
+        resetErrorText();
+        
         const quizname = $("#textarea_quizname").val();
         const writername = $("#textarea_writername").val();
         const text_question = $("#textarea_text_question").val();
@@ -247,7 +249,6 @@ $("#button_post").on(
         }
         else
         {
-            $(".error_post").style.display = "none";
             document.getElementById("textarea_quizname").value = "";
             document.getElementById("textarea_writername").value = "";
             document.getElementById("textarea_text_question").value = "";
@@ -261,3 +262,13 @@ $("#button_post").on(
         }
     }
 )
+
+function resetErrorText()
+{
+    document.getElementById("error_post_quizname").style.display = "none";
+    document.getElementById("error_post_writername").style.display = "none";
+    document.getElementById("error_post_question").style.display = "none";
+    document.getElementById("error_post_selection").style.display = "none";
+    document.getElementById("error_post_answer").style.display = "none";
+    document.getElementById("error_post_explanation").style.display = "none";
+}
