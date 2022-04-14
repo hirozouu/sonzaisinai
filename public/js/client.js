@@ -123,7 +123,7 @@ socket.on("everyone-get-ready",
 socket.on("set-question", 
     (json) =>
     {
-        document.getElementById("button_ready").style.display = "block";
+        document.getElementById("button_ready").style.display = "flex";
         document.getElementById("loader_button_ready").style.display = "none"
         document.getElementById("box_ready").style.display = "none";
         document.getElementById("question1").style.display = "flex";
