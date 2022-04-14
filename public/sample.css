@@ -374,3 +374,21 @@ svg {
 #button_repeat {
     font-size: xx-large;
 }
+
+#box_message_check {
+    padding: 0.5em 1em;
+    margin: 2em 2em;
+    color: white;
+    background: #5342eb;
+    border-top: solid 5px #4838c0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+#box_message_check p {
+    margin: 0; 
+    padding: 0;
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+    font-family: "Arial";
+}
