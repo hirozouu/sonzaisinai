@@ -61,7 +61,7 @@ socket.on("give-permission",
 () =>
     {
         document.getElementById("start_scene").style.display = "none";
-        document.getElementById("game_scene").style.display = "block";
+        document.getElementById("game_scene").style.display = "flex";
         document.getElementById("roomname").innerText = ROOMNAME;
         var json = {
             "playerName": PLAYERNAME, 
