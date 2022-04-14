@@ -174,7 +174,7 @@ socket.on("set-answer",
         document.getElementById("button_answer").style.display = "flex";
         document.getElementById("loader_button_answer").style.display = "none"
         document.getElementById("question2").style.display = "none";
-        document.getElementById("answer").style.display = "block";
+        document.getElementById("answer").style.display = "flex";
     }
 );
 
