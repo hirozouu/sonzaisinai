@@ -122,6 +122,7 @@ body input {
 .item {
     position: relative;
     float: left;
+    text-align: center;
 }
 
 /*  残量時間を円の中心に合わせ   */
@@ -258,6 +259,7 @@ svg {
 
 #button_answer {
     font-size: xx-large;
+    text-align: center;
 }
 
 #loader_button_answer {
