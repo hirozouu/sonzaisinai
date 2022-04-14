@@ -128,7 +128,7 @@ socket.on("set-question",
         document.getElementById("box_ready").style.display = "none";
         document.getElementById("question1").style.display = "flex";
         document.getElementById("question2").style.display = "flex";
-        document.getElementById("button_next").style.display = "block";
+        document.getElementById("button_next").style.display = "flex";
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
@@ -174,7 +174,7 @@ socket.on("set-answer",
         document.getElementById("button_answer").style.display = "flex";
         document.getElementById("loader_button_answer").style.display = "none"
         document.getElementById("question2").style.display = "none";
-        document.getElementById("answer").style.display = "flex";
+        document.getElementById("answer").style.display = "block";
     }
 );
 
