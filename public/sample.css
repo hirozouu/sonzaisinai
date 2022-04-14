@@ -301,7 +301,7 @@ svg {
 
 #post_scene p {
     padding: 0 0;
-    margin: 0.5em 0.5em;
+    margin: 0.2em 0.2em;
     font-size: large;
 }
 
@@ -369,4 +369,8 @@ svg {
     font-size: xx-large;
     padding: 0 0;
     margin: 0 0;
+}
+
+#button_repeat {
+    font-size: xx-large;
 }
