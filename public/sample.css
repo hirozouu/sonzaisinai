@@ -300,6 +300,8 @@ svg {
 }
 
 #post_scene p {
+    padding: 0;
+    margin: 0 0;
     font-size: large;
 }
 
@@ -310,7 +312,7 @@ svg {
 #post_scene textarea {
     display: inline-block;
     width: 40%;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #999;
     box-sizing: border-box;
     background: #f2f2f2;
