@@ -205,7 +205,6 @@ svg {
 #game_scene {
     display: none;
     flex-direction: column;
-    text-align: center;
 }
 
 #box_players {
