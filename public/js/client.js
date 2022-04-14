@@ -126,8 +126,8 @@ socket.on("set-question",
         document.getElementById("button_ready").style.display = "block";
         document.getElementById("loader_button_ready").style.display = "none"
         document.getElementById("box_ready").style.display = "none";
-        document.getElementById("question1").style.display = "block";
-        document.getElementById("question2").style.display = "block";
+        document.getElementById("question1").style.display = "flex";
+        document.getElementById("question2").style.display = "flex";
         document.getElementById("button_next").style.display = "block";
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
