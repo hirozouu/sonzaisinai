@@ -123,12 +123,12 @@ socket.on("everyone-get-ready",
 socket.on("set-question", 
     (json) =>
     {
-        document.getElementById("button_ready").style.display = "flex";
+        document.getElementById("button_ready").style.display = "block";
         document.getElementById("loader_button_ready").style.display = "none"
         document.getElementById("box_ready").style.display = "none";
         document.getElementById("question1").style.display = "flex";
         document.getElementById("question2").style.display = "flex";
-        document.getElementById("button_next").style.display = "flex";
+        document.getElementById("button_next").style.display = "block";
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
@@ -171,7 +171,7 @@ socket.on("set-answer",
 (json) =>
     {
         screen.renderAnswer(json);
-        document.getElementById("button_answer").style.display = "flex";
+        document.getElementById("button_answer").style.display = "block";
         document.getElementById("loader_button_answer").style.display = "none"
         document.getElementById("question2").style.display = "none";
         document.getElementById("answer").style.display = "flex";
@@ -202,7 +202,7 @@ $("#button_move").on(
     () =>
     {
         document.getElementById("start_scene").style.display = "none";
-        document.getElementById("post_scene").style.display = "block";
+        document.getElementById("post_scene").style.display = "flex";
     }
 )
 
@@ -302,7 +302,7 @@ $(".button_back").on(
     {
         document.getElementById("post_scene").style.display = "none";
         document.getElementById("check_scene").style.display = "none";
-        document.getElementById("start_scene").style.display = "block";
+        document.getElementById("start_scene").style.display = "flex";
     }
 )
 
