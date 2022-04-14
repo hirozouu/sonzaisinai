@@ -155,6 +155,7 @@ svg {
 
 #start_scene {
     text-align: center;
+    flex-direction: column;
 }
 
 #box_start_title {
