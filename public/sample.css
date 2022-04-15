@@ -4,21 +4,21 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background-color: #5342eb;
+    background-color: #5be7c4;
 }
 
 body p {
     font-family: "メイリオ";
-    color: white;
+    color: #f5f7fa;
 }
 
 body button {
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: #5342eb;/*ボタン色*/
-    color: white;
-    border-bottom: solid 4px #4838c0;
+    background: #5be7c4;/*ボタン色*/
+    color: #f5f7fa;
+    border-bottom: solid 4px #51cfb0;
     border-radius: 3px;
     font-family: "メイリオ";
     font-weight: bold;
@@ -131,7 +131,7 @@ body input {
     line-height: 4em;
     width: 100%;
     font-size:2.5em;
-    color: white;
+    color: #f5f7fa;
 }
 
 /*  真上から円を描く指定   */
@@ -161,9 +161,9 @@ svg {
 #box_start_title {
     padding: 0.5em 1em;
     margin: 2em 2em;
-    color: white;
-    background: #5342eb;
-    border-top: solid 5px #4838c0;
+    color: #f5f7fa;
+    background: #5be7c4;
+    border-top: solid 5px #51cfb0;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
@@ -177,12 +177,21 @@ svg {
     margin-right: auto;
 }
 
-.box_start p {
+#son {
+    margin: 0 0 0; 
+    padding: 0;
+    font-size: 256px;
+    font-weight: lighter;
+    font-family: "BIZ UD明朝";
+    color: #f5f7fa;
+}
+
+#zai {
     margin: 0; 
     padding: 0;
     font-size: xx-large;
     font-weight: bold;
-    color: white;
+    color: #f5f7fa;
 }
 
 .input_start {
@@ -237,23 +246,23 @@ svg {
 }
 
 .question p {
-    color: white;
+    color: #f5f7fa;
     font-size: xx-large;
 }
 
 .selection {
     padding: 0.5em 1em;
     margin: 2em 0;
-    color: #4838c0;
-    background: #5342eb;
-    border-top: solid 5px #4838c0;
+    color: #f5f7fa;
+    background: #5be7c4;
+    border-top: solid 5px #51cfb0;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
 .selection p {
     margin: 0; 
     padding: 0;
-    color: white;
+    color: #f5f7fa;
     font-size: xx-large;
 }
 
@@ -291,7 +300,7 @@ svg {
 
 #room {
     text-align: left;
-    color: white;
+    color: #f5f7fa;
     font-size: medium;
 }
 #post_scene {
@@ -325,7 +334,7 @@ svg {
 
 .error_post {
     display: none;
-    color: red;
+    color: #eb222d;
 }
 
 #post_scene .textarea_post_name {
@@ -379,9 +388,9 @@ svg {
 #box_message_check {
     padding: 0.5em 1em;
     margin: 2em 2em;
-    color: white;
-    background: #5342eb;
-    border-top: solid 5px #4838c0;
+    color: #f5f7fa;
+    background: #5be7c4;
+    border-top: solid 5px #51cfb0;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
@@ -390,6 +399,6 @@ svg {
     padding: 0;
     font-size: xx-large;
     font-weight: bold;
-    color: white;
+    color: #f5f7fa;
     font-family: "Arial";
 }

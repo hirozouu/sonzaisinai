@@ -48,17 +48,17 @@ class Screen
             "padding": "0.5em 1em", 
             "margin": "2em 1em", 
             "font-weight": "bold", 
-            "border": "solid 3px white", 
+            "border": "solid 3px #f5f7fa", 
         });
         $("#name_"+playerName).css(
             {
-                "color": "white", 
+                "color": "#f5f7fa", 
                 "font-size": "x-large"
             }
         );
         $("#score_"+playerName).css(
             {
-                "color": "white", 
+                "color": "#f5f7fa", 
                 "font-size": "xx-large"
             }
         );
