@@ -223,6 +223,10 @@ $("#button_post").on(
         const answer = $("#select_answer").val();
         const text_explanation = $("#textarea_text_explanation").val();
 
+        if (text_question.indexOf("存在しない")==-1)
+        {
+            document.getElementById("error_required_keyword").style.display = "block";
+        }
         if (!quizname)
         {
             document.getElementById("error_post_quizname").style.display = "block";
@@ -308,10 +312,9 @@ $(".button_back").on(
 
 function resetErrorText()
 {
-    document.getElementById("error_post_quizname").style.display = "none";
-    document.getElementById("error_post_writername").style.display = "none";
-    document.getElementById("error_post_question").style.display = "none";
-    document.getElementById("error_post_selection").style.display = "none";
-    document.getElementById("error_post_answer").style.display = "none";
-    document.getElementById("error_post_explanation").style.display = "none";
+    var text_error = document.getElementsByClassName("error_post");
+    for (var i = 0; i < text_error.length; i++)
+    {
+        text_error[i].style.display = "none";
+    }
 }
