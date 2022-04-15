@@ -10,7 +10,6 @@ const sound_timer = new Audio("../sounds/timer.mp3");
 sound_timer.loop = true;
 const music = new Audio("../sounds/kani.mp3");
 music.loop = true;
-music.play();
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
@@ -67,7 +66,7 @@ $("#button_enter").on(
 socket.on("give-permission", 
 () =>
     {
-        music.pause();
+        music.play();
         document.getElementById("start_scene").style.display = "none";
         document.getElementById("game_scene").style.display = "flex";
         document.getElementById("roomname").innerText = ROOMNAME;
@@ -123,6 +122,7 @@ $("#button_ready").on(
 socket.on("everyone-get-ready", 
     () =>
     {
+        music.pause();
         socket.emit("get-question");
     }
 );
@@ -227,7 +227,6 @@ $("#button_move").on(
     "click", 
     () =>
     {
-        music.pause();
         document.getElementById("start_scene").style.display = "none";
         document.getElementById("post_scene").style.display = "flex";
     }
@@ -342,7 +341,6 @@ $(".button_back").on(
     "click", 
     () =>
     {
-        music.play();
         document.getElementById("post_scene").style.display = "none";
         document.getElementById("check_scene").style.display = "none";
         document.getElementById("start_scene").style.display = "flex";
