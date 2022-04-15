@@ -2,7 +2,9 @@
 const Question = require('./Question.js');
 const Player = require('./Player.js');
 const Room = require('./Room.js');
+const SharedSettings = require('../public/js/SharedSettings.js');
 const GameSettings = require('./GameSetting.js');
+
 const postgres = require("./postgres.js");
 const { json } = require('express/lib/response');
 

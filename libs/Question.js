@@ -1,5 +1,4 @@
 // settings
-const SharedSettings = require("../public/js/SharedSettings.js");
 const GameSettings = require("./GameSetting.js");
 const postgres = require("./postgres.js");
 

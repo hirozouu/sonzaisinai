@@ -1,3 +1,7 @@
+//settings
+const SharedSettings = require('../public/js/SharedSettings.js');
+const GameSettings = require('./GameSetting.js');
+
 // class game
 
 const Question = require('./Question.js');
