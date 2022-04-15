@@ -18,7 +18,7 @@ class Screen
             'connect', 
             () =>
             {
-                console.log('connect : socket.id = %s', socket.id);
+                // console.log('connect : socket.id = %s', socket.id);
                 //send to server
                 this.socket.emit('enter-the-game');
             }
@@ -71,7 +71,7 @@ class Screen
         document.getElementById("text2").innerText = question.selection2;
         document.getElementById("text3").innerText = question.selection3;
         document.getElementById("text4").innerText = question.selection4;
-        console.log("render : question");
+        // console.log("render : question");
     }
 
     renderAnswer(answer)
@@ -94,6 +94,6 @@ class Screen
             document.getElementById("score_"+data[key].playerName).innerText 
             = data[key].score;
         }
-        console.log("update-score");
+        // console.log("update-score");
     }
 }

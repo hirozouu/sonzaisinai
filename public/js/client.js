@@ -51,7 +51,7 @@ $("#button_enter").on(
                 "playerName": PLAYERNAME, 
                 "roomName": ROOMNAME, 
             };
-            // socket.emit("get-permission", json);
+            socket.emit("get-permission", json);
         }
     }
 );
