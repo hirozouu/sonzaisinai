@@ -316,6 +316,11 @@ svg {
     font-weight: bold;
 }
 
+.box_post {
+    padding: 0.5em 1em;
+    margin: 2em 2em;
+}
+
 #post_scene select {
     font-size: large;
 }
