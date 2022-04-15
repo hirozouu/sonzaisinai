@@ -21,6 +21,6 @@ function clickSelection(element, num)
     $(arr_p[num]).css("color", "#dcf2fa");
     $(arr_div[num]).css("background", "#48add1")
     $(arr_div[num]).css("border-top", "solid 5px #409aba")
-    console.log("click : selection%s", num)
+    // console.log("click : selection%s", num)
     SELECT = num;
 }

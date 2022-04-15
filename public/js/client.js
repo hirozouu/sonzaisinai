@@ -51,7 +51,7 @@ $("#button_enter").on(
                 "playerName": PLAYERNAME, 
                 "roomName": ROOMNAME, 
             };
-            socket.emit("get-permission", json);
+            // socket.emit("get-permission", json);
         }
     }
 );
@@ -76,7 +76,7 @@ socket.on("enter-the-room",
 (json) =>
     {
         screen.renderProfile(json.playerName, 0);
-        console.log("enter-the-room : %s", json.playerName);
+        // console.log("enter-the-room : %s", json.playerName);
     }
 );
 
@@ -86,7 +86,7 @@ socket.on("set-player-information",
     {
         for (var key of Object.keys(json)){
             screen.renderProfile(json[key].playerName, json[key].score);
-            console.log("get-player-information : %s", json[key].playerName)
+            // console.log("get-player-information : %s", json[key].playerName)
         }
     }
 );
@@ -95,7 +95,7 @@ socket.on("set-player-information",
 socket.on("leave-the-room", 
 (json) =>
     {
-        console.log("%s : leave-the-room", json.playerName);
+        // console.log("%s : leave-the-room", json.playerName);
     }
 );
 
@@ -107,7 +107,7 @@ $("#button_ready").on(
         document.getElementById("button_ready").style.display = "none";
         document.getElementById("loader_button_ready").style.display = "block";
         socket.emit("get-ready");
-        console.log("get-ready");
+        // console.log("get-ready");
     }
 );
 
@@ -139,7 +139,7 @@ socket.on("set-question",
             document.getElementById("button_answer").style.display = "none";
             document.getElementById("loader_button_answer").style.display = "block";
             socket.emit("finish-answer");
-            console.log("finish-answer");
+            // console.log("finish-answer");
         }, 10000)
     }
 );
@@ -154,7 +154,7 @@ $("#button_answer").on(
         document.getElementById("button_answer").style.display = "none";
         document.getElementById("loader_button_answer").style.display = "block";
         socket.emit("finish-answer");
-        console.log("finish-answer");
+        // console.log("finish-answer");
     }
 );
 
