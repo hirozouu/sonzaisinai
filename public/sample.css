@@ -218,6 +218,10 @@ svg {
     text-align: center;
 }
 
+#game_scene p {
+    font-weight: bold;
+}
+
 #box_players {
     padding: 0.5em 1em;
     margin: 2em 0;
@@ -283,7 +287,6 @@ svg {
 
 #text_answer {
     font-size: xx-large;
-    font-weight: bold;
 }
 
 #text_explanation {
@@ -301,7 +304,7 @@ svg {
 #room {
     text-align: left;
     color: #f5f7fa;
-    font-size: medium;
+    font-size: large;
 }
 #post_scene {
     display: none;
@@ -312,8 +315,7 @@ svg {
 #post_scene p {
     padding: 0 0;
     margin: 0.2em 0.2em;
-    font-size: xx-large;
-    font-weight: bold;
+    font-size: x-large;
 }
 
 .box_post {
@@ -322,11 +324,11 @@ svg {
 }
 
 #post_scene .example_post {
-    font-size: x-large;
+    font-size: large;
 }
 
 #post_scene select {
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 #post_scene textarea {
@@ -339,7 +341,7 @@ svg {
     margin: 0.5em 0;
     line-height: 1.5;
     height: 3em;
-    font-size: large;
+    font-size: x-large;
 }
 
 .error_post {
