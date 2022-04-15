@@ -10,6 +10,7 @@ const sound_timer = new Audio("../sounds/timer.mp3");
 sound_timer.loop = true;
 const music = new Audio("../sounds/kani.mp3");
 music.loop = true;
+music.volume = 0.5;
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
