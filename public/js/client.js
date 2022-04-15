@@ -227,6 +227,7 @@ $("#button_move").on(
     "click", 
     () =>
     {
+        music.pause();
         document.getElementById("start_scene").style.display = "none";
         document.getElementById("post_scene").style.display = "flex";
     }
