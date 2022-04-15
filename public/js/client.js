@@ -145,7 +145,7 @@ socket.on("set-question",
             $(id).css("background", "#50c1e9")
             $(id).css("border-top", "solid 1px #48add1")
         }
-        
+
         timer.setTimer();
         timecount = setTimeout(function()
         {

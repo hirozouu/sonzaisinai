@@ -1,3 +1,6 @@
+const sound_right = new Audio("../sounds/right.mp3");
+const sound_wrong = new Audio("../sounds/wrong.mp3");
+
 //class Screen
 class Screen
 {
@@ -80,10 +83,16 @@ class Screen
         document.getElementById("text_explanation").innerText = answer.text_explanation;
         if (answer.check)
         {
+            sound_right.play();
+            sound_right.pause();
+            sound_right.currentTime = 0;
             // console.log("%s : right-answer", PLAYERNAME);
         }
         else
         {
+            sound_wrong.play();
+            sound_wrong.pause();
+            sound_wrong.currentTime = 0;
             // console.log("%s : wrong-answer", PLAYERNAME);
         }
     }
