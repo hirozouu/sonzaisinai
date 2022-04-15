@@ -402,3 +402,13 @@ svg {
     color: #f5f7fa;
     font-family: "Arial";
 }
+
+.box_buttons {
+    padding: 0.5em 1em;
+    margin: 2em 2em;
+}
+
+#box_button_back {
+    padding: 0.5em 1em;
+    margin: 2em 2em;
+}
