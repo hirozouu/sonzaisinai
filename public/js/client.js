@@ -4,6 +4,8 @@
 const socket = io.connect();
 const screen = new Screen(socket);
 const timer = new Timer();
+const sound_timer = new Audio("../sounds/timer.mp3");
+sound_timer.loop = true;
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
@@ -146,9 +148,11 @@ socket.on("set-question",
             $(id).css("border-top", "solid 1px #48add1")
         }
 
+        sound_timer.play();
         timer.setTimer();
         timecount = setTimeout(function()
         {
+            sound_timer.pause();
             timer.resetTimer();
             document.getElementById("button_answer").style.display = "none";
             document.getElementById("loader_button_answer").style.display = "block";
@@ -163,6 +167,7 @@ $("#button_answer").on(
     "click", 
     () =>
     {
+        sound_timer.pause();
         timer.resetTimer();
         clearTimeout(timecount)
         document.getElementById("button_answer").style.display = "none";
