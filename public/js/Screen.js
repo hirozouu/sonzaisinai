@@ -84,15 +84,11 @@ class Screen
         if (answer.check)
         {
             sound_right.play();
-            sound_right.pause();
-            sound_right.currentTime = 0;
             // console.log("%s : right-answer", PLAYERNAME);
         }
         else
         {
             sound_wrong.play();
-            sound_wrong.pause();
-            sound_wrong.currentTime = 0;
             // console.log("%s : wrong-answer", PLAYERNAME);
         }
     }
