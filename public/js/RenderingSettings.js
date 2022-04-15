@@ -15,10 +15,10 @@ function clickSelection(element, num)
     }
     for (var id of arr_div)
     {
-        $(id).css("background", "#5342eb")
+        $(id).css("background", "#7a57d1")
     }
     $(arr_p[num]).css("color", "white");
-    $(arr_div[num]).css("background", "#3d2e96")
+    $(arr_div[num]).css("background", "#6145a7")
     console.log("click : selection%s", num)
     SELECT = num;
 }
