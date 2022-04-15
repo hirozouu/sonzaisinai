@@ -223,7 +223,8 @@ $("#button_post").on(
         const answer = $("#select_answer").val();
         const text_explanation = $("#textarea_text_explanation").val();
 
-        if (text_question.indexOf("存在しない")==-1)
+        word = text_question.indexOf("存在しない")
+        if (word==-1)
         {
             document.getElementById("error_required_keyword").style.display = "block";
         }
