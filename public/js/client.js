@@ -7,7 +7,7 @@ const timer = new Timer();
 
 let PLAYERNAME = null;
 let ROOMNAME = null;
-let SELECT = 0;
+let SELECT = -1;
 
 let timecount = null;
 
@@ -123,6 +123,7 @@ socket.on("everyone-get-ready",
 socket.on("set-question", 
     (json) =>
     {
+        SELECT = -1;
         document.getElementById("button_ready").style.display = "block";
         document.getElementById("loader_button_ready").style.display = "none"
         document.getElementById("box_ready").style.display = "none";
@@ -132,6 +133,19 @@ socket.on("set-question",
         document.getElementById("loader_button_next").style.display = "none"
         document.getElementById("answer").style.display = "none";
         screen.renderQuestion(json);
+
+        const arr_p = ["#select1 > p", "#select2 > p", "#select3 > p", "#select4 > p"];
+        const arr_div = ["#select1", "#select2", "#select3", "#select4"]
+        for (var ref of arr_p)
+        {
+            $(ref).css("color", "white");
+        }
+        for (var id of arr_div)
+        {
+            $(id).css("background", "#50c1e9")
+            $(id).css("border-top", "solid 1px #48add1")
+        }
+        
         timer.setTimer();
         timecount = setTimeout(function()
         {

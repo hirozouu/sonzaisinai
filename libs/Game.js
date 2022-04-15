@@ -137,7 +137,16 @@ module.exports = class Game
                     // check answer
                     function checkAnswer()
                     {
-                        var check = ROOM[socket.strRoomName].question.answer[num];
+                        var check = null;
+                        if (num == -1)
+                        {
+                            check = false;
+                        }
+                        else
+                        {
+                            check = ROOM[socket.strRoomName].question.answer[num];
+                        }
+
                         if (check)
                         {
                             PLAYER[socket.id].incrementScore();
