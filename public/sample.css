@@ -312,7 +312,7 @@ svg {
 #post_scene p {
     padding: 0 0;
     margin: 0.2em 0.2em;
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
 }
 
@@ -322,16 +322,16 @@ svg {
 }
 
 #post_scene .example_post {
-    font-size: small;
+    font-size: large;
 }
 
 #post_scene select {
-    font-size: large;
+    font-size: x-large;
 }
 
 #post_scene textarea {
     display: inline-block;
-    width: 40%;
+    width: 50%;
     padding: 10px;
     border: 1px solid #999;
     box-sizing: border-box;
