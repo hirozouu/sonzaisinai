@@ -259,7 +259,7 @@ svg {
     margin: 2em 0;
     color: #f5f7fa;
     background: #50c1e9;
-    border-top: solid 5px #48add1;
+    border-top: solid 1px #48add1;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
