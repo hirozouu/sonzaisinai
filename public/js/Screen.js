@@ -80,11 +80,11 @@ class Screen
         document.getElementById("text_explanation").innerText = answer.text_explanation;
         if (answer.check)
         {
-            console.log("%s : right-answer", PLAYERNAME);
+            // console.log("%s : right-answer", PLAYERNAME);
         }
         else
         {
-            console.log("%s : wrong-answer", PLAYERNAME);
+            // console.log("%s : wrong-answer", PLAYERNAME);
         }
     }
 
