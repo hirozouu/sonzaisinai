@@ -191,7 +191,7 @@ module.exports = class Game
                 socket.on("post-quiz", 
                 (json) =>
                 {
-                    // postgres.insertQuiz(json);
+                    postgres.insertQuiz(json);
                 });
 
                 //when disconnect

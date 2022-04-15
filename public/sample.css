@@ -242,6 +242,12 @@ svg {
     font-size: xx-large;
 }
 
+#ref_bgm {
+    text-align: left;
+    color: #f5f7fa;
+    font-size: large;
+}
+
 .question {
     padding: 0.5em 1em;
     margin: 2em 0;
@@ -306,6 +312,7 @@ svg {
     color: #f5f7fa;
     font-size: large;
 }
+
 #post_scene {
     display: none;
     flex-direction: column;
