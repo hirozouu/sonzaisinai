@@ -321,8 +321,8 @@ svg {
     margin: 2em 2em;
 }
 
-.example_post {
-    font-size: xx-large;
+#post_scene .example_post {
+    font-size: small;
 }
 
 #post_scene select {
