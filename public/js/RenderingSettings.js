@@ -16,7 +16,7 @@ function clickSelection(element, num)
     for (var id of arr_div)
     {
         $(id).css("background", "#50c1e9")
-        $(id).css("border-top", "#48add1")
+        $(id).css("border-top", "solid 5px #48add1")
     }
     $(arr_p[num]).css("color", "dcf2fa");
     $(arr_div[num]).css("background", "#48add1")
