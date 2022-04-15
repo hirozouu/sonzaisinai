@@ -308,6 +308,8 @@ svg {
 }
 
 #room {
+    padding: 0.5em 0.5em;
+    margin: 1em 1em;
     text-align: left;
     color: #f5f7fa;
     font-size: large;
