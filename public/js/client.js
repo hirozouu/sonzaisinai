@@ -223,36 +223,43 @@ $("#button_post").on(
         const answer = $("#select_answer").val();
         const text_explanation = $("#textarea_text_explanation").val();
 
-        const word = text_question.indexOf("存在しない")
-        if (word==-1)
+        var flag = false;
+        if (text_question.indexOf("存在しない")==-1)
         {
             document.getElementById("error_required_keyword").style.display = "block";
+            flag = true;
         }
         if (!quizname)
         {
             document.getElementById("error_post_quizname").style.display = "block";
+            flag = true;
         }
         if (!writername)
         {
             document.getElementById("error_post_writername").style.display = "block";
+            flag = true;
         }
         if (!text_question)
         {
             document.getElementById("error_post_question").style.display = "block";
+            flag = true;
         }
         if (!selection0 || !selection1 || !selection2 || !selection3)
         {
             document.getElementById("error_post_selection").style.display = "block";
+            flag = true;
         }
         if (!text_answer)
         {
             document.getElementById("error_post_answer").style.display = "block";
+            flag = true;
         }
         if (!text_explanation)
         {
             document.getElementById("error_post_explanation").style.display = "block";
+            flag = true;
         }
-        else
+        if(!flag)
         {
             document.getElementById("textarea_quizname").value = "";
             document.getElementById("textarea_text_question").value = "";
