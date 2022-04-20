@@ -21,8 +21,6 @@ class Screen
             'connect', 
             () =>
             {
-                // console.log('connect : socket.id = %s', socket.id);
-                //send to server
                 this.socket.emit('enter-the-game');
             }
         )
