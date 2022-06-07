@@ -1,5 +1,7 @@
 const sound_right = new Audio("../sounds/right.mp3");
 const sound_wrong = new Audio("../sounds/wrong.mp3");
+sound_right.volume = 0.5;
+sound_wrong.volume = 0.5;
 
 //class Screen
 class Screen
